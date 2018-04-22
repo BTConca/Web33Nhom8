@@ -1,4 +1,4 @@
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+<!--VanKhai-->
 .bg {
     background-image: url("images/69015227-champagne-wallpapers.jpg");
 
@@ -22,11 +22,21 @@ footer {
     width: 100%; /* Set width to 100% */
     margin: auto;
     min-height:200px;
+    
 }
 
   /* Hide the carousel text when the screen is less than 600 pixels wide */
 @media (max-width: 600px) {
   .carousel-caption {
-    display: none; 
+      display: none; 
   }
+}
+
+.products
+{
+}
+
+.myimages
+{
+    
 }
