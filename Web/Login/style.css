@@ -1,0 +1,31 @@
+body{
+
+  background-image: url("../media/images/background.jpg");
+   background-size: 100%;
+  padding-top: 30px;
+}
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: grey;
+  border-radius: 5px;
+   }
+.form-box{
+  border-radius: 10px;
+background: #eee;
+box-shadow: 5px 5px 5px #666;
+-moz-box-shadow: 5px 5px 5px #666;
+-webkit-box-shadow: 5px 5px 5px #666;
+margin-right: 5px;
+padding: 20px;
+}
+.hidden
+{
+  visibility: hidden;
+}
+.captcha
+{
+ margin-left:auto;
+   margin-right:auto;
+   display:block;
+}

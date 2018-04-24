@@ -12,7 +12,7 @@
     <script src="../bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>     
     </head>
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top"  >
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -20,7 +20,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#">
+  <img class="img-responsive" src="../media/images/logo.png" alt="Gentlemen" width ="100">
+      </a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
@@ -30,7 +32,7 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="../Login/index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -167,12 +169,54 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="../Login/index.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
 </nav>
-<div class="container">
+<!-- Phần sản phẩm -->
+<div class="container"> 
+  <div class="row">
+    <!-- Menu dọc loại rượu và xuất xứ  -->
+<div id="sidemenu" class ="col-sm-3">
+<div id='cssmenu' >
+<ul>
+   <li><a href='#'><span>Gentlemen's world</span></a></li>
+   <li class='has-sub'><a href='#'><span>Loại rượu</span></a>
+      <ul>
+         <li><a href='#'><span>Rượu vang</span></a>
+         </li>
+         <li><a href='#'><span>Champagnes</span></a>
+         </li>
+         <li><a href='#'><span>Whisky</span></a>
+         </li>
+         <li><a href='#'><span>Cognac</span></a>
+         </li>
+         <li><a href='#'><span>Vodka</span></a>
+         </li>
+      </ul>
+   </li>
+    <li class='has-sub last'><a href='#'><span>Xuất xứ</span></a>
+      <ul>
+         <li class='has-sub'><a href='#'><span>Rượu Australia</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+         <li class='has-sub'><a href='#'><span>Rượu Pháp</span></a>
+            <ul>
+               <li><a href='#'><span>Sub Product</span></a></li>
+               <li class='last'><a href='#'><span>Sub Product</span></a></li>
+            </ul>
+         </li>
+      </ul>
+   </li>
+</ul>
+</div>
+</div>
+<!-- Phần sản phẩm -->
+<div id="page" class ="col-sm-9">
   <h3>Sản phẩm mới</h3><br>   
   <div class="row">
     <div class="col-sm-3 products" id="new1"
@@ -182,7 +226,7 @@
          data-com="Grenache / Garnacha from Spain" 
          data-src="../media/images/Wine/0.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgnew0" src="../media/images/Wine/0.png">
+        <img class="img-responsive Items-img" id="imgnew0" src="../media/images/Wine/0.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
             Name: <span id="namenew0">2015 Barraco Rock Rose Red</span><br>
@@ -198,7 +242,7 @@
          data-com="Pinot Gris / Pinot Grigio from Italy"
          data-src="../media/images/Wine/1.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgnew1" src="../media/images/Wine/1.png">
+        <img class="img-responsive Items-img" id="imgnew1" src="../media/images/Wine/1.png">
     </div>
         <div class="col-sm-4 col-lg-8" text-center>
             Name: <span id="namenew1">2016 Ruffino Il Ducale Pinot Grigio</span><br>
@@ -214,7 +258,7 @@
          data-com="Carmenere from Chile"
          data-src="../media/images/Wine/2.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgnew2" src="../media/images/Wine/2.png">
+        <img class="img-responsive  Items-img" id="imgnew2" src="../media/images/Wine/2.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
         Name: <span id="namenew2">2010 Tamaya Carmenere</span><br>
@@ -230,7 +274,7 @@
          data-com="Cabernet Sauvignon from United States"
          data-src="../media/images/Wine/3.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgnew3" src="../media/images/Wine/3.png">
+        <img class="img-responsive  Items-img" id="imgnew3" src="../media/images/Wine/3.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
         Name: <span id="namenew3">2014 Esser Cabernet Sauvignon</span><br>
@@ -249,7 +293,7 @@
          data-com="Grenache / Garnacha from Spain" 
          data-src="../media/images/Wine/0.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgsel0" src="../media/images/Wine/0.png">
+        <img class="img-responsive  Items-img" id="imgsel0" src="../media/images/Wine/0.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
             Name: <span id="namesel0">2015 Barraco Rock Rose Red</span><br>
@@ -265,7 +309,7 @@
          data-com="Pinot Gris / Pinot Grigio from Italy"
          data-src="../media/images/Wine/1.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgsel1" src="../media/images/Wine/1.png">
+        <img class="img-responsive  Items-img" id="imgsel1" src="../media/images/Wine/1.png">
     </div>
         <div class="col-sm-4 col-lg-8" text-center>
             Name: <span id="namesel1">2016 Ruffino Il Ducale Pinot Grigio</span><br>
@@ -281,7 +325,7 @@
          data-com="Carmenere from Chile"
          data-src="../media/images/Wine/2.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgsel2" src="../media/images/Wine/2.png">
+        <img class="img-responsive  Items-img" id="imgsel2" src="../media/images/Wine/2.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
         Name: <span id="namesel2">2010 Tamaya Carmenere</span><br>
@@ -297,7 +341,7 @@
          data-com="Cabernet Sauvignon from United States"
          data-src="../media/images/Wine/3.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgsel3" src="../media/images/Wine/3.png">
+        <img class="img-responsive  Items-img" id="imgsel3" src="../media/images/Wine/3.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
         Name: <span id="namesel3">2014 Esser Cabernet Sauvignon</span><br>
@@ -316,7 +360,7 @@
          data-com="Grenache / Garnacha from Spain" 
          data-src="../media/images/Wine/0.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgview0" src="../media/images/Wine/0.png">
+        <img class="img-responsive  Items-img" id="imgview0" src="../media/images/Wine/0.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
             Name: <span id="nameview0">2015 Barraco Rock Rose Red</span><br>
@@ -332,7 +376,7 @@
          data-com="Pinot Gris / Pinot Grigio from Italy"
          data-src="../media/images/Wine/1.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgview1" src="../media/images/Wine/1.png">
+        <img class="img-responsive  Items-img" id="imgview1" src="../media/images/Wine/1.png">
     </div>
         <div class="col-sm-4 col-lg-8" text-center>
             Name: <span id="nameview1">2016 Ruffino Il Ducale Pinot Grigio</span><br>
@@ -348,7 +392,7 @@
          data-com="Carmenere from Chile"
          data-src="../media/images/Wine/2.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgview2" src="../media/images/Wine/2.png">
+        <img class="img-responsive  Items-img" id="imgview2" src="../media/images/Wine/2.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
         Name: <span id="nameview2">2010 Tamaya Carmenere</span><br>
@@ -364,7 +408,7 @@
          data-com="Cabernet Sauvignon from United States"
          data-src="../media/images/Wine/3.png">
       <div class="col-sm-4 col-lg-4" text-center>
-        <img class="img-responsive" id="imgview3" src="../media/images/Wine/3.png">
+        <img class="img-responsive  Items-img" id="imgview3" src="../media/images/Wine/3.png">
         </div>
         <div class="col-sm-4 col-lg-8" text-center>
         Name: <span id="nameview3">2014 Esser Cabernet Sauvignon</span><br>
@@ -374,6 +418,7 @@
         </div>
     </div>
     </div>
+	</div></div>
 </div>
 <br>
 
