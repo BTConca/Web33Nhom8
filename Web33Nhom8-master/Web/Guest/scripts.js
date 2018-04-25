@@ -60,8 +60,42 @@ width:270,height:"variable",visible:
 })
 
 ){}
+}
+)
 
 
+
+
+jQuery(window).load(function()
+{
+
+
+
+jQuery("#sequence").sequence(
+{}
+
+).data("sequence"),jQuery(".flexslider").flexslider(
+{
+
+}
+
+),jQuery("#bannerslide").flexslider(
+{
+
+
+
+animation:"slide",directionNav:!1,controlNav:!1,start:function()
+{
+
+
+
+jQuery(".banner").removeClass("loading")
+}
+
+
+}
+
+)
 }
 )
 
