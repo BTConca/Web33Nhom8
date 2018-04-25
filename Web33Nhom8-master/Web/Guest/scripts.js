@@ -4,7 +4,7 @@
 function Sort()
 {
     var innerArray = [];
-    var myArray = $(".products");
+    var myArray = $(".products2");
     var d;
   
     myArray.sort(function(a,b)  
