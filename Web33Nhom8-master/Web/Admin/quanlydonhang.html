@@ -99,25 +99,30 @@
 				<input type="text" class="form-control" placeholder="Search">
 			</div>
 		</form>
-		<ul class="nav menu">
-			<li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			
-			<li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-				<em class="fa fa-navicon">&nbsp;</em> Quản lý sản phẩm <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
-				</a>
-				<ul class="children collapse" id="sub-item-1">
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Loại sản phẩm
-					</a></li>
-					<li><a class="" href="#">
-						<span class="fa fa-arrow-right">&nbsp;</span> Nhà sản xuất
-					</a></li>
-					
-				</ul>
-			</li>
+        <ul class="nav menu">
+            <li class="active"><a href="index.html"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
+
+            <li class="parent ">
+                <a data-toggle="collapse" href="#sub-item-1">
+                    <em class="fa fa-navicon">&nbsp;</em> Quản lý sản phẩm <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                </a>
+                <ul class="children collapse" id="sub-item-1">
+                    <li>
+                        <a class="" href="#">
+                            <span class="fa fa-arrow-right">&nbsp;</span> Loại sản phẩm
+                        </a>
+                    </li>
+                    <li>
+                        <a class="" href="#">
+                            <span class="fa fa-arrow-right">&nbsp;</span> Nhà sản xuất
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
             <li><a href="quanlydonhang.html"><em class="fa fa-calendar">&nbsp;</em> Quản lý đơn hàng</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
-		</ul>
+            <li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+        </ul>
 	</div><!--/.sidebar-->
 		
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -126,37 +131,73 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Dashboard</li>
+				<li class="active">Dashboard/Quản lý đơn hàng</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row" style="border-bottom:1px solid green;">
-			<div class="col-lg-12" >
-				<h1 class="page-header">Dashboard</h1>
+			<div class="col-lg-8" >
+				<h1 class="page-header">Quản lý đơn hàng</h1>
 			</div>
-		</div><!--/.row-->
-<div class="row dashboarddai">
-    <div class="col-sm-2 col-lg-2">
-        <div id="qlsp" style="border:2px solid grey;">
-            <a href="quanlysanpham.html" target="_blank">
-                <img class="img-responsive"id="imgnew0" src="image/quanlysanpham.jpg">
-            </a>
-            <p style="color: blue;text-align: center; font-style: italic; font-weight:bold;">
-                Quản lý sản phẩm
-            </p>
-        </div>
 
-    </div>
-    <div class="col-sm-2 col-lg-2">
-        <div id="qlsp" style="border:2px solid grey;">
-            <a href="quanlydonhang.html" target="_blank">
-                <img class="img-responsive"id="imgnew0" src="image/quanlydonhang.png">
-            </a>
-            <p style="color: blue;text-align: center; font-style: italic; font-weight:bold;">
-                Quản lý đơn hàng
-            </p>
-        </div>
-    </div>
+            <div class="col-sm-4 col-lg-4">
+                <span style="background-color:white"><b>Chưa giao</b></span>
+                <span style="background-color:yellow"><b>Đang giao</b></span>
+                <span style="background-color:green"><b>Hoàn thành</b></span>
+            </div>
+		</div><!--/.row-->
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Mã đơn hàng</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Ngày đăng ký</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Tình trạng</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Chưa Giao</td>
+                <td>
+                    <button onclick='rm()'>
+                        Cập nhập
+                    </button>
+                </td>
+                
+            </tr>
+            <tr style="background-color:yellow;">
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Đang Giao</td>
+                <td>
+                    <button onclick='rm()'>
+                        Cập nhập
+                    </button>
+                </td>
+            </tr>
+            <tr style="background-color:green;">
+                <th scope="row">3</th>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+                <td>Hoàn thành</td>
+                <td>
+                    <button onclick='rm()'>
+                        Cập nhập
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
 
 		
@@ -175,6 +216,7 @@
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
+    <script src="script.js"></script>
 	<script>
 		window.onload = function () {
 	var chart1 = document.getElementById("line-chart").getContext("2d");
