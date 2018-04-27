@@ -1,0 +1,39 @@
+body
+{
+	font-family: Tahoma;
+	font-size: 15px;
+	margin: 0px auto;
+	width:1000px;
+	padding: 20px;
+	box-sizing: border-box;
+	
+}
+#myimage img
+{
+	width: 300px
+	
+}
+#info ul
+{
+	margin: 0px;
+	padding: 0px;
+}
+#info ul li
+{
+	list-style: none;
+	font-family: Arial;
+}
+#info #Intro 
+{
+	width: 500px;
+	
+	float: left;
+	min-height:30px;
+}
+#info #Hobbies
+{
+	width: 400px;
+	
+	min-height:30px;
+	float: left;
+}

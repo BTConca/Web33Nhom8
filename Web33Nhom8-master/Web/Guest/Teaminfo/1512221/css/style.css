@@ -1,0 +1,105 @@
+#background{
+    background: url(../images/background.jpg)
+}
+#avt{
+    text-align: center
+}
+#avatar{
+    background: url(../images/avatar.jpg);
+    background-size: 300px 300px;
+    text-align: center;
+    margin-left:  40%;
+    width: 300px;
+    height: 300px;
+    border: 2px solid;
+    border-radius: 50%
+}
+.info{
+    width: 800px;
+    height: 250px;
+    margin-left: 25%
+}
+
+ul{
+    list-style-type: none;
+    
+}
+.title{
+    text-align: center;
+}
+.border-cell{
+    border: 1px solid yellow
+}
+#left-row1{
+    background-color: hsla(208, 60%, 52%, 0.82);
+    margin-right: 20px;
+    width: 400px;
+    height: 250px;
+    padding-top: 8px;
+    font-size: 20px;
+    text-align: left;
+    color: white
+}
+#right-row1{
+    background-color: cornsilk;
+    width: 400px;
+    height: 250px;
+    padding-top: 8px;
+    font-size: 20px;
+    text-align: left;
+}
+#left-row2{
+    width: 300px;
+    background-color: cornsilk;
+    height: 200px;
+    padding-top: 8px;
+    font-size: 20px;
+    margin-top: 50px;
+    text-align: left;
+}
+#right-row2{
+    background-color: hsla(208, 60%, 52%, 0.82);
+    color: white;
+    width: 500px;
+    height: 200px;
+    padding-top: 8px;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-left: 20px;
+    text-align: left;
+    color: white
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,103 @@
+/*Nền background*/
+body {
+	   font-family: Arial,Helvetica,sans-serif;
+	background-image: url("./1512414/Media/background.png");
+	background-position: center;
+	background-attachment: fixed;
+	background-size: 100%;
+	background-repeat: no-repeat;
+}
+
+
+#header
+{
+	text-align: center;
+	font-weight: 700;
+	color: white;
+	margin-top: 40px;
+    font-size: 80px;
+      font-family: Arial,Helvetica,sans-serif;
+}
+
+/*demo*/
+ 
+.titleBlock
+{
+  width:70%;
+  margin-left:15%;
+}
+ 
+.Sitetitle:before
+{
+  content:"";
+  width:50px;
+  height:2px;
+  background:#000;
+  position: absolute;
+  margin-top:18px;
+  margin-left:-60px;
+}
+ 
+.Sitetitle:after
+{
+  content:"";
+  width:50px;
+  height:2px;
+  background:#000;
+  position: absolute;
+  margin-top:18px;
+  margin-left:8px;
+}
+ 
+.displayWrapper
+{
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  padding: 10px;
+  width:320px;
+  margin-top:20px;
+}
+.displayBox
+{
+  width:300px;
+  height:300px;
+  overflow: hidden;   
+}
+.displayBox img
+{
+  width:100%;
+  -webkit-transition: all 3s ease;
+    transition: all 3s ease;
+  position:relative;
+}
+.displayBox img:hover
+{
+  cursor:pointer;
+   transform: translateY(-30%);
+}
+/*Show web*/
+
+.row1{
+    width: 1000px;
+    height: 450px;
+    margin: auto;
+}
+
+.column1{
+    width: 420px;
+    height: 400px;
+    float: left;
+}
+
+.test{
+
+	font-weight:600;
+  color: #666;
+   padding: 15px 20px 15px 45px;
+    background: #fff;
+  border-left-style: solid;
+  border-left-width: 15px;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-left-color: #5e9de6;
+  border-right-color: #4b8ad6;
+}
