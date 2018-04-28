@@ -23,9 +23,7 @@
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
                         <div class="row">
-                           <div class="col-md-3">
-                             
-                           </div>
+
 
                            <div class="col-md-6">
                            <ul class="topmenu">
@@ -34,12 +32,29 @@
                                  <li><a href="contact.html">Support</a></li>
                               </ul>
                            </div>
-                           <div class="col-md-3">
-                              <ul class="usermenu">
-                                 <li><a href="#" class="log">Login</a></li>
+                            <!-- Account control-->
+                           <div class="col-md-4">
+                              <ul class="usermenu" id="um-1">
+                                 <li><a href="../Login/index.html" class="log">Login</a></li>
                                  <li><a href="#" class="reg">Register</a></li>
                               </ul>
+                                <ul class="usermenu hidden" id="um-2">
+                               <li><a href="#" id="username" class="log"></a></li>
+                               <li><a href="#" id="userlogout">Logout</a></li>
+                               </ul>
+  
                            </div>
+                            <div class="col-md-2 hidden" id="um-3">
+                                <div href="#" class="dropdown" id="dw-tool">
+                                 <button class="btn btn-whatever btn-xs dropdown-toggle" type="button" data-toggle="dropdown" id="tool">
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu font-yekan" role="menu" aria-labelledby="tool">
+                                <li role="presentation"><a class="glyphicon glyphicon-user" role="menuitem" tabindex="-1" href="#"> Thông tin cá nhân</a></li>
+                                <li role="presentation"><a class="glyphicon glyphicon-book"role="menuitem" tabindex="-1" href="#"> Lịch sử đơn hàng</a></li>   
+                                </ul>
+                                </div>
+                            </div>
+                            <!-- End Account control-->
                         </div>
                      </div>
                      <div class="header_bottom">

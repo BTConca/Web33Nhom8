@@ -10,7 +10,10 @@
 }
 
 
-
+.btn-whatever
+{
+    background-color: gray;
+}
 
 
 
@@ -35,27 +38,10 @@ footer {
   }
 }
 
-.products1 <!-- 3 product cho 3 loai sap xep-->
+#dw-tool
 {
+    top: 15px;
 }
-
-.products2
-{
-}
-
-.products3
-{
-}
-
-.myimages
-{
-    
-}
-
-
-
-
-
 
 
 /*_______________________________________________________*/

@@ -1,4 +1,52 @@
 
+//Van khai
+// Collapse question
+$("#coll-2").click(function() {
+    document.getElementById("coll-2").style.display = "none";
+    document.getElementById("coll-1").style.display = "block";
+    }
+);
+$("#coll-1").click(function() {
+    document.getElementById("coll-1").style.display = "none";  
+    document.getElementById("coll-2").style.display = "block";
+    }
+);
+
+$("#userlogout").click(function() {
+    document.getElementById("um-1").classList.remove("hidden");  
+    document.getElementById("um-2").classList.add("hidden");
+    document.getElementById("um-3").classList.add("hidden");
+    document.location.href = "..\\Guest\\index.html?check=1";
+    }
+);
+
+window.onload = function () {
+    var url = document.location.href,
+        params = url.split('?')[1].split('&'),
+        data = {}, tmp,
+        data2 = {},
+        params2 = url.split('?')[2].split('&');
+    
+    for (var i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');
+         data[tmp[0]] = tmp[1];
+    }
+
+    for (var i = 0, l = params2.length; i < l; i++) {
+         tmp = params2[i].split('=');
+         data2[tmp[0]] = tmp[1];
+    }
+
+    if(data.check==2)
+    {
+	   document.getElementById("um-1").classList.add("hidden");
+        document.getElementById("um-2").classList.remove("hidden");
+        document.getElementById("username").innerHTML = data2.name;
+        document.getElementById("um-3").classList.remove("hidden");
+    }
+    
+}
+
 // _______________________________________________
 // MINH PHỤNG
 //________________________________________________

@@ -56,11 +56,14 @@ $(function (){
 		init();
 	});
 });
+
+
 function showLogin()
 {
 	document.getElementById("register-box").classList.add("hidden");
 	document.getElementById("login-box").classList.remove("hidden");
 }
+
 function showRegister()
 {
 	document.getElementById("register-box").classList.remove("hidden");
@@ -71,7 +74,11 @@ function Register()
 	alert("Đăng ký thành công!!");
 }
 function Login()
-{ 	alert("Đăng nhập thành công!!");
-	window.history.back();
-
+{ 	
+    alert("Đăng nhập thành công!!");
+   var b = document.getElementById("em-1").value;
+    var check = 2,
+    url = '..\\Guest\\index.html?check=' + encodeURIComponent(check) +'?name=' + encodeURIComponent(b);
+    document.location.href = url;
+    window.history.back();
 }
