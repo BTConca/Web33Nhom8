@@ -26,3 +26,18 @@
     height: 170px;
     width: 155px
 }
+#lsp {
+    border: 2px solid grey;
+
+}
+.loaisanpham a img {
+    height: 220px;
+    width: 155px
+}
+.nhasx a img {
+    height: 170px;
+    width: 155px
+}
+#nsx {
+    border: 2px solid grey;
+}
