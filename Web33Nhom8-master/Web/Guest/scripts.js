@@ -11,22 +11,36 @@ $("#coll-1").click(function() {
     document.getElementById("coll-2").style.display = "block";
     }
 );
+var data = {},
+    data2 = {};
 
 $("#userlogout").click(function() {
+    data.check = 1;
     document.getElementById("um-1").classList.remove("hidden");  
     document.getElementById("um-2").classList.add("hidden");
     document.getElementById("um-3").classList.add("hidden");
-    document.location.href = "..\\Guest\\index.html?check=1";
+    document.location.href = "..\\Guest\\index.html";
     }
 );
 
-window.onload = function () {
+$("#user-login").click(function()
+{
+   
+   var b = document.location.href;
+    var path = "../Login/index.html?path=" +  encodeURIComponent(b);
+    document.location.href = path;                     
+});
+
+/*$("li").click(function{
+                       alert("x");
+    var data = {},
+    data2 = {};
     var url = document.location.href,
-        params = url.split('?')[1].split('&'),
-        data = {}, tmp,
-        data2 = {},
-        params2 = url.split('?')[2].split('&');
+    params = url.split('?')[1].split('&'), tmp,
+    params2 = url.split('?')[2].split('&');
     
+    alert(params[0]);
+    alert(params2[0]);
     for (var i = 0, l = params.length; i < l; i++) {
          tmp = params[i].split('=');
          data[tmp[0]] = tmp[1];
@@ -36,8 +50,29 @@ window.onload = function () {
          tmp = params2[i].split('=');
          data2[tmp[0]] = tmp[1];
     }
+});*/
 
-    if(data.check==2)
+window.onload = function () {
+
+    if(data.check != 1)
+    {
+        var url = document.location.href,
+            params = url.split('?')[1].split('&'), tmp,
+            params2 = url.split('?')[2].split('&');
+
+        for (var i = 0, l = params.length; i < l; i++) {
+             tmp = params[i].split('=');
+             data[tmp[0]] = tmp[1];
+        }
+
+
+        for (var i = 0, l = params2.length; i < l; i++) {
+             tmp = params2[i].split('=');
+             data2[tmp[0]] = tmp[1];
+        }
+    
+    }
+    if(data.check == 2)
     {
 	   document.getElementById("um-1").classList.add("hidden");
         document.getElementById("um-2").classList.remove("hidden");
@@ -46,7 +81,7 @@ window.onload = function () {
     }
     
 }
-
+//--------------văn khải-----
 // _______________________________________________
 // MINH PHỤNG
 //________________________________________________

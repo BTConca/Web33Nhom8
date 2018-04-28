@@ -1,5 +1,5 @@
 
-<!--VanKhai-->
+/*Văn Khải*/
 .bg {
     background-image: url("images/69015227-champagne-wallpapers.jpg");
 
@@ -9,7 +9,10 @@
     background-size: cover;
 }
 
-
+.ac-control
+{
+    
+}
 .btn-whatever
 {
     background-color: gray;
@@ -42,7 +45,7 @@ footer {
 {
     top: 15px;
 }
-
+/*Văn khải*/
 
 /*_______________________________________________________*/
                         /*Minh Phung*/

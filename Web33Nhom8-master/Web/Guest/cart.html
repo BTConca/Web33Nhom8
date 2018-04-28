@@ -26,41 +26,56 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-2 col-sm-2">
-                     <div class="logo"><a href="index.html"><img src="../media/images/logo.png" alt="Gentlemen Shop"></a></div>
+                     <div class="logo"><a class="ac-control" href="index.html"><img src="../media/images/logo.png" alt="Gentlemen Shop"></a></div>
                   </div>
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
                         <div class="row">
-                           <div class="col-md-3">
-                             
-                           </div>
+    
 
                            <div class="col-md-6">
                              <ul class="topmenu">
                                  <li><a href="about/index.html">About Us</a></li>
-                                 <li><a href="contact.html">Recruiment</a></li>
-                                 <li><a href="contact.html">Support</a></li>
+                                 <li><a class="ac-control" href="contact.html">Recruiment</a></li>
+                                 <li><a class="ac-control" href="contact.html">Support</a></li>
                               </ul>
                            </div>
-                           <div class="col-md-3">
-                              <ul class="usermenu">
-                                 <li><a href="../Login/index.html" class="log">Login</a></li>
+                            <!-- Account control-->
+                           <div class="col-md-4">
+                              <ul class="usermenu" id="um-1">
+                                 <li><a id="user-login" href="#" class="log">Login</a></li>
                                  <li><a href="#" class="reg">Register</a></li>
                               </ul>
+                                <ul class="usermenu hidden" id="um-2">
+                               <li><a href="#" id="username" class="log"></a></li>
+                               <li><a href="#" id="userlogout">Logout</a></li>
+                               </ul>
+  
                            </div>
+                            <div class="col-md-2 hidden" id="um-3">
+                                <div href="#" class="dropdown" id="dw-tool">
+                                 <button class="btn btn-whatever btn-xs dropdown-toggle" type="button" data-toggle="dropdown" id="tool">
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu font-yekan" role="menu" aria-labelledby="tool">
+                                <li role="presentation"><a class="glyphicon glyphicon-user" role="menuitem" tabindex="-1" href="#"> Thông tin cá nhân</a></li>
+                                <li role="presentation"><a class="glyphicon glyphicon-book"role="menuitem" tabindex="-1" href="#"> Lịch sử đơn hàng</a></li>   
+                                </ul>
+                                </div>
+                            </div>
+                            <!-- End Account control-->
                         </div>
                      </div>
                      <div class="header_bottom">
                         <ul class="option">
                           
                            <li id="search" class="search">
-                              <form  action="search.html"><input class="search-input" placeholder="Enter your search term..." type="text" value="" name="search">
+                              <form  action="search.html"><input class="search-input ac-control" placeholder="Enter your search term..." type="text" value="" name="search">
                               <input class="search-submit" type="submit" value=""></form>
                            </li>
 
 
                            <li class="option-cart">
-                              <a href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
+                              <a class="ac-control" href="cart.html" class="cart-icon">cart <span class="cart_no">02</span></a>
                               <ul class="option-cart-item">
                                  <li>
                                     <div class="cart-item">
@@ -96,47 +111,47 @@
                                        <div class="navbar-collapse collapse">
                            <ul class="nav navbar-nav">
                               
-                              <li class=""><a href="index.html">Home</a></li>
+                              <li class=""><a class="ac-control" href="index.html">Home</a></li>
                               <li class="dropdown">
-                                 <a href="product.html" class="dropdown-toggle" data-toggle="dropdown">Rượu Vang</a>
+                                 <a href="product.html"  class="ac-control dropdown-toggle" data-toggle="dropdown">Rượu Vang</a>
                                  <div class="dropdown-menu mega-menu">
                                     <div class="row">
                                        <div class="col-md-6 col-sm-6">
                                           <ul class="mega-menu-links">
-                                             <li><a href="product.html">Vang Italia</a></li>
-                                             <li><a href="product.html">Vang Chile</a></li>
-                                             <li><a href="product.html">Vang Pháp</a></li>
-                                             <li><a href="product.html">Vang Hungaria</a></li>
-                                             <li><a href="product.html">Vang Austraylia</a></li>
-                                             <li><a href="product.html">Vang Pháp</a></li>
+                                             <li><a class="ac-control" href="product.html" >Vang Italia</a></li>
+                                             <li><a class="ac-control" href="product.html" >Vang Chile</a></li>
+                                             <li><a class="ac-control" href="product.html" >Vang Pháp</a></li>
+                                             <li><a class="ac-control" href="product.html" >Vang Hungaria</a></li>
+                                             <li><a class="ac-control" href="product.html" >Vang Austraylia</a></li>
+                                             <li><a class="ac-control" href="product.html" >Vang Pháp</a></li>
                                           </ul>
                                        </div>
                                     </div>
                                  </div>
                               </li>
-                              <li><a href="product.html">Champagnes</a></li>
+                              <li><a class="ac-control" href="product.html" >Champagnes</a></li>
                               <li class="dropdown">
-                                 <a href="product.html" class="dropdown-toggle" data-toggle="dropdown">Whisky</a>
+                                 <a href="product.html"  class="ac-control dropdown-toggle" data-toggle="dropdown">Whisky</a>
                                  <div class="dropdown-menu mega-menu">
                                     <div class="row">
                                        <div class="col-md-6 col-sm-6">
                                           <ul class="mega-menu-links">
-                                             <li><a href="product.html">Ballantine's</a></li>
-                                             <li><a href="product.html">Chivas</a></li>
-                                             <li><a href="product.html">Edradour</a></li>
-                                             <li><a href="product.html">Johnnie Walker</a></li>
-                                             <li><a href="product.html">Glenfarclas</a></li>
-                                             <li><a href="product.html">Tomatin</a></li>
-                                             <li><a href="product.html">Macallan</a></li>
-                                              <li><a href="product.html">Old Malt Cask</a></li>
+                                             <li><a class="ac-control" href="product.html" >Ballantine's</a></li>
+                                             <li><a class="ac-control" href="product.html" >Chivas</a></li>
+                                             <li><a class="ac-control" href="product.html" >Edradour</a></li>
+                                             <li><a class="ac-control" href="product.html" >Johnnie Walker</a></li>
+                                             <li><a class="ac-control" href="product.html" >Glenfarclas</a></li>
+                                             <li><a class="ac-control" href="product.html" >Tomatin</a></li>
+                                             <li><a class="ac-control" href="product.html" >Macallan</a></li>
+                                              <li><a class="ac-control" href="product.html" >Old Malt Cask</a></li>
                                           </ul>
                                        </div>
                                     </div>
                                  </div>
                               </li>
-                              <li><a href="product.html">Cognac</a></li>
-                              <li><a href="product.html">Vodka</a></li>
-                              <li><a href="contact.html">contact us</a></li>
+                              <li><a class="ac-control" class="ac-control" href="product.html" >Cognac</a></li>
+                              <li><a class="ac-control" class="ac-control" href="product.html" >Vodka</a></li>
+                              <li><a class="ac-control" href="contact.html">contact us</a></li>
                            </ul>
                         </div>
                      </div>
@@ -310,12 +325,12 @@
                 <tfoot>
                   <tr>
                     <td colspan="6">
-                    	<a href="index.html">
+                    	<a class="ac-control" href="index.html">
                       <button class="pull-left">
                         Tiếp tục mua sắm
                       </button>
                   </a>
-                  <a href="cart.html">
+                  <a class="ac-control" href="cart.html">
                       <button class=" pull-right">
                         Cập nhật giỏ hàng
                       </button>
@@ -381,7 +396,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-3">
-                        <div class="footer-logo"><a href="contact.html"><img src="../media/images/logo.png" alt=""></a></div>
+                        <div class="footer-logo"><a class="ac-control" href="contact.html"><img src="../media/images/logo.png" alt=""></a></div>
                      </div>
                      <div class="col-md-3 col-sm-6">
                         <h4 class="title">Contact <strong>Info</strong></h4>
@@ -392,10 +407,10 @@
                      <div class="col-md-3 col-sm-6">
                         <h4 class="title">Customer<strong> Support</strong></h4>
                         <ul class="support">
-                           <li><a href="contact.html">FAQ</a></li>
-                           <li><a href="contact.html">Payment Option</a></li>
-                           <li><a href="contact.html">Booking Tips</a></li>
-                           <li><a href="contact.html">Infomation</a></li>
+                           <li><a class="ac-control" href="contact.html">FAQ</a></li>
+                           <li><a class="ac-control" href="contact.html">Payment Option</a></li>
+                           <li><a class="ac-control" href="contact.html">Booking Tips</a></li>
+                           <li><a class="ac-control" href="contact.html">Infomation</a></li>
                         </ul>
                      </div>
                      <div class="col-md-3">
@@ -408,11 +423,11 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-6">
-                        <p>Copyright © 2018. Designed by <a href="contact.html">Gentlemen Team</a>. All rights reseved</p>
+                        <p>Copyright © 2018. Designed by <a class="ac-control" href="contact.html">Gentlemen Team</a>. All rights reseved</p>
                      </div>
                      <div class="col-md-6">
                         <ul class="social-icon">
-                           <li><a href="contact.html" class="facebook"></a></li>
+                           <li><a class="ac-control" href="contact.html" class="facebook"></a></li>
                         </ul>
                      </div>
                   </div>

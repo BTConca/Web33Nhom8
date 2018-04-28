@@ -73,12 +73,26 @@ function Register()
 {
 	alert("Đăng ký thành công!!");
 }
+<!-- Van khai-->
+
 function Login()
 { 	
     alert("Đăng nhập thành công!!");
    var b = document.getElementById("em-1").value;
-    var check = 2,
-    url = '..\\Guest\\index.html?check=' + encodeURIComponent(check) +'?name=' + encodeURIComponent(b);
-    document.location.href = url;
-    window.history.back();
+    var check = 2;
+     var desurl = document.location.href,
+        params = desurl.split('?')[1].split('&'),
+        data = {}, tmp;
+    
+    for (var i = 0, l = params.length; i < l; i++) {
+         tmp = params[i].split('=');
+         data[tmp[0]] = tmp[1];
+    }
+    var path = decodeURIComponent(data.path);
+    path = path + '?check=' + encodeURIComponent(check) +'?name=' + encodeURIComponent(b);
+    
+        document.location.href = path;
+    
 }
+
+<!-- Van khai-->

@@ -25,23 +25,38 @@
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
                         <div class="row">
-                           <div class="col-md-3">
-                             
-                           </div>
+
 
                            <div class="col-md-6">
                              <ul class="topmenu">
                                  <li><a href="about/index.html">About Us</a></li>
-                                 <li><a href="contact.html">Recruiment</a></li>
-                                 <li><a href="contact.html">Support</a></li>
+                                 <li><a class="ac-control" href="contact.html">Recruiment</a></li>
+                                 <li><a class="ac-control" href="contact.html">Support</a></li>
                               </ul>
                            </div>
-                           <div class="col-md-3">
-                              <ul class="usermenu">
-                                 <li><a href="../Login/index.html" class="log">Login</a></li>
+                            <!-- Account control-->
+                           <div class="col-md-4">
+                              <ul class="usermenu" id="um-1">
+                                 <li><a id="user-login" href="#" class="log">Login</a></li>
                                  <li><a href="#" class="reg">Register</a></li>
                               </ul>
+                                <ul class="usermenu hidden" id="um-2">
+                               <li><a href="#" id="username" class="log"></a></li>
+                               <li><a href="#" id="userlogout">Logout</a></li>
+                               </ul>
+  
                            </div>
+                            <div class="col-md-2 hidden" id="um-3">
+                                <div href="#" class="dropdown" id="dw-tool">
+                                 <button class="btn btn-whatever btn-xs dropdown-toggle" type="button" data-toggle="dropdown" id="tool">
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu font-yekan" role="menu" aria-labelledby="tool">
+                                <li role="presentation"><a class="glyphicon glyphicon-user" role="menuitem" tabindex="-1" href="#"> Thông tin cá nhân</a></li>
+                                <li role="presentation"><a class="glyphicon glyphicon-book"role="menuitem" tabindex="-1" href="#"> Lịch sử đơn hàng</a></li>   
+                                </ul>
+                                </div>
+                            </div>
+                            <!-- End Account control-->
                         </div>
                      </div>
                      <div class="header_bottom">
@@ -92,44 +107,44 @@
                               
                               <li class=""><a href="index.html">Home</a></li>
                               <li class="dropdown">
-                                 <a href="product.html" class="dropdown-toggle" data-toggle="dropdown">Rượu Vang</a>
+                                 <a href="product.html" class="dropdown-toggle ac-control" data-toggle="dropdown">Rượu Vang</a>
                                  <div class="dropdown-menu mega-menu">
                                     <div class="row">
                                        <div class="col-md-6 col-sm-6">
                                           <ul class="mega-menu-links">
-                                             <li><a href="product.html">Vang Italia</a></li>
-                                             <li><a href="product.html">Vang Chile</a></li>
-                                             <li><a href="product.html">Vang Pháp</a></li>
-                                             <li><a href="product.html">Vang Hungaria</a></li>
-                                             <li><a href="product.html">Vang Austraylia</a></li>
-                                             <li><a href="product.html">Vang Pháp</a></li>
+                                             <li><a class="ac-control" href="product.html">Vang Italia</a></li>
+                                             <li><a class="ac-control" href="product.html">Vang Chile</a></li>
+                                             <li><a class="ac-control" href="product.html">Vang Pháp</a></li>
+                                             <li><a class="ac-control" href="product.html">Vang Hungaria</a></li>
+                                             <li><a class="ac-control" href="product.html">Vang Austraylia</a></li>
+                                             <li><a class="ac-control" href="product.html">Vang Pháp</a></li>
                                           </ul>
                                        </div>
                                     </div>
                                  </div>
                               </li>
-                              <li><a href="product.html">Champagnes</a></li>
+                              <li><a class="ac-control" href="product.html">Champagnes</a></li>
                               <li class="dropdown">
-                                 <a href="product.html" class="dropdown-toggle" data-toggle="dropdown">Whisky</a>
+                                 <a href="product.html" class="ac-control dropdown-toggle" data-toggle="dropdown">Whisky</a>
                                  <div class="dropdown-menu mega-menu">
                                     <div class="row">
                                        <div class="col-md-6 col-sm-6">
                                           <ul class="mega-menu-links">
-                                             <li><a href="product.html">Ballantine's</a></li>
-                                             <li><a href="product.html">Chivas</a></li>
-                                             <li><a href="product.html">Edradour</a></li>
-                                             <li><a href="product.html">Johnnie Walker</a></li>
-                                             <li><a href="product.html">Glenfarclas</a></li>
-                                             <li><a href="product.html">Tomatin</a></li>
-                                             <li><a href="product.html">Macallan</a></li>
-                                              <li><a href="product.html">Old Malt Cask</a></li>
+                                             <li><a class="ac-control" href="product.html">Ballantine's</a></li>
+                                             <li><a class="ac-control" href="product.html">Chivas</a></li>
+                                             <li><a class="ac-control" href="product.html">Edradour</a></li>
+                                             <li><a class="ac-control" href="product.html">Johnnie Walker</a></li>
+                                             <li><a class="ac-control" href="product.html">Glenfarclas</a></li>
+                                             <li><a class="ac-control" href="product.html">Tomatin</a></li>
+                                             <li><a class="ac-control" href="product.html">Macallan</a></li>
+                                              <li><a class="ac-control" href="product.html">Old Malt Cask</a></li>
                                           </ul>
                                        </div>
                                     </div>
                                  </div>
                               </li>
-                              <li><a href="product.html">Cognac</a></li>
-                              <li><a href="product.html">Vodka</a></li>
+                              <li><a class="ac-control" href="product.html">Cognac</a></li>
+                              <li><a class="ac-control" href="product.html">Vodka</a></li>
                               <li><a href="contact.html">contact us</a></li>
                            </ul>
                         </div>
