@@ -16,8 +16,6 @@
 
 <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="style.css">
- 
-
 
     </head>
 
@@ -38,7 +36,7 @@
                            </div>
 
                            <div class="col-md-6">
-                              <ul class="topmenu">
+                             <ul class="topmenu">
                                  <li><a href="about/index.html">About Us</a></li>
                                  <li><a href="contact.html">Recruiment</a></li>
                                  <li><a href="contact.html">Support</a></li>
@@ -138,7 +136,7 @@
                               </li>
                               <li><a href="product.html">Cognac</a></li>
                               <li><a href="product.html">Vodka</a></li>
-                              <li class ="active"><a href="contact.html">contact us</a></li>
+                              <li><a href="contact.html">contact us</a></li>
                            </ul>
                         </div>
                      </div>
@@ -146,134 +144,236 @@
                </div>
             </div>
          </div>
-         <div class = "page"></div>
+         <div class="page"></div>
 <!-- HẾT HEADER MENU -->
 
-
-
-     <div style = ""class="wrapper">
-      <div class="clearfix">
-      </div>
+<!-- PHẦN SẢN PHẨM -->
+    
+    
       <div class="container_fullwidth">
-        <div class="container">
-           <!-- HẾT PHẦN GRID SẢN PHẨM -->
-            <h1>CONTACT US</h1>
-            <form >      
-            <div class="row first_row">
-                <div class="col-sm-12 single">
-                    <div><h3>Chúng tôi có thể giúp gì cho bạn?</h3></div>
-                    <div class="form-group"> 
-                        <div> 
-                            <textarea placeholder="Hãy cho chúng tôi biết điều bạn cần giúp đỡ ở đây."  class="form-control" rows="1" style="height: 100px;"></textarea> 
+        <div class="container shopping-cart">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title">
+                Giỏ hàng
+              </h3>
+              <div class="clearfix">
+              </div>
+              <table class="shop-table">
+                <thead>
+                  <tr>
+                    <th>
+                      Sản phẩm
+                    </th>
+                    <th>
+                      Chi tiết
+                    </th>
+                    <th>
+                      Giá
+                    </th>
+                    <th>
+                      Số lượng
+                    </th>
+                    <th>
+                      Tổng
+                    </th>
+                    <th>
+                      Xóa
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <img src="../media/images/Wine/1.png" alt="">
+                    </td>
+                    <td>
+                      <div class="shop-details">
+                        <div class=" productname">
+                         <b class ="red"> Avalo 2015 Primitivo Di Manduria</b>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-sm-12 single">
-                    <div>
-                        <h3>Thông tin liên lạc của bạn</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-sm-6 first_col">
-                    <div class="form-group"> 
-                        <div> 
-                            <input placeholder="Họ &amp; Tên" type="text" class="form-control" required="required"> 
+                         
+                         <p>
+                          Loại rượu: 
+                          <strong >
+                            Vang
+                          </strong>
+                        </p>
+                        <p>
+                          Hãng sản xuất : 
+                          <strong >
+                             FEUDI SALENTINI – ITALIA
+                          </strong>
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5>
+                        $800.00
+                      </h5>
+                    </td>
+                    <td>
+                      <select name="">
+                        <option  value="1">
+                          1
+                        </option>
+                        <option selected value="2">
+                          2
+                        </option>
+                        <option value="3">
+                          3
+                        </option>
+                          <option value="4">
+                          4
+                        </option>
+                          <option value="5">
+                          5
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <h5>
+                        <strong class="red">
+                          $1600.00
+                        </strong>
+                      </h5>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <img src="../media/images/remove.png" alt="">
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <img src="../media/images/Wine/4.png" alt="">
+                    </td>
+                    <td>
+                      <div class="shop-details">
+                        <div class="productname">
+                         <b class="red"> Champagne Pháp Deutz Brut Vintage</b>
                         </div>
-                    </div>
-                    <div class="form-group"> 
-                        <div> 
-                            <input placeholder="Email Address" type="email"  class="form-control" id="fld_3901492_1" >
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 last_col">
-                    <div class="form-group"> 
-                        <div> 
-                            <input placeholder="Số điện thoại" type="text" data-inputmask="'mask': '(9)9999-999-999'" class="form-control" required="required"> 
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div> 
-                            <input placeholder="Nghề nghiệp" type="text" class="form-control" required="required"> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row ">
-                <div class="col-sm-12 single">
-                    <span class="caldera-forms-conditional-field" ></span>
-                    <span class="caldera-forms-conditional-field" ></span>
-                </div>
-            </div>
-            <div id="more" class="collapse out">
-            <div class="row ">
-                <div class="col-sm-12 single">
-                    <span >
-                        <div >
-                            <h3>Bạn biết tới chúng tôi như thế nào?</h3>
-                        </div>
-                    </span>
-                    <span >
-                        <div class="form-group">
-                            <div >	
-                                <textarea placeholder="Người quen, quảng cáo, bài viết trên mạng,..." class="form-control" rows="1" style="height: 52px;"></textarea>	
-                            </div>
-                        </div>
-                    </span>
-                </div>
-            </div>
-  
-            <div class="row">
-                <div class="col-sm-12 single">
-                    <span >
-                        <div >
-                            <h3>Điều gì thôi thúc bạn liên lạc với chúng tôi</h3>
-                        </div>
-                    </span>
-                    <span >
-                        <div class="form-group">
-                            <div >
-                                <textarea placeholder="Tôi để phần này cho bạn." class="form-control" rows="1" style="height: 52px;"></textarea>
-                            </div>
+                         
+                         <p>
+                          Loại rượu: 
+                          <strong >
+                            Champane
+                          </strong>
+                        </p>
+                        <p>
+                          Hãng sản xuất : 
+                          <strong >
+                             SANTA CAROLINA - CHILE
+                          </strong>
+                        </p>
+                      </div>
+                    </td>
+                    <td>
+                      <h5>
+                        $450.00
+                      </h5>
+                    </td>
+                    <td>
+                      <select name="">
+                        <option selected value="1">
+                          1
+                        </option>
+                        <option  value="2">
+                          2
+                        </option>
+                        <option value="3">
+                          3
+                        </option>
+                          <option value="4">
+                          4
+                        </option>
+                          <option value="5">
+                          5
+                        </option>
+                      </select>
+                    </td>
+                    <td>
+                      <h5>
+                        <strong class="red">
+                          $450.00
+                        </strong>
+                      </h5>
+                    </td>
+                    <td>
+                      <a href="#">
+                        <img src="../media/images/remove.png" alt="">
+                      </a>
+                    </td>
+                  </tr>
+                 
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="6">
+                    	<a href="index.html">
+                      <button class="pull-left">
+                        Tiếp tục mua sắm
+                      </button>
+                  </a>
+                  <a href="cart.html">
+                      <button class=" pull-right">
+                        Cập nhật giỏ hàng
+                      </button>
+                       </a>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
 
-                        </div>
-                    </span>
-                </div>
-            </div>       
-            </div>
-            <div class="row last_row">
-                <div class="col-sm-6 first_col">
-                            <div data-type="toggle_button"> 
-                                <div class="btn-group"> 
-                                    <a id="coll-1" class="btn btn-success" style="display: block;" data-toggle="collapse" data-target='#more'>Do you have time for three more questions?</a>
-                                    <a id="coll-2" data-label="No thanks, I don't have time to answer these questions." class="btn btn-info" data-toggle="collapse" data-target="#more" style="display: none;">No thanks, I don't have time to answer these questions.</a> 
-                                </div> 
-                                    
-                            </div> 
-                </div>
-                <div class="col-sm-6 last_col">
-                    <div class="form-group">
-                        <div>
-                            <input class="button" type="submit" value="Submit" ></div>
+              <div class="row">
+                
+                <div class="col-md-offset-8 col-sm-offset 6 col-md-4 col-sm-6">
+                  <div class="shippingbox">
+                    <div class="subtotal">
+                      <h5>
+                        Sản phẩm
+                      </h5>
+                      <span>
+                        $2.050.00
+                      </span>
                     </div>
+                     <div class="subtotal">
+                      <h5>
+                        Phí Ship
+                      </h5>
+                      <span>
+                        $5.00
+                      </span>
+                    </div>
+                    <div class="grandtotal">
+                      <h5>
+                        TỔNG CỘNG 
+                      </h5>
+                      <span>
+                       $2.055.00
+                      </span>
+                    </div>
+                    <button class="col-md-12">
+                     Thanh toán
+                    </button>
+                  </div>
+
                 </div>
+              </div>
             </div>
-            </form>
-            <div class="clearfix">
-            </div>
+          </div>
+
         </div>
+      </div>
+
+      
     </div>
-    </div>
-    <div class="clearfix">
-    </div>
-    <div class="clearfix">
-    </div>
+    
+
   </body>
 
 <!-- PHẦN FOOTER -->
+
   <div class="footer">
             <div class="footer-info">
                <div class="container">
@@ -317,13 +417,12 @@
                </div>
             </div>
          </div>
+ 
       <!-- HẾT PHẨN FOOTER -->
+
 <!-- PHẦN SCRIPT -->
 
 <script type="text/javascript" src="../jQuery/jquery-1.12.4.min.js">
-    </script>
-
-    <script type="text/javascript" src="js/jquery.easing.1.3.js">
     </script>
 
 
@@ -338,9 +437,8 @@
 
      
     <script type="text/javascript" src="../jQuery/jquery.carouFredSel-6.2.1-packed.js"></script>
+ 	 <script type="text/javascript" src="scripts.js" ></script>
 
-    <script type="text/javascript" src="scripts.js" >
-    </script>
     <!-- HẾT PHẦN SCRIPT -->
 
 
