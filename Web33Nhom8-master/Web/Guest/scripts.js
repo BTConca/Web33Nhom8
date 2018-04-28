@@ -118,7 +118,7 @@ function checkBranch()
 
 
 
-// XEM THEO DANH SÁCH CHO PAGE PRODUCTS
+// XEM THEO DẠNG LIST CHO PAGE PRODUCTS
 
 function viewList()
 {
@@ -139,8 +139,9 @@ product.innerHTML = `
                       New
                     </div>
                     <div class="thumbnail">
-                      <img src="../media/images/Wine/3.png" alt="Product Name">
-                    </div>
+                    <div>
+                      <img class="img2" src="../media/images/Wine/3.png" alt="Product Name">
+                    </div></div>
                     <div class="product-list-description">
                       <div class="productname">
                         Chivas 18
@@ -177,7 +178,9 @@ product.innerHTML = `
                       New
                     </div>
                     <div class="thumbnail">
+                    <div>
                       <img src="../media/images/Wine/2.png" alt="Product Name">
+                      </div>
                     </div>
                     <div class="product-list-description">
                       <div class="productname">
@@ -215,8 +218,9 @@ product.innerHTML = `
                       New
                     </div>
                     <div class="thumbnail">
+                    <div>
                       <img src="../media/images/Wine/3.png" alt="Product Name">
-                    </div>
+                    </div></div>
                     <div class="product-list-description">
                       <div class="productname">
                         Chivas 18
@@ -253,8 +257,9 @@ product.innerHTML = `
                       New
                     </div>
                     <div class="thumbnail">
+                    <div>
                       <img src="../media/images/Wine/1.png" alt="Product Name">
-                    </div>
+                   </div> </div>
                     <div class="product-list-description">
                       <div class="productname">
                         Chivas 18
