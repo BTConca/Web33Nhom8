@@ -146,6 +146,14 @@ padding: 9px 30px;
 padding: 9px 10px;font-size: 18px;
 }
 
+/*form element */
+input[type="text"], input[type="email"], input[type="number"], input[type="password"], input[type="tel"], textarea{
+background: #fff;padding: 8px 15px;border: 1px solid #cccccc;font-size: 14px;-webkit-border-radius: 10px;border-radius: 10px;
+}
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="tel"]:focus, textarea:focus{
+border-color: #ff8e87;outline: none;
+}
+
 
 
 ul{list-style: none outside none;margin: 0;padding: 0;}
@@ -368,9 +376,7 @@ padding-top: 30px;
 /*products */.products{
 border: 1px solid #e1e1e1;min-height: 400px;position: relative;overflow: hidden;-webkit-border-radius: 10px;border-radius: 10px;background: #fff;margin-bottom: 15px
 }
-.products img {
- width: 65px;
-}
+
 .products:hover{
 background: #fff;border-color: #f7544a;-webkit-box-shadow: 0 0 5px 1px #d3d3d3;box-shadow: 0 0 5px 1px #d3d3d3;
 }
@@ -567,11 +573,19 @@ width: 150px;height: 30px;border: 1px solid #d2d2d2;-webkit-border-radius: 5px;b
   height: 30px;border: 1px solid #d2d2d2;-webkit-border-radius: 5px;border-radius: 5px;text-align: center;padding: 5px;font-size: 14px;
 border: 1px solid #f7544a;background: #f7544a;color: #fff;
 }
-.products .thumbnail img 
+
+.products .thumbnail img
 {
-  width: 80;
+  width: auto;
   height: 100%;
 }
+.products .thumbnail div img
+{
+  width: auto%;
+  height: 150px;
+}
+
+
 /* toolbar */ .toolbar{
 float: left;position: relative;width: 100%;margin: 10px 0;
 }
@@ -632,7 +646,7 @@ border: 1px solid #cfcfcf;
 .pager a.active{
 color: #f7544a;
 }
-.banner img
+.banner img, .leftbanner img
 {width: auto;
    display: block;
 margin-left: auto;
@@ -892,6 +906,51 @@ margin-bottom: 20px;margin-left: 0;width: 100%;
 
 
 
+/* CHECKOUT PAGE  */
+.pay-description{
+float: left;width: 100%;border-top: 1px solid #cccccc;padding: 30px;
+}
+.input-radio{
+float: left;position: relative;display: inline-block;padding-right: 10px;
+}
+.pay-description h5{
+font-weight: 400;font-size: 16px;margin-bottom: 20px;
+}
+.form-row .input[type="text"], .form-row .input[type="email"], .form-row .input[type="password"], .form-row .input[type="tel"], .form-row .input[type="number"]{
+width: 100%;padding: 10px 10px 10px 130px;
+}
+.form-row .input[type="password"]{
+padding-left: 120px;
+}
+.form-row .input[type="password"].cpass{
+padding-left: 180px;
+}
+
+
+
+.form-row .lebel-abs{
+left: 20px;position: absolute;top: 12px;
+}
+.pass-wrap{
+clear: both;padding: 10px 0 30px 0;
+}
+.privacy{
+padding: 10px 0;
+}
+
+
+.form-row .lebel-abs{
+left: 20px;position: absolute;top: 12px;
+}
+.form-row{
+position: relative;overflow: hidden;margin-bottom: 10px;width: 100%;
+}
+
+.pass-wrap{
+clear: both;padding: 10px 0 30px 0;
+}
+
+
 
 
 /*_______________________________________________________*/
@@ -903,7 +962,6 @@ margin-bottom: 20px;margin-left: 0;width: 100%;
 
 
 
-/*Shopping cart table style*/
 
 
 
@@ -922,61 +980,5 @@ margin-bottom: 20px;margin-left: 0;width: 100%;
 
 
 
-/* checkout page sytle */.checkout-page{
-float: left;width: 100%;position: relative;clear: both;
-}
-.checkout-steps{
-position: relative;width: 100%;float: left;
-}
-.checkout-steps .steps{
-float: left;width: 100%;border: 1px solid #cccccc;-webkit-border-radius: 10px;border-radius: 10px;margin-bottom: 10px;
-}
-.checkout-steps .step-title{
-float: left;width: 100%;padding: 15px 25px;font-size: 14px;margin: 0;background: url(../images/down-arow-2.png) right 25px top 22px no-repeat;text-transform: uppercase;font-weight: 400;cursor: pointer;
-}
-.checkout-steps .active .step-title{
-background: url(../images/up-arow.png) right 25px top 22px no-repeat;
-}
-.checkout-steps .disable .step-title{
-cursor: default;
-}
-.step-description{
-float: left;width: 100%;border-top: 1px solid #cccccc;padding: 30px;
-}
-.input-radio{
-float: left;position: relative;display: inline-block;padding-right: 10px;
-}
-.step-description h5{
-font-weight: 400;font-size: 16px;margin-bottom: 20px;
-}
-.new-customer label{
-float: left;width: 100%;display: block;margin-bottom: 5px;
-}
-.new-customer label .text{
-float: left;padding-top: 2px;
-}
-.new-customer p.requir{
-float: left;padding: 25px 0 30px 0;
-}
-.form-row .input[type="text"], .form-row .input[type="email"], .form-row .input[type="password"], .form-row .input[type="tel"], .form-row .input[type="number"]{
-width: 100%;padding: 10px 10px 10px 100px;
-}
-.form-row .input[type="password"]{
-padding-left: 120px;
-}
-.form-row .input[type="password"].cpass{
-padding-left: 160px;
-}
-.form-row .lebel-abs{
-left: 20px;position: absolute;top: 12px;
-}
-.forgoten{
-padding: 10px 0 25px 0;text-align: right;
-}
-.pass-wrap{
-clear: both;padding: 10px 0 30px 0;
-}
-.privacy{
-padding: 10px 0;
-}
+
 
