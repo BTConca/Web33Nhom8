@@ -5,6 +5,18 @@ exports.loadAll = () => {
 	var sql = 'select * from products';
 	return db.load(sql);
 }
+exports.load4ByView = offset => {
+	var sql = `select * from products  order by View desc limit 4 offset ${offset} `;
+	return db.load(sql);
+}
+exports.load4ByNew = offset => {
+	var sql = `select * from products  order by CatID desc limit 4 offset ${offset}`;
+	return db.load(sql);
+}
+exports.load4BySell = offset => {
+	var sql = `select * from products  order by Sell desc limit 4 offset ${offset} `;
+	return db.load(sql);
+}
 
 exports.loadAllByCat = catId => {
 	var sql = `select * from products where CatID = ${catId}`;
@@ -18,5 +30,10 @@ exports.loadPageByCat = (catId, offset) => {
 
 exports.countByCat = catId => {
 	var sql = `select count(*) as total from products where CatID = ${catId}`;
+	return db.load(sql);
+}
+
+exports.single = id => {
+	var sql = `select * from products where ProID = ${id}`;
 	return db.load(sql);
 }
