@@ -80,7 +80,7 @@
                   <div class="col-md-3 col-sm-4">
                     <div class="products">
                       <div class="thumbnail">
-                        <a href="details.html">
+                        <a href="../detail/{{ProID}}">
                           <img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}">
                         </a>
                       </div>
@@ -97,6 +97,8 @@
                       </div>
 
 </a>
+
+
           {{#if ../layoutVM.isLogged}}
           <a data-proid="{{ProID}}" href="javascript:;" class="btn btn-default addItem">
             <span class="glyphicon glyphicon-shopping-cart"></span>
