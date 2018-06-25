@@ -4,12 +4,12 @@ var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
-
-
+var session = require('express-session');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
+trict = require('./middle-wares/restrict');
 
 var homeController= require('./controllers/homeController');
 var productController = require('./controllers/productController');
@@ -43,6 +43,14 @@ app.use(handleLayoutMDW);
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+     cookie: {
+         secure: true
+     }
+}))
 
 app.use('/home', homeController);
 app.use('/product', productController);
