@@ -1,0 +1,149 @@
+
+
+
+
+
+{{#section 'title'}}
+    Product
+{{/section}}
+
+{{#with product}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <div class="container_fullwidth">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="products-details">
+                <div class ="preview_image">
+                    <img  src="/media/images/Wine/{{ProID}}.png"  alt="" >
+                </div>
+                <div class="products-description">
+                  <h4 class="name">
+                  {{ProName}}
+                  </h4>
+                
+                  <p>
+                    <label>Loại Rượu:</label><span > {{CatName}}</span><br>
+                  <label>Hãng sản xuất:</label><span > {{ProducerName}}</span><br>
+                   <label>Số lượng tồn:</label>
+                    <span class="light-red">
+                      {{Quantity}}
+                    </span>
+                    <br>
+            
+               
+                <span class="glyphicon glyphicon-eye-open"></span>  <label>View:</label><span > {{View}}</span>
+                  <span class="glyphicon glyphicon-shopping-cart"></span>  <label>Sell:</label><span >{{Sell}}</span><br> </p>
+
+                  <p>
+                 {{TinyDes}}
+                  </p>
+                  <hr class="border">
+                  <div class="price">
+                    Price : 
+                    <span class="new_price">
+                     {{Price}}
+                      <sup>
+                        $
+                      </sup>
+                    </span>
+           
+                  </div>
+                  <hr class="border">
+                  <div class="wided">
+                    <div class="qty">
+                      Số lượng &nbsp;&nbsp;: 
+                      <select>
+                        <option>
+                          1
+                        </option>
+                      </select>
+                    </div>
+                    <div class="button_group">
+                      <button class="button" >
+                        Thêm Vào Giỏ Hàng
+                      </button>
+                     
+                    </div>
+                  </div>
+ 
+                </div>
+              </div>
+              <div class="clearfix">
+              </div>
+              <div class="tab-box">
+               
+                <div class="tab-content-wrap">
+                  <div class="tab-content" id="Description">
+                    <p>
+                   {{FullDes}}
+                    </p>
+                  
+                  </div>
+                </div>
+              </div>
+
+
+
+<div class="hot-products">
+         <div class=row>
+    <div class=col-md-6>
+                  <h3 class="title">Sản phẩm cùng loại</h3>
+                </div>
+
+    <div class=col-md-6>
+                  <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
+                </div>
+              </div>
+        
+                  <ul id="hot">
+                    
+                     <li>
+                        <div class="row">
+                            
+                            <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
+                                 <div class="productname">Chivas 18</div>
+                                 <h4 class="price">$451.00</h4>
+                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              </div>
+                           </div>
+                   
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+
+
+{{/with}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

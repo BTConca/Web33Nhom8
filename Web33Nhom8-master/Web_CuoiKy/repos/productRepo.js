@@ -18,10 +18,36 @@ exports.load4BySell = offset => {
 	return db.load(sql);
 }
 
+
+exports.load4ByCat =(catId, offset) => {
+	var sql = `select * from products where CatID = ${catId} limit 4 offset ${offset}`;
+	return db.load(sql);
+}
+exports.load4ByProducer = (producerId, offset) => {
+	var sql = `select * from products where ProducerID = ${producerId}  limit 4 offset ${offset} `;
+	return db.load(sql);
+}
+
+
+
+
+
+
+
+
+
 exports.loadAllByCat = catId => {
 	var sql = `select * from products where CatID = ${catId}`;
 	return db.load(sql);
 }
+
+
+
+
+
+
+
+
 
 exports.loadPageByCat = (catId, offset) => {
 	var sql = `select * from products where CatID = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
@@ -34,6 +60,6 @@ exports.countByCat = catId => {
 }
 
 exports.single = id => {
-	var sql = `select * from products where ProID = ${id}`;
+	var sql = `select * from products join categories on (products.CatID = categories.CatID) join producers on (products.ProducerID = producers.ProducerID)  where ProID = ${id}`;
 	return db.load(sql);
 }

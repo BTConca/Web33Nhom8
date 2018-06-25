@@ -9,7 +9,7 @@ var wnumb = require('wnumb');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 var homeController= require('./controllers/homeController');
-
+var productController = require('./controllers/productController');
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -35,12 +35,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
+app.use(handleLayoutMDW);
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
-app.use(handleLayoutMDW);
+
 app.use('/home', homeController);
+app.use('/product', productController);
 
 app.listen(3000, () => {
     console.log('server running on port 3000');
