@@ -2,6 +2,9 @@
 {{#section 'scripts'}}
     <script src="/assets/scripts/validation.js"></script>
 {{/section}}
+{{#section 'title'}}
+    Register
+{{/section}}
 
 {{#section 'css'}}
 <link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
@@ -17,18 +20,15 @@
 	});
 </script>
 {{/section}}
-<section id="signup-form" class="container">
-    <div class="row">
+<div  class="container"  style="margin-top: 50px;">
         <div class="col-md-4 mx-auto"></div>
-        <div class="col-md-5 mx-auto">
-            <div id="second" style="margin-top: 50px;">
-                <div class="myform form ">
-                    <div class="logo mb-3">
-                        <div class="col-md-12 text-center">
-                            <h1>Registation</h1>
+        <div class="col-md-5 mx-auto myform form " >
+                <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
+                        <div class="logo mb-3" >
+                            <div class="col-md-12 text-center">
+                                    <h1>Registation</h1>
+                            </div>
                         </div>
-                    </div>
-                    <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter Username">
@@ -54,6 +54,12 @@
                             <input type="text" class="form-control" id="txtDOB" placeholder="d/m/yyyy" name="dob">
                            
                         </div>
+                        <div class="col-md-12 ">
+                                <div class="login-or">
+                                        <hr class="hr-or">
+                                        <span class="span-or"></span>
+                                </div>
+                        </div>
                         <div class="col-md-12 text-center mb-3">
                             <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Get Started For Free</button>
                         </div>
@@ -66,7 +72,5 @@
                         </div>
                     </div>
                 </form>
-            </div>  
         </div>
-    </div>
-</section>
+</div>
