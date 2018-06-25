@@ -39,14 +39,18 @@
                            </div>
                             <!-- Account control-->
                            <div class="col-md-4">
-                              <ul class="usermenu" id="um-1">
-                                 <li><a id="user-login" href="/account/login" class="log">Login</a></li>
-                                 <li><a href="/account/register" class="reg">Register</a></li>
-                              </ul>
-                                <ul class="usermenu hidden" id="um-2">
-                               <li><a  id="username" href="#" class="log"></a></li>
-                               <li><a id="userlogout" href="#">Logout</a></li>
-                               </ul>
+                               {{#if layoutVM.isLogged}}
+                              
+                               <ul class="usermenu hidden" id="um-2">
+                                    <li><a  id="username" href="#" class="log"></a></li>
+                                    <li><a id="userlogout" href="#">Logout</a></li>
+                                </ul>
+                                {{else}}
+                                <ul class="usermenu" id="um-1">
+                                    <li><a href="/account/login" class="log">Login</a></li>
+                                    <li><a href="/account/register" class="reg">Register</a></li>
+                                </ul>
+                                {{/if}}
   
                            </div>
                             <div class="col-md-1 hidden" id="um-3">

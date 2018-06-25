@@ -17,7 +17,7 @@ router.post('/register', (req, res) => {
 
     var user = {
         username: req.body.username,
-        password: sha256(req.body.rawPWD).toString(),
+        password: sha256(req.body.password).toString(),
         name: req.body.name,
         email: req.body.email,
         dob: dob,
@@ -36,15 +36,18 @@ router.get('/login', (req, res) => {
 router.post('/login', (req, res) => {
     var user = {
         username: req.body.username,
-        password: sha256(req.body.rawPWD).toString()
+        password: sha256(req.body.password).toString()
     };
 
     accountRepo.login(user).then(rows => {
+        
         if (rows.length > 0) {
             req.session.isLogged = true;
             req.session.curUser = rows[0];
             req.session.cart = [];
-
+            console.log("hi");
+            console.log(req.body.username);
+            console.log(req.body.password);
             var url = '/';
             if (req.query.retUrl) {
                 url = req.query.retUrl;
@@ -68,8 +71,5 @@ router.post('/logout', restrict, (req, res) => {
     res.redirect(req.headers.referer);
 });
 
-router.get('/profile', restrict, (req, res) => {
-    res.render('account/profile');
-});
 
 module.exports = router;
