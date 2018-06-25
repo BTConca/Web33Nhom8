@@ -6,11 +6,13 @@ var router = express.Router();
 router.get('/detail/:proId', (req, res) => {
     var proId = req.params.proId;
     productRepo.single(proId).then(products => {
-        if (product.length > 0) {
+        if (products.length > 0) {
+            
             productRepo.load4ByCat(products[0].CatID,0).then(c1 => {
+
                 productRepo.load4ByCat(products[0].CatID,4).then(c2 => {
-                     productRepo.load4ByProducer(products[0].CatID,0).then(p1 => {
-                         productRepo.load4ByProducer(products[0].CatID,4).then(p2 => {
+                     productRepo.load4ByProducer(products[0].ProducerID,0).then(p1 => {
+                         productRepo.load4ByProducer(products[0].ProducerID,4).then(p2 => {
          
             var vm = {
                 product: products[0],
