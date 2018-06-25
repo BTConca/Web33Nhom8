@@ -9,7 +9,7 @@ var session = require('express-session');
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
-trict = require('./middle-wares/restrict');
+var trict = require('./middle-wares/restrict');
 
 var homeController= require('./controllers/homeController');
 var productController = require('./controllers/productController');
