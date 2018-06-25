@@ -27,57 +27,7 @@ function reg_Validation()
     }
     return false;
 }
-function log_Validation()
-{
-    var username = document.login.username;
-    var log_username_err = document.getElementById('log_username_error');
-    var password = document.login.password;
-    var log_password_err = document.getElementById('log_password_error');
-    if(log_username_validation(username,5,30))
-    {
-        log_username_error.textContent ="";
-        if(log_password_validation(password,8,30))
-        {
-            log_password_error.textContent ="";
-        }
-    }
-    return false;
-}
-function log_username_validation(uid,mx,my)
-{
-    var uid_len = uid.value.length;
-    if (uid_len == 0 || uid_len >= my || uid_len < mx)
-    {
-        log_username_error.textContent ="Username should not be empty / length be between "+mx+" to "+my;
-        uid.focus();
-        return false;
-    }
-    var letters = /^[A-Za-z0-9]+$/;
-    
-    if(uid.value.match(letters))
-    {
-        return true;
-    }
-    else
-    {
-        log_username_error.textContent = "Username must have alphabet characters only";
-        uid.focus();
-        return false;
-    }
-    
-}
-function log_password_validation(passid,mx,my)
-{
-    var passid_len = passid.value.length;
-    if (passid_len == 0 ||passid_len >= my || passid_len < mx)
-    {
-        log_password_error.textContent ="Password should not be empty / length be between "+mx+" to "+my;
-        passid.focus();
-        return false;
-    }
-    
-    return true;
-}
+
 function username_validation(uid,mx,my)
 {
     var uid_len = uid.value.length;

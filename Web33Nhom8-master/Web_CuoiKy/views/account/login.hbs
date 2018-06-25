@@ -2,6 +2,12 @@
 {{#section 'title'}}
     Login
 {{/section}}
+{{#if showError}}
+<div class="alert alert-danger">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>Title!</strong> {{errorMsg}} ...
+</div>
+{{/if}}
 
 <div  class="container"  style="margin-top: 50px;">
         <div class="col-md-4 mx-auto"></div>
