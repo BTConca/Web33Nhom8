@@ -7,7 +7,8 @@ module.exports = (req, res, next) => {
     categoryRepo.loadAll().then(rows => {
         res.locals.layoutVM = {
             categories: rows,
-            isLogged: req.session.isLogged
+            isLogged: req.session.isLogged,
+            curUser: req.session.curUser,
         }
 
         next();

@@ -39,14 +39,20 @@
                            </div>
                             <!-- Account control-->
                            <div class="col-md-4">
-                               {{#if layoutVM.isLogged}}
                               
-                               <ul class="usermenu hidden" id="um-2">
-                                    <li><a  id="username" href="#" class="log"></a></li>
-                                    <li><a id="userlogout" href="#">Logout</a></li>
-                                </ul>
-                                {{else}}
+                               
                                 <ul class="usermenu" id="um-1">
+                                     {{#if layoutVM.isLogged}}
+                                    <form id="frmLogout" method="post" action="/account/logout"></form>
+                                    <li class="dropdown" style="margin-left: 100px; margin-top: 1px;">
+                                        <a href="#"id="username" class="dropdown-toggle" data-toggle="dropdown"><strong>Hi, {{layoutVM.curUser.f_Username}} !</strong> <b class="caret"></b></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="/account/profile">Profile</a></li>
+                                            <li role="separator" class="divider"></li>
+                                            <li><a id="userlogout" href="/home">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                     {{else}}
                                     <li><a href="/account/login" class="log">Login</a></li>
                                     <li><a href="/account/register" class="reg">Register</a></li>
                                 </ul>

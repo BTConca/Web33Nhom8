@@ -8,7 +8,7 @@ function reg_Validation()
     var email_err = document.getElementById('email_error');
     var name = document.registration.name;
     var name_err = document.getElementById('name_error');
-    
+
     if(username_validation(username,5,30))
     {   username_error.textContent ="";
         if(password_validation(password,8,30))
@@ -20,7 +20,9 @@ function reg_Validation()
                 if(name_validation(name))
                 { 
                     name_error.textContent ="";
-                   return true;
+                    return true;
+                    
+                   
                 }
             }
         }
@@ -87,10 +89,10 @@ function email_validation(uemail)
     }
     else
     {
-        name_error.textContent = "Username must have alphabet characters only";
+        name_error.textContent = "First must have alphabet characters only";
         uid.focus();
         return false;
     }
     
     
-} 
+}
