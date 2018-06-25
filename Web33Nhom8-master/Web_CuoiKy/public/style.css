@@ -638,17 +638,13 @@ padding: 6px;border: 1px solid #e7e7e7;-webkit-border-radius: 5px;border-radius:
 color: #666666;
 }
 .pager{
-  float:right;
-width: auto; margin:40; 
+float: right;width: auto;margin: 0;
 }
 .pager a{
 float: left;margin-left: 5px;min-width: 25px;min-height: 25px;border: 1px solid #fff;-webkit-border-radius: 5px;border-radius: 5px;position: relative;text-align: center;font-size: 15px;line-height: 22px;
 }
 .pager a.prev-page, .pager a.next-page{
 border: 1px solid #cfcfcf;
-}
-.pager a.prev-page:hover, .pager a.next-page:hover{
-cursor: pointer; border: 1px solid #f7544a;
 }
 .pager a.active{
 color: #f7544a;
