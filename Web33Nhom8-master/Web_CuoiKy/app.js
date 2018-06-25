@@ -39,19 +39,19 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-app.use(handleLayoutMDW);
-app.get('/', (req, res) => {
-    res.redirect('/home');
-});
+
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-     cookie: {
-         secure: true
-     }
+     // cookie: {
+     //     secure: true
+     // }
 }))
-
+app.use(handleLayoutMDW);
+app.get('/', (req, res) => {
+    res.redirect('/home');
+});
 app.use('/home', homeController);
 app.use('/product', productController);
 app.use('/account', accountController);
