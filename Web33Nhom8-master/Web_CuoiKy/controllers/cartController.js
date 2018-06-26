@@ -1,14 +1,20 @@
 var express = require('express');
 var productRepo = require('../repos/productRepo'),
     cartRepo = require('../repos/cartRepo');
-
+    config = require('../config/config');
 var router = express.Router();
 
 router.get('/', (req, res) => {
+   var n= cartRepo.getAmountOfItems(req.session.cart);
     var vm = {
-        items: req.session.cart
+        items: req.session.cart,
+        totalAmount:n,
+        Ship: config.SHIP_FEE,
+        totalAmountShip: n+ config.SHIP_FEE
     };
     res.render('cart/index', vm);
+ 
+    
 });
 
 router.post('/add', (req, res) => {

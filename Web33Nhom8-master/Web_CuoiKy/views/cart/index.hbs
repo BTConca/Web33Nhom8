@@ -10,9 +10,11 @@
 
 
    $('.quantity').on('change', function() {
-  		var idd = $(this).data('proid');
-  		var qty= $(this).val()
-    	alert(`${idd}`);
+  		var idd = $(this).attr("proid");
+  		var qty= $(this).val();
+    	 $('#txtP1').val(idd);
+    	 $('#txtQ1').val(qty);
+    	 $('#frmSetItem').submit();
   });
 </script>
 
@@ -62,27 +64,37 @@
                   </tr>
                 </thead>
                 <tbody>
-        
+       
 {{#each items}}
                   <tr>
                     <td>
+<a href="/product/detail/{{product.ProID}}">
                       <img src="/media/images/Wine/{{product.ProID}}.png" alt="">
+                      </a>
                     </td>
                     <td>
                       <div class="shop-details">
+                       <a href="/product/detail/{{product.ProID}}">
                         <div class="productname">
                          <b class="red">{{product.ProName}}</b>
                         </div>
+                       
+                      
+                          <p>
+
+                      {{product.TinyDes}}
+                      </p>
+                      </a>
                       </div>
                     </td>
                     <td>
                       <h5>
                         ${{product.Price}}
                       </h5>
+
                     </td>
                     <td>
-                       <input data-proid="{{product.proID}}" 
-                       class="quantity" type="number" 
+                       <input proid="{{product.ProID}}" class="quantity" type="number" 
                        href="javascript:;" step="1" min="1" max="100" value ="{{quantity}}">
                     </td>
                     <td>
@@ -102,6 +114,8 @@
                     </td>
                   </tr>
   {{/each}}
+
+
                 </tbody>
 
 
@@ -114,12 +128,12 @@
                 <tfoot>
                   <tr>
                     <td colspan="6">
-                    	<a class="ac-control" href="index.html">
+                    	<a class="ac-control" href="/home">
                       <button class="pull-left">
                         Tiếp tục mua sắm
                       </button>
                   </a>
-                  <a class="ac-control" href="cart.html">
+                  <a class="ac-control" href="/cart">
                       <button class=" pull-right">
                         Cập nhật giỏ hàng
                       </button>
@@ -138,7 +152,7 @@
                         Sản phẩm
                       </h5>
                       <span>
-                        $2.050.00
+                        ${{totalAmount}}
                       </span>
                     </div>
                      <div class="subtotal">
@@ -146,7 +160,7 @@
                         Phí Ship
                       </h5>
                       <span>
-                        $5.00
+                        ${{Ship}}
                       </span>
                     </div>
                     <div class="grandtotal">
@@ -154,7 +168,7 @@
                         TỔNG CỘNG 
                       </h5>
                       <span>
-                       $2.055.00
+                       ${{totalAmountShip}}
                       </span>
                     </div>
                     <a href = "checkout.html">
