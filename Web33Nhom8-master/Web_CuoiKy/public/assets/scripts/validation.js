@@ -1,11 +1,7 @@
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
 var accountRepo = require('../repos/accountRepo');
 >>>>>>> 6b54f980fda5d8aed55b6ab1aff1099635a39267
-=======
-var accountRepo = require('../../../repos/accountRepo');
->>>>>>> a07549767abcfa362aa6bf5b0fa759e8dad0a24f
 
 function reg_Validation()
 {
@@ -66,19 +62,12 @@ function username_validation(uid,mx,my)
         return false;
     }
 <<<<<<< HEAD
-<<<<<<< HEAD
 
 
 
    
 =======
     accountRepo.exist(uid.value).then(rows => {
-=======
-    accountRepo.exist("ochimot2").then(value => {
-        console.log( value[0].f_ID);
-     });
-    accountRepo.exist(uid.value).then(value => {
->>>>>>> a07549767abcfa362aa6bf5b0fa759e8dad0a24f
         console.log(uid.value);
         console.log("hi");
     });
@@ -112,7 +101,7 @@ function email_validation(uemail)
  function name_validation(name)
 {
     
-    var letters = /^[A-Za-z]+$/;
+    var letters = /^[A-Za-z0-9]+$/;
     
     if(name.value.match(letters))
     {
