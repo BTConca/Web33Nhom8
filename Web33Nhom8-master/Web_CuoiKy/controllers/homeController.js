@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
 
@@ -19,6 +20,11 @@ var express = require('express');
 =======
 =======
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
+=======
+
+		var express = require('express');
+  productRepo = require('../repos/productRepo');
+>>>>>>> parent of 7a57e92... Revert "Admin"
 
 		var express = require('express');
   productRepo = require('../repos/productRepo');

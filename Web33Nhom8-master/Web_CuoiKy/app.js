@@ -12,6 +12,7 @@ var handleLayoutMDW = require('./middle-wares/handleLayout');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
 =======
@@ -23,6 +24,8 @@ var restrict = require('./middle-wares/restrict');
 var trict = require('./middle-wares/restrict');
 >>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
 =======
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 
@@ -39,6 +42,7 @@ var cartController = require('./controllers/cartController');
 var searchController = require('./controllers/searchController');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 var homeController= require('./controllers/homeController');
 
@@ -52,6 +56,8 @@ var handle404MDW = require('./middle-wares/handle404');
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 var app = express();
@@ -86,10 +92,13 @@ app.use(bodyParser.urlencoded({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 
@@ -114,6 +123,7 @@ app.use(session({
 app.use(handleLayoutMDW);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 932b89b... Admin
 <<<<<<< HEAD
@@ -123,6 +133,8 @@ app.use(handleLayoutMDW);
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 app.get('/', (req, res) => {
@@ -136,6 +148,7 @@ app.use('/home', homeController);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
 =======
@@ -144,11 +157,14 @@ app.use('/home', homeController);
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 app.use('/product', productController);
 app.use('/account', accountController);
 app.use('/search', searchController);
 app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -162,6 +178,8 @@ app.use(handle404MDW);
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 app.listen(3000, () => {
