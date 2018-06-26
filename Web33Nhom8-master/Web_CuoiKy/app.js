@@ -4,17 +4,17 @@ var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
-var session = require('express-session');
 
+<<<<<<< HEAD
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 <<<<<<< HEAD
+=======
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
 
-var adminController = require('./controllers/adminController');
-var handle404MDW = require('./middle-wares/handle404');
-var restrict = require('./middle-wares/restrict');
-var trict = require('./middle-wares/restrict');
 
+var handleLayoutMDW = require('./middle-wares/handleLayout');
 var homeController= require('./controllers/homeController');
+<<<<<<< HEAD
 var productController = require('./controllers/productController');
 var accountController = require('./controllers/accountController');
 var cartController = require('./controllers/cartController');
@@ -23,6 +23,10 @@ var searchController = require('./controllers/searchController');
 var homeController= require('./controllers/homeController');
 
 >>>>>>> parent of 932b89b... Admin
+=======
+var adminController = require('./controllers/adminController');
+var handle404MDW = require('./middle-wares/handle404');
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -50,13 +54,21 @@ app.use(bodyParser.urlencoded({
 }));
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+//ADMIN
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
 app.get('/admin',(req,res) =>
 {
 	res.render('admin', { title: 'my other page', layoutsDir: 'views/_layouts/', layout: 'admin' });
 });
 app.use('/admin', adminController);
+//-End ADMIN
 
+//app.use(handleLayoutMDW);
+
+<<<<<<< HEAD
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -66,12 +78,15 @@ app.use(session({
 app.use(handleLayoutMDW);
 =======
 >>>>>>> parent of 932b89b... Admin
+=======
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
 app.use(handleLayoutMDW);
 app.use('/home', homeController);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 app.use('/product', productController);
 app.use('/account', accountController);
@@ -80,6 +95,10 @@ app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
 =======
 >>>>>>> parent of 932b89b... Admin
+=======
+app.use(handle404MDW);
+
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
 app.listen(3000, () => {
     console.log('server running on port 3000');
 });

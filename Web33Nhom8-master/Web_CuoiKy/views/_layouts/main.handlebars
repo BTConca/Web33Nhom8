@@ -5,16 +5,9 @@
     <meta charset="utf-8">       
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet" type="text/css" href="/assets/bootstrap-3.3.7/css/bootstrap.min.css">
-   <link rel="stylesheet" type="text/css" href="/style.css">
+   <link rel="stylesheet" type="text/css" href="style.css">
  <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700,500italic,100italic,100' rel='stylesheet' type='text/css'>
-
-
-
- {{{_sections.css}}}
-
-
     </head>
 <body >
 
@@ -25,7 +18,7 @@
             <div class="container">
                <div class="row">
                   <div class="col-md-2 col-sm-2">
-                     <div class="logo"><a class="ac-control" href="/home"><img src="/../media/images/logo.png" alt="Gentlemen Shop"></a></div>
+                     <div class="logo"><a class="ac-control" href="/home"><img src="../media/images/logo.png" alt="Gentlemen Shop"></a></div>
                   </div>
                   <div class="col-md-10 col-sm-10">
                      <div class="header_top">
@@ -39,46 +32,26 @@
                            </div>
                             <!-- Account control-->
                            <div class="col-md-4">
-                              
-                               
-                                <ul class="usermenu" id="um-1">
-                                     {{#if layoutVM.isLogged}}
-                                    <form id="frmLogout" method="post" action="/account/logout"></form>
-                                    <li class="dropdown" style="margin-left: 100px; margin-top: 1px;">
-                                        <a href="#"id="username" class="dropdown-toggle" data-toggle="dropdown"><strong>Hi, {{layoutVM.curUser.f_Username}} !</strong> <b class="caret"></b></a>
-                                        <ul class="dropdown-menu">
-                                           
-                                             <li>
-
-                                            </li>
-                                              <li>
-
- <a href="/">Đơn hàng
-            </a>
-
-
-
-                                            </li>
-                                             <li>
-
- <a href="/account/profile">Profile
-            </a>
-
-
-
-                                            </li>
-                                            <li role="separator" class="divider"></li>
-                                           <li><a id="lnkLogout" href="javascript:;">Logout</a></li>
-                                        </ul>
-                                    </li>
-                                     {{else}}
-                                    <li><a href="/account/login" class="log">Login</a></li>
-                                    <li><a href="/account/register" class="reg">Register</a></li>
-                                </ul>
-                                {{/if}}
+                              <ul class="usermenu" id="um-1">
+                                 <li><a id="user-login" href="#" class="log">Login</a></li>
+                                 <li><a href="#" class="reg">Register</a></li>
+                              </ul>
+                                <ul class="usermenu hidden" id="um-2">
+                               <li><a  id="username" href="#" class="log"></a></li>
+                               <li><a id="userlogout" href="#">Logout</a></li>
+                               </ul>
   
                            </div>
-            
+                            <div class="col-md-1 hidden" id="um-3">
+                                <div href="#" class="dropdown" id="dw-tool">
+                                 <button class="btn btn-whatever btn-xs dropdown-toggle" type="button" data-toggle="dropdown" id="tool">
+                                <span class="caret"></span></button>
+                                <ul class="dropdown-menu font-yekan" role="menu" aria-labelledby="tool">
+                                <li role="presentation"><a class="glyphicon glyphicon-user" role="menuitem" tabindex="-1" href="#"> Thông tin cá nhân</a></li>
+                                <li role="presentation"><a class="glyphicon glyphicon-book"role="menuitem" tabindex="-1" href="#"> Lịch sử đơn hàng</a></li>   
+                                </ul>
+                                </div>
+                            </div>
                             <!-- End Account control-->
                         </div>
                      </div>
@@ -90,38 +63,40 @@
                               <input class="search-submit" type="submit" value=""></form>
                            </li>
 
-{{#if layoutVM.isLogged}}
+
                            <li class="option-cart">
-                              <a href="/cart" class="ac-control cart-icon">cart <span class="cart_no">{{layoutVM.cartSummary}}</span></a>
+                              <a href="cart.html" class="ac-control cart-icon">cart <span class="cart_no">02</span></a>
                               <ul class="option-cart-item">
-
-{{#each layoutVM.items}}
                                  <li>
-
                                     <div class="cart-item">
-                                      <a href="/product/detail/{{product.ProID}}">
-                                       <div class="image"><img src="/../media/images/Wine/{{product.ProID}}.png" alt=""></div>
+                                       <div class="image"><img src="../media/images/Wine/1.png" alt=""></div>
                                        <div class="item-description">
-                                          <p class="name">{{product.ProName}}</p>
-                                          <p>Số lượng: <span class="light-red">{{quantity}}</span></p>
+                                          <p class="name">Avalo 2015 Primitivo Di Manduria</p>
+                                          <p>Số lượng: <span class="light-red">02</span></p>
                                        </div>
-                                     </a>
                                        <div class="right">
-                                          <p class="price">${{amount}}</p>
-                                        
-            </a>
-
+                                          <p class="price">$1600</p>
+                                          <a href="#" class="remove"><img src="../media/images/remove.png" alt="remove"></a>
                                        </div>
                                     </div>
                                  </li>
-                                 {{/each}}
-                                
-                                 <li><span class="total">Tổng <strong>${{layoutVM.totalAmount}}</strong></span><button class="checkout" onClick="location.href='/cart'">Thanh toán</button></li>
+                                 <li>
+                                    <div class="cart-item">
+                                       <div class="image"><img src="../media/images/Wine/4.png" alt=""></div>
+                                       <div class="item-description">
+                                          <p class="name">Champagne Pháp Deutz Brut Vintage</p>
+                                          <p>Số lượng: <span class="light-red">01</span></p>
+                                       </div>
+                                       <div class="right">
+                                          <p class="price">$450</p>
+                                          <a href="#" class="remove"><img src="../media/images/remove.png" alt="remove"></a>
+                                       </div>
+                                    </div>
+                                 </li>
+                                 <li><span class="total">Tổng <strong>$2060</strong></span><button class="checkout" onClick="location.href='checkout.html'">Thanh toán</button></li>
                               </ul>
                            </li>
-                           {{/if}}
                         </ul>
-                        
                         <div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button></div>
                                        <div class="navbar-collapse collapse">
                            <ul class="nav navbar-nav">
@@ -129,7 +104,7 @@
                               <li class="active"><a class="ac-control" href="/home">Home</a></li>
                            
                     {{#each layoutVM.categories}}
-                              <li>  <a class="ac-control" href="/product/byCat/{{CatID}}">{{CatName}}</a></li> {{/each}}
+                              <li>  <a class="ac-control" href="product.html">{{CatName}}</a></li> {{/each}}
                               <li><a class="ac-control" href="contact.html">contact us</a></li>
 
 
@@ -153,6 +128,7 @@
 
 
 
+
 <!-- PHẦN SLIDE -->
 </body>
 
@@ -163,7 +139,7 @@
                <div class="container">
                   <div class="row">
                      <div class="col-md-3">
-                        <div class="footer-logo"><a class="ac-control" href="contact.html"><img src="/../media/images/logo.png" alt=""></a></div>
+                        <div class="footer-logo"><a class="ac-control" href="contact.html"><img src="../media/images/logo.png" alt=""></a></div>
                      </div>
                      <div class="col-md-3 col-sm-6">
                         <h4 class="title">Contact <strong>Info</strong></h4>
@@ -203,27 +179,12 @@
          </div>
       <!-- HẾT PHẨN FOOTER -->
 <!-- PHẦN SCRIPT -->
-  
 
-  <script type="text/javascript" src="/assets/jQuery/jquery-3.1.1.min.js"></script>
-
+  <script type="text/javascript" src="/assets/jQuery/jquery-1.12.4.min.js"></script>
      <script type="text/javascript" src="/assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
-
-  <script type="text/javascript" src="/scripts.js"></script>
+  <script src="scripts.js"></script>
 
     <script type="text/javascript" src="/assets/jQuery/jquery.carouFredSel-6.2.1-packed.js"></script>
-
-  <script type="text/javascript">
-    $('#lnkLogout').on('click', function() {
-    
-        $('#frmLogout').submit();
-    });
-       
-  </script>
-
-  {{{_sections.js}}}
-
-
-
+   
    <!-- HẾT PHẦN SCRIPT -->
 </html>

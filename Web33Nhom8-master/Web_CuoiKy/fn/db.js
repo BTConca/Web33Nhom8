@@ -7,14 +7,15 @@ exports.load = sql => {
             port: 3306,
             user: 'root',
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
             password: 'root',
 =======
             password: '',
 >>>>>>> parent of 932b89b... Admin
             database: 'qlbh'
-            datestring:'date'
-
         });
 
         cn.connect();
@@ -39,12 +40,16 @@ exports.save = sql => {
             user: 'root',
 <<<<<<< HEAD
             password: 'root',
+<<<<<<< HEAD
             database: 'qlbh',
              datestring:'date'
 =======
             password: '',
             database: 'qlbh'
 >>>>>>> parent of 932b89b... Admin
+=======
+            database: 'qlbh'
+>>>>>>> parent of c7effc1... Merge branch 'master' into admin
         });
 
         cn.connect();
