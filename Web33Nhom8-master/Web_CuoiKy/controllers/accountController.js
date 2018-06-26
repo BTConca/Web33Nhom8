@@ -20,7 +20,7 @@ router.post('/register', (req, res) => {
         {
 
             var dob = moment(req.body.dob, 'D/M/YYYY')
-            .format('YYYY-MM-DDTHH:mm');
+            .format('YYYY-MM-DD');
         var user = {
             username: req.body.username,
             password: sha256(req.body.password).toString(),
@@ -109,5 +109,17 @@ router.post('account/profile', (req, res) => {
     // ông viết form post rồi dùng req.body.tên của input để lấy thông tin xong viết hàm update user bên sql gọi ở đây là xong  
 
 });
-
+router.post('/profile',(req,res)=>{
+    var dob = moment(req.body.dob, 'D/M/YYYY')
+    .format('YYYY-MM-DD');
+    var user = {
+    username:req.body.username,
+    email:req.body.email,
+    name:req.body.name,
+    dob: dob
+    };
+    accountRepo.edit(user).then(rows =>{
+        res.render('account/profile');
+    });
+});
 module.exports = router;
