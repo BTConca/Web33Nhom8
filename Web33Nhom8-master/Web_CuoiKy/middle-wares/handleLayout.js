@@ -9,8 +9,10 @@ module.exports = (req, res, next) => {
             categories: rows,
             isLogged: req.session.isLogged,
             curUser: req.session.curUser,
-            cartSummary: cartRepo.getNumberOfItems(req.session.cart)
- 
+            cartSummary: cartRepo.getNumberOfItems(req.session.cart),
+             items: req.session.cart,
+             totalAmount:cartRepo.getAmountOfItems(req.session.cart)
+
         }
 
         next();

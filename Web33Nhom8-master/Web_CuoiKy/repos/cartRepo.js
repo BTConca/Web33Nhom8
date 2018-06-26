@@ -18,9 +18,10 @@ exports.getNumberOfItems = cart => {
 
     return n;
 }
+
 exports.getAmountOfItems = cart => {
     if (!cart) {
-        return -1;
+        return 0;
     }
 
     var n = 0;
