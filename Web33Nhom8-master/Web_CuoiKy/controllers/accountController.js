@@ -88,6 +88,8 @@ router.post('/logout', restrict, (req, res) => {
 
 
 
+
+
 router.get('/profile', (req, res) => {
   
      accountRepo.getProfile(req.session.curUser.f_Username).then(rows =>{
@@ -97,16 +99,24 @@ vm={
 }
     res.render('account/profile', vm);
      });
-     
 });
 
 
-router.post('account/profile', (req, res) => {
+router.post('/profile', (req, res) => {
   
-   // Ông viết hàm post này nha thêm nút button vào form login hbs
-   // mấy thông tin không cho sửa thì t thêm readonly vào rồi
-    // ông viết form post rồi dùng req.body.tên của input để lấy thông tin xong viết hàm update user bên sql gọi ở đây là xong  
-
+   
+    var dob = moment(req.body.dob, 'D/M/YYYY')
+    .format('YYYY-MM-DDTHH:mm');
+    var user = {
+        username: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        address: req.body.address,
+        dob: dob,
+    };  
+    accountRepo.update(user).then(rows=>{
+        res.redirect('/account/profile');
+    });
 });
 
 module.exports = router;
