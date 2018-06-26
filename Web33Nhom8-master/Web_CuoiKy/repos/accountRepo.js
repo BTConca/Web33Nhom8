@@ -14,7 +14,6 @@ exports.check = username =>{
 	return db.load(sql);
 }
 exports.edit = user =>{
-	
 	var sql = `update users set f_Email = '${user.email}', f_Name = '${user.name}',f_DOB = '${user.dob}' where f_Username = '${user.username}'`;
 	return db.load(sql);
 }

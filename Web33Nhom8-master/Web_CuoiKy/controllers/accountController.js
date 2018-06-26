@@ -90,15 +90,14 @@ router.get('/profile', restrict, (req, res) => {
 router.post('/profile',(req,res)=>{
     var dob = moment(req.body.dob, 'D/M/YYYY')
     .format('YYYY-MM-DD');
-    
     var user = {
     username:req.body.username,
     email:req.body.email,
     name:req.body.name,
     dob: dob
-    }
+    };
     accountRepo.edit(user).then(rows =>{
         res.render('account/profile');
-    })
-})
+    });
+});
 module.exports = router;

@@ -31,17 +31,18 @@
                     <span class="span-or"></span>
             </div>
         </div>
-        <form class="form-horizontal" method="post" action="/account/profile" role="form" name="profile">
+          <form class="form-horizontal" action="/account/profile" method="post" name="profile"> 
+        
             <div class="form-group">
             <label class="col-lg-3 control-label">ID:</label>
               <div class="col-lg-8">
-                <input class="form-control" name="ID" type="text" placeholder="{{layoutVM.curUser.f_ID}}">
+                <input class="form-control" name="ID" type="text" value="{{layoutVM.curUser.f_ID}}">
               </div>
             </div>
             <div class="form-group">
               <label class="col-lg-3 control-label">Username:</label>
               <div class="col-lg-8">
-                <input class="form-control" name="username" type="text" placeholder="{{layoutVM.curUser.f_Username}}">
+                <input class="form-control" name="username" type="text" value="{{layoutVM.curUser.f_Username}}">
               </div>
             </div>
             <div class="form-group">
@@ -74,7 +75,7 @@
                   <button type="submit"  class=" btn btn-block mybtn btn-primary tx-tfm">Save</button>
                 </div>
             </div>
-            
+          </form>
       </div>
   </div>
 </div>
