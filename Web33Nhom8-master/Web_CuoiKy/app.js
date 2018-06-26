@@ -8,9 +8,15 @@ var wnumb = require('wnumb');
 <<<<<<< HEAD
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
 
+=======
+var handle404MDW = require('./middle-wares/handle404');
+var restrict = require('./middle-wares/restrict');
+var trict = require('./middle-wares/restrict');
+>>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 var homeController= require('./controllers/homeController');
@@ -55,6 +61,7 @@ app.use(bodyParser.urlencoded({
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 //ADMIN
@@ -69,6 +76,8 @@ app.use('/admin', adminController);
 //app.use(handleLayoutMDW);
 
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
 app.use(session({
     secret: 'keyboard cat',
     resave: false,
@@ -85,9 +94,12 @@ app.get('/', (req, res) => {
 });
 app.use(handleLayoutMDW);
 app.use('/home', homeController);
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+>>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
 app.use('/product', productController);
 app.use('/account', accountController);
 app.use('/search', searchController);
