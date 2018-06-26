@@ -86,7 +86,6 @@ router.post('/logout', restrict, (req, res) => {
 
 router.get('/profile', restrict, (req, res) => {
     res.render('account/profile');
-
 });
 
 module.exports = router;
