@@ -30,19 +30,12 @@ router.get('/detail/:proId', (req, res) => {
 
 
 
-
-
-
-
-
-
 router.get('/byCat/:catId', (req, res) => {
     var catId = req.params.catId;
-
     var page = req.query.page;
     if (!page) page = 1;
     if (page < 1) page = 1;
-
+  
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
 
     var p1 = productRepo.loadPageByCat(catId, offset);
@@ -67,6 +60,7 @@ router.get('/byCat/:catId', (req, res) => {
             noProducts: rows.length === 0,
             page_numbers: numbers
         };
+     
         res.render('product/byCat', vm);
     });
 });

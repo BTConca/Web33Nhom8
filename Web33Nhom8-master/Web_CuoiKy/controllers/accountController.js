@@ -88,8 +88,6 @@ router.post('/logout', restrict, (req, res) => {
 
 
 
-
-
 router.get('/profile', (req, res) => {
   
      accountRepo.getProfile(req.session.curUser.f_Username).then(rows =>{
@@ -99,6 +97,7 @@ vm={
 }
     res.render('account/profile', vm);
      });
+     
 });
 
 

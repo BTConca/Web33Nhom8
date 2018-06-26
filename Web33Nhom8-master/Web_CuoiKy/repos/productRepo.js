@@ -49,21 +49,42 @@ exports.single = id => {
 	return db.load(sql);
 }
 exports.search = (name,CatID,ProducerID,PriceMin,PriceMax,offset) => {
-	if((CatID===-1)&(ProducerID===-1))
+	// if((CatID===-1)&(ProducerID===-1))
+	// {
+	// 	var sql = `select * from products where ProName like '%${name}%' and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	// }
+	// if((CatID===-1)&(ProducerID!=-1))
+	// {
+	// 	var sql = `select * from products where ProName like '%${name}%' and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	// }
+	// if((CatID!=-1)&(ProducerID===-1))
+	// {
+	// 	var sql = `select * from products where ProName like '%${name}%' and CatID=${CatID} and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	// }
+	// 	if((CatID!=-1)&(ProducerID!=-1))
+	// {
+	// 	var sql = `select * from products where ProName like '%${name}%' and CatID=${CatID} and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	// }
+	var sql = `select * from products where ProName like '%${name}%' and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+		return db.load(sql);
+}
+exports.countBySearch = (name,CatID,ProducerID,PriceMin,PriceMax) => {
+	if((CatID==-1)&(ProducerID==-1))
 	{
-		var sql = `select * from products where ProName like '%&{name}%' and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+		var sql = `select count(*) as total  from products where ProName like '%${name}%' and Price between ${PriceMin} and ${PriceMax}`;
 	}
-	if((CatID===-1)&(ProducerID!=-1))
+	if((CatID==-1)&(ProducerID!=-1))
 	{
-		var sql = `select * from products where ProName like '%&{name}%' and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+		var sql = `select count(*) as total  from products where ProName like '%${name}%' and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} `;
 	}
-	if((CatID!=-1)&(ProducerID===-1))
+	if((CatID!=-1)&(ProducerID==-1))
 	{
-		var sql = `select * from products where ProName like '%&{name}%' and CatID=${CatID} and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+		var sql = `select count(*) as total  from products where ProName like '%${name}%' and CatID=${CatID} and Price between ${PriceMin} and ${PriceMax} `;
 	}
 		if((CatID!=-1)&(ProducerID!=-1))
 	{
-		var sql = `select * from products where ProName like '%&{name}%' and CatID=${CatID} and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+		var sql = `select count(*) as total  from products where ProName like '%${name}%' and CatID=${CatID} and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} `;
 	}
+
 	return db.load(sql);
 }
