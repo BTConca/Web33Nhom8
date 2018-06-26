@@ -119,4 +119,8 @@ router.post('/profile', (req, res) => {
     });
 });
 
+router.get('/changepw', (req, res) => {
+    res.render('account/changepw');
+});
+
 module.exports = router;
