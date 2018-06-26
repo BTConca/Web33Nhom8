@@ -1,4 +1,4 @@
-var accountRepo = require('../repos/accountRepo');
+var accountRepo = require('../../../repos/accountRepo');
 
 function reg_Validation()
 {
@@ -53,7 +53,10 @@ function username_validation(uid,mx,my)
         uid.focus();
         return false;
     }
-    accountRepo.exist(uid.value).then(rows => {
+    accountRepo.exist("ochimot2").then(value => {
+        console.log( value[0].f_ID);
+     });
+    accountRepo.exist(uid.value).then(value => {
         console.log(uid.value);
         console.log("hi");
     });
@@ -86,7 +89,7 @@ function email_validation(uemail)
  function name_validation(name)
 {
     
-    var letters = /^[A-Za-z0-9]+$/;
+    var letters = /^[A-Za-z]+$/;
     
     if(name.value.match(letters))
     {
