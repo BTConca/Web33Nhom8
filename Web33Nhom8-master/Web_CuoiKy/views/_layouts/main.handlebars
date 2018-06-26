@@ -47,12 +47,21 @@
                                     <li class="dropdown" style="margin-left: 100px; margin-top: 1px;">
                                         <a href="#"id="username" class="dropdown-toggle" data-toggle="dropdown"><strong>Hi, {{layoutVM.curUser.f_Username}} !</strong> <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li>
+                                           
+                                             <li>
 
-<form id="frmProfile" method="post" action="/account/profile">
-  <input type="hidden" name="username" id="txtUser">
-</form>
- <a data-userid="{{layoutVM.curUser.f_Username}}" id="profile" href="javascript:;" role="button">Profile
+                                            </li>
+                                              <li>
+
+ <a href="/">Đơn hàng
+            </a>
+
+
+
+                                            </li>
+                                             <li>
+
+ <a href="/account/profile">Profile
             </a>
 
 
@@ -69,16 +78,7 @@
                                 {{/if}}
   
                            </div>
-                            <div class="col-md-1 hidden" id="um-3">
-                                <div href="#" class="dropdown" id="dw-tool">
-                                 <button class="btn btn-whatever btn-xs dropdown-toggle" type="button" data-toggle="dropdown" id="tool">
-                                <span class="caret"></span></button>
-                                <ul class="dropdown-menu font-yekan" role="menu" aria-labelledby="tool">
-                                <li role="presentation"><a class="glyphicon glyphicon-user" role="menuitem" tabindex="-1" href="#"> Thông tin cá nhân</a></li>
-                                <li role="presentation"><a class="glyphicon glyphicon-book"role="menuitem" tabindex="-1" href="#"> Lịch sử đơn hàng</a></li>   
-                                </ul>
-                                </div>
-                            </div>
+            
                             <!-- End Account control-->
                         </div>
                      </div>
@@ -218,13 +218,7 @@
     
         $('#frmLogout').submit();
     });
-        $('#profile').on('click', function() {
-
-       var id = $(this).data('userid');
-        alert(`${id} good`);
-      $('#txtUser').val(id);
-      $('#frmProfile').submit();
-  });
+       
   </script>
 
   {{{_sections.js}}}
