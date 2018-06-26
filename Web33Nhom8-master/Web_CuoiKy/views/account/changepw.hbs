@@ -17,7 +17,7 @@
             </div>
         </div>
         
-        <form action="/account/changepassword" method="post" class="form-horizontal" role="form"  name="changepw">
+        <form action="/account/changepw" method="post" class="form-horizontal" role="form"  name="changepw">
           <div class="form-group">
             <label class="col-lg-3 control-label">Old Password:</label>
             <div class="col-lg-8">
@@ -27,8 +27,14 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">New Password:</label>
             <div class="col-lg-8">
-              <input class="form-control" name="Newpw" type="text">
+              <input class="form-control" name="newpw" type="text">
             </div>
+          </div>
+          <div class="row">
+              <div class="col-md-4 "></div>
+               {{#if showError}}
+                <div class=" alert-danger col-md-5">{{errorMsg}}!</div>
+                {{/if}}
           </div>
          
           <div class="col-md-12 ">
@@ -43,6 +49,8 @@
               <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Ok</button>
             </div>
           </div>
+        
+       
         </form>  
       </div>
   </div>

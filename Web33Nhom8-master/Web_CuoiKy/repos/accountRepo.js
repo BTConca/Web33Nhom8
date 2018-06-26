@@ -21,3 +21,7 @@ exports.update = user => {
 	var sql = `update users set f_Name = '${user.name}',f_Email = '${user.email}',f_DOB = '${user.dob}',f_Adress ='${user.address}'  where f_Username = '${user.username}'`;
 	return db.load(sql);
 }
+exports.updatepw = user => {
+	var sql = `update users set f_Password = '${user.newpassword}'  where f_Username = '${user.username}'`;
+	return db.load(sql);
+}

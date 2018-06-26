@@ -122,5 +122,27 @@ router.post('/profile', (req, res) => {
 router.get('/changepw', (req, res) => {
     res.render('account/changepw');
 });
+router.post('/changepw',(req,res)=>{
+    var user={
+        username: req.session.curUser.f_Username,
+        password: sha256(req.body.oldpw).toString(),
+        newpassword:sha256(req.body.newpw).toString()
+    };
+    accountRepo.login(user).then(rows=>{
+        if(rows.length>0)
+        {
+            accountRepo.updatepw(user).then(row=>{
+                res.redirect('/account/profile')
+            })
+        }
+        else {
+            var vm = {
+                showError: true,
+                errorMsg: 'Old Password is wrong'
+            };
+            res.render('account/changepw', vm);
+        }
+    });
+});
 
 module.exports = router;
