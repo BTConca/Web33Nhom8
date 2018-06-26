@@ -1,48 +1,6 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
 
-		var express = require('express');
+    var express = require('express');
   productRepo = require('../repos/productRepo');
-=======
-		var express = require('express');
->>>>>>> parent of 932b89b... Admin
-<<<<<<< HEAD
-=======
-var express = require('express');
->>>>>>> parent of c7effc1... Merge branch 'master' into admin
-=======
-=======
->>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
-=======
-
-		var express = require('express');
-  productRepo = require('../repos/productRepo');
->>>>>>> parent of 7a57e92... Revert "Admin"
-
-		var express = require('express');
-  productRepo = require('../repos/productRepo');
->>>>>>> parent of 7a57e92... Revert "Admin"
-=======
-
-		var express = require('express');
-  productRepo = require('../repos/productRepo');
->>>>>>> parent of 7a57e92... Revert "Admin"
-=======
-		var express = require('express');
->>>>>>> parent of 932b89b... Admin
-
-=======
-		var express = require('express');
-  productRepo = require('../repos/productRepo');
->>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
 var router = express.Router();
 
 router.get('/', (req, res) => {
