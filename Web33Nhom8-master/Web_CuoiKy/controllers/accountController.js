@@ -12,23 +12,9 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-<<<<<<< HEAD
 
     accountRepo.check(req.body.username).then(value =>
     {
-=======
-    var dob = moment(req.body.dob, 'D/M/YYYY')
-        .format('YYYY-MM-DD');
-    
-    var user = {
-        username: req.body.username,
-        password: sha256(req.body.password).toString(),
-        name: req.body.name,
-        email: req.body.email,
-        dob: dob,
-        permisson: 0
-    };
->>>>>>> 6b54f980fda5d8aed55b6ab1aff1099635a39267
 
         if(value[0].total == 0)
         {
@@ -69,11 +55,7 @@ router.post('/login', (req, res) => {
         username: req.body.username,
         password: sha256(req.body.password).toString()
     };
-<<<<<<< HEAD
    
-=======
-  
->>>>>>> 6b54f980fda5d8aed55b6ab1aff1099635a39267
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
             req.session.isLogged = true;
@@ -103,7 +85,6 @@ router.post('/logout', restrict, (req, res) => {
 });
 
 router.get('/profile', restrict, (req, res) => {
-   
     res.render('account/profile');
 
 });

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-var accountRepo = require('../repos/accountRepo');
->>>>>>> 6b54f980fda5d8aed55b6ab1aff1099635a39267
 
 function reg_Validation()
 {
@@ -61,17 +57,10 @@ function username_validation(uid,mx,my)
         uid.focus();
         return false;
     }
-<<<<<<< HEAD
 
 
 
    
-=======
-    accountRepo.exist(uid.value).then(rows => {
-        console.log(uid.value);
-        console.log("hi");
-    });
->>>>>>> 6b54f980fda5d8aed55b6ab1aff1099635a39267
 }
 function password_validation(passid,mx,my)
 {

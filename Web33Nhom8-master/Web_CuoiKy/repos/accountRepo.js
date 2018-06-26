@@ -9,14 +9,7 @@ exports.login = user => {
 	var sql = `select * from users where f_Username = '${user.username}' and f_Password = '${user.password}'`;
 	return db.load(sql);
 }
-<<<<<<< HEAD
 exports.check = username =>{
 	var sql = `select count(*) as total from users where f_Username = '${username}' `;
 	return db.load(sql);
 }
-=======
-exports.exist = user => {
-	var sql = `select * from users where f_Username = '${user.username}'`;
-	return db.load(sql);
-}
->>>>>>> 6b54f980fda5d8aed55b6ab1aff1099635a39267
