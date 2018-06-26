@@ -4,13 +4,20 @@ var exphbs_section = require('express-handlebars-sections');
 var bodyParser = require('body-parser');
 var path = require('path');
 var wnumb = require('wnumb');
-
-
+var session = require('express-session');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
-var homeController= require('./controllers/homeController');
+
 var adminController = require('./controllers/adminController');
 var handle404MDW = require('./middle-wares/handle404');
+var restrict = require('./middle-wares/restrict');
+var trict = require('./middle-wares/restrict');
+
+var homeController= require('./controllers/homeController');
+var productController = require('./controllers/productController');
+var accountController = require('./controllers/accountController');
+var cartController = require('./controllers/cartController');
+var searchController = require('./controllers/searchController');
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -37,23 +44,30 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 
-//ADMIN
+
 app.get('/admin',(req,res) =>
 {
 	res.render('admin', { title: 'my other page', layoutsDir: 'views/_layouts/', layout: 'admin' });
 });
 app.use('/admin', adminController);
-//-End ADMIN
 
-//app.use(handleLayoutMDW);
-
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+     
+}))
+app.use(handleLayoutMDW);
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
 app.use('/home', homeController);
 
+app.use('/product', productController);
+app.use('/account', accountController);
+app.use('/search', searchController);
+app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
-
 app.listen(3000, () => {
     console.log('server running on port 3000');
 });

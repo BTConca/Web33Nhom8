@@ -6,8 +6,25 @@
 
 
 
-<!-- PHẦN SLIDE -->
+{{#section 'js'}}
+<script type="text/javascript">
+  $('.addItem').on('click', function() {
+      var id = $(this).data('proid');
+      $('#txtP').val(id);
+      $('#txtQ').val(1);
+      $('#frmAddItem').submit();
+  });
+</script>
+<script src="/slide.js"></script>
+{{/section}}
 
+
+
+<!-- PHẦN SLIDE -->
+<form id="frmAddItem" method="post" action="/cart/add">
+    <input type="hidden" name="proId" id="txtP">
+    <input type="hidden" name="quantity" id="txtQ">
+  </form>
 <div  id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol style="z-index:1;" class="carousel-indicators">
@@ -20,23 +37,23 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox" style="width=100%; height: 400px !important;">
       <div class="item active">
-        <img src="../media/images/Wine/wall2.jpg" alt="Image">
+        <img src="/media/images/Wine/wall2.jpg" alt="Image">
         <div class="carousel-caption">
         </div>      
       </div>
       <div class="item">
-        <img src="../media/images/Wine/wall1.png" alt="Image">
+        <img src="/media/images/Wine/wall1.png" alt="Image">
         <div class="carousel-caption">
         </div>      
       </div>       
       <div class="item">
-        <img src="../media/images/Wine/wall3.jpg" alt="Image">
+        <img src="/media/images/Wine/wall3.jpg" alt="Image">
         <div class="carousel-caption">
 
         </div>      
 	</div>       
       <div class="item">
-        <img src="../media/images/Wine/wall4.jpg" alt="Image">
+        <img src="/media/images/Wine/wall4.jpg" alt="Image">
         <div class="carousel-caption">
         </div>      
       </div>              
@@ -78,85 +95,75 @@
         
                   <ul id="hot">
                      <li>
+
                         <div class="row">
+    {{#each s1}}
+   
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                        {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
                               </div>
                            </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                          
-                        </div>
+{{/each}}
+                          </div>
+
                      </li>
                      <li>
                         <div class="row">
-                              <div class="col-md-3 col-sm-6">
+                               {{#each s2}}
+                           <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                       {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
                               </div>
                            </div>
-                            <div class="col-md-3 col-sm-6">
+                    {{/each}}
+                        </div>
+                     </li>
+                      <li>
+                        <div class="row">
+                               {{#each s3}}
+                           <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                     {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
                               </div>
                            </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                   
+                     {{/each}}
                         </div>
                      </li>
                   </ul>
@@ -176,86 +183,77 @@
                   <div class="control"><a id="prev_newest" class="prev" href="#">&lt;</a><a id="next_newest" class="next" href="#">&gt;</a></div>
                 </div>
                 </div>
-                  <ul id="newest">
+                                    <ul id="newest">
                      <li>
+
                         <div class="row">
+    {{#each n1}}
+   
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                         {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
                               </div>
                            </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                        </div>
+{{/each}}
+                          </div>
+
                      </li>
                      <li>
                         <div class="row">
-                            <div class="col-md-3 col-sm-6">
+                               {{#each n2}}
+                           <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                    {{#if ../layoutVM.isLogged}}
 
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
+                              </div>
+                           </div>
+                    {{/each}}
+                        </div>
+                     </li>
+                      <li>
+                        <div class="row">
+                               {{#each n3}}
+                           <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                      {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
+                              </div>
+                           </div>
+                     {{/each}}
                         </div>
                      </li>
                   </ul>
@@ -273,86 +271,85 @@
                   <div class="control"><a id="prev_most-view" class="prev" href="#">&lt;</a><a id="next_most-view" class="next" href="#">&gt;</a></div>
                 </div>
                 </div>
-                  <ul id="most-view">
+                                   <ul id="most-view">
                      <li>
+
                         <div class="row">
-                            <div class="col-md-3 col-sm-6">
+    {{#each v1}}
+   
+                           <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                        {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
                               </div>
                            </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                        </div>
+{{/each}}
+                          </div>
+
                      </li>
                      <li>
                         <div class="row">
+                               {{#each v2}}
                            <div class="col-md-3 col-sm-6">
                               <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
-                            <div class="col-md-3 col-sm-6">
-                              <div class="products">
-                                 <div class="offer">- %20</div>
-                                 <div class="thumbnail"><a href="detail.html"><img src="../media/images/Wine/0.png" alt="Product Name" ></a></div>
-                                 <div class="productname">Chivas 18</div>
-                                 <h4 class="price">$451.00</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
-                              </div>
-                           </div>
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                
 
+
+
+          {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
+
+
+
+
+                              </div>
+                           </div>
+                    {{/each}}
+                        </div>
+                     </li>
+                      <li>
+                        <div class="row">
+                               {{#each v3}}
+                           <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                         {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>  
+                      
+          {{/if}}
+                              </div>
+                           </div>
+                     {{/each}}
                         </div>
                      </li>
                   </ul>
