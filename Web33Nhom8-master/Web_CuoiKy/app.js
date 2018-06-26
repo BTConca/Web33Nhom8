@@ -9,8 +9,11 @@ var wnumb = require('wnumb');
 var handleLayoutMDW = require('./middle-wares/handleLayout');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 
 =======
 var handle404MDW = require('./middle-wares/handle404');
@@ -25,6 +28,7 @@ var productController = require('./controllers/productController');
 var accountController = require('./controllers/accountController');
 var cartController = require('./controllers/cartController');
 var searchController = require('./controllers/searchController');
+<<<<<<< HEAD
 =======
 var homeController= require('./controllers/homeController');
 
@@ -33,6 +37,8 @@ var homeController= require('./controllers/homeController');
 var adminController = require('./controllers/adminController');
 var handle404MDW = require('./middle-wares/handle404');
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -48,12 +54,12 @@ app.engine('hbs', exphbs({
         }
     }
 }));
+
 app.set('view engine', 'hbs');
-
-app.use(express.static(
-    path.resolve(__dirname, 'public')
-));
-
+// app.use(express.static(
+    // path.resolve(__dirname, 'public')
+// ));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
@@ -62,6 +68,9 @@ app.use(bodyParser.urlencoded({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 
 =======
 //ADMIN
@@ -85,32 +94,40 @@ app.use(session({
      
 }))
 app.use(handleLayoutMDW);
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 932b89b... Admin
 =======
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
-app.use(handleLayoutMDW);
 app.use('/home', homeController);
 <<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 app.use('/product', productController);
 app.use('/account', accountController);
 app.use('/search', searchController);
 app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 932b89b... Admin
 =======
 app.use(handle404MDW);
 
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
+=======
+>>>>>>> parent of 7a57e92... Revert "Admin"
 app.listen(3000, () => {
     console.log('server running on port 3000');
 });
