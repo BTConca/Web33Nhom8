@@ -7,6 +7,8 @@ var wnumb = require('wnumb');
 var session = require('express-session');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
+
+var adminController = require('./controllers/adminController');
 var handle404MDW = require('./middle-wares/handle404');
 var restrict = require('./middle-wares/restrict');
 var trict = require('./middle-wares/restrict');
@@ -31,16 +33,23 @@ app.engine('hbs', exphbs({
         }
     }
 }));
+
 app.set('view engine', 'hbs');
-
-app.use(express.static(
-    path.resolve(__dirname, 'public')
-));
-
+// app.use(express.static(
+    // path.resolve(__dirname, 'public')
+// ));
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
+
+
+app.get('/admin',(req,res) =>
+{
+	res.render('admin', { title: 'my other page', layoutsDir: 'views/_layouts/', layout: 'admin' });
+});
+app.use('/admin', adminController);
 
 app.use(session({
     secret: 'keyboard cat',
@@ -53,6 +62,7 @@ app.get('/', (req, res) => {
     res.redirect('/home');
 });
 app.use('/home', homeController);
+
 app.use('/product', productController);
 app.use('/account', accountController);
 app.use('/search', searchController);
