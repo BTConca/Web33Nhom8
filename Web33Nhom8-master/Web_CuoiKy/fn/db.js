@@ -13,6 +13,7 @@ exports.load = sql => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
@@ -36,6 +37,9 @@ exports.load = sql => {
 
             password: 'root',
 >>>>>>> parent of 7a57e92... Revert "Admin"
+=======
+            password: '',
+>>>>>>> parent of 932b89b... Admin
             database: 'qlbh'
             datestring:'date'
 
@@ -67,6 +71,7 @@ exports.save = sql => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
@@ -89,6 +94,9 @@ exports.save = sql => {
 >>>>>>> parent of 932b89b... Admin
 <<<<<<< HEAD
 =======
+=======
+            password: '',
+>>>>>>> parent of 932b89b... Admin
             database: 'qlbh'
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
 =======

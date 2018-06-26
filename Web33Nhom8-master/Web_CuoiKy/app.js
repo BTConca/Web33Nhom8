@@ -36,6 +36,7 @@ var trict = require('./middle-wares/restrict');
 >>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
 
 var homeController= require('./controllers/homeController');
+<<<<<<< HEAD
 var productController = require('./controllers/productController');
 var accountController = require('./controllers/accountController');
 var cartController = require('./controllers/cartController');
@@ -60,6 +61,9 @@ var handle404MDW = require('./middle-wares/handle404');
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
+=======
+
+>>>>>>> parent of 932b89b... Admin
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -75,17 +79,18 @@ app.engine('hbs', exphbs({
         }
     }
 }));
-
 app.set('view engine', 'hbs');
-// app.use(express.static(
-    // path.resolve(__dirname, 'public')
-// ));
-app.use(express.static(path.join(__dirname, '/public')));
+
+app.use(express.static(
+    path.resolve(__dirname, 'public')
+));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -137,12 +142,16 @@ app.use(handleLayoutMDW);
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
+=======
+>>>>>>> parent of 932b89b... Admin
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
+app.use(handleLayoutMDW);
 app.use('/home', homeController);
 <<<<<<< HEAD
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -182,6 +191,8 @@ app.use(handle404MDW);
 >>>>>>> parent of 7a57e92... Revert "Admin"
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
+=======
+>>>>>>> parent of 932b89b... Admin
 app.listen(3000, () => {
     console.log('server running on port 3000');
 });
