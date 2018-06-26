@@ -7,7 +7,7 @@ exports.load = sql => {
             port: 3306,
             user: 'root',
             database: 'qlbh2',
-            datestring:'date'
+            dateStrings: true
 
         });
 
@@ -32,7 +32,7 @@ exports.save = sql => {
             port: 3306,
             user: 'root',
             database: 'qlbh2',
-            datestring:'date'
+            dateStrings: true
 
         });
 
