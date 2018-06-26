@@ -8,25 +8,42 @@ var accountRepo = require('../repos/accountRepo');
 var router = express.Router();
 
 router.get('/register', (req, res) => {
-    res.render('account/register');
+        res.render('account/register');
 });
 
 router.post('/register', (req, res) => {
-    var dob = moment(req.body.dob, 'D/M/YYYY')
-        .format('YYYY-MM-DDTHH:mm');
 
-    var user = {
-        username: req.body.username,
-        password: sha256(req.body.password).toString(),
-        name: req.body.name,
-        email: req.body.email,
-        dob: dob,
-        permisson: 0
-    };
+    accountRepo.check(req.body.username).then(value =>
+    {
 
-    accountRepo.add(user).then(value => {
-        res.render('account/register');
-    });
+        if(value[0].total == 0)
+        {
+
+            var dob = moment(req.body.dob, 'D/M/YYYY')
+            .format('YYYY-MM-DDTHH:mm');
+        var user = {
+            username: req.body.username,
+            password: sha256(req.body.password).toString(),
+            name: req.body.name,
+            email: req.body.email,
+            dob: dob,
+            permisson: 0
+        };
+
+            accountRepo.add(user).then(value => {
+            res.render('account/register',vm);
+            });
+        }
+    else
+    {
+       
+         var vm = {
+                    showError: true,
+                };
+        res.render('account/register', vm);
+    }
+    })
+   
 });
 
 router.get('/login', (req, res) => {
@@ -38,7 +55,7 @@ router.post('/login', (req, res) => {
         username: req.body.username,
         password: sha256(req.body.password).toString()
     };
-    console.log("Hi");
+   
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
             req.session.isLogged = true;

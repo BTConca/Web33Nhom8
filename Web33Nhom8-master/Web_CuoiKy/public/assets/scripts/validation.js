@@ -1,3 +1,4 @@
+
 function reg_Validation()
 {
     var username = document.registration.username;
@@ -28,10 +29,13 @@ function reg_Validation()
         }
     }
     return false;
+
+   
 }
 
 function username_validation(uid,mx,my)
 {
+
     var uid_len = uid.value.length;
     if (uid_len == 0 || uid_len >= my || uid_len < mx)
     {
@@ -48,10 +52,15 @@ function username_validation(uid,mx,my)
     else
     {
         username_error.textContent = "Username must have alphabet characters only";
+        
+        
         uid.focus();
         return false;
     }
-    
+
+
+
+   
 }
 function password_validation(passid,mx,my)
 {
@@ -93,6 +102,7 @@ function email_validation(uemail)
         uid.focus();
         return false;
     }
-    
+  
+
     
 }

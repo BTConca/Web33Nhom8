@@ -9,3 +9,7 @@ exports.login = user => {
 	var sql = `select * from users where f_Username = '${user.username}' and f_Password = '${user.password}'`;
 	return db.load(sql);
 }
+exports.check = username =>{
+	var sql = `select count(*) as total from users where f_Username = '${username}' `;
+	return db.load(sql);
+}
