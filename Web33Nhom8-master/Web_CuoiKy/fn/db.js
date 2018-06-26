@@ -33,7 +33,7 @@ exports.save = sql => {
             user: 'root',
             password: '',
             database: 'qlbh2',
-            datestring:'date'
+             datestring:'date'
         });
 
         cn.connect();
