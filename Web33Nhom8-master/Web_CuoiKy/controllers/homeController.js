@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 
 		var express = require('express');
   productRepo = require('../repos/productRepo');
+=======
+		var express = require('express');
+>>>>>>> parent of 932b89b... Admin
 
 var router = express.Router();
 

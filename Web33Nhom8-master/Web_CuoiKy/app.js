@@ -7,6 +7,7 @@ var wnumb = require('wnumb');
 var session = require('express-session');
 
 var handleLayoutMDW = require('./middle-wares/handleLayout');
+<<<<<<< HEAD
 
 var adminController = require('./controllers/adminController');
 var handle404MDW = require('./middle-wares/handle404');
@@ -18,6 +19,10 @@ var productController = require('./controllers/productController');
 var accountController = require('./controllers/accountController');
 var cartController = require('./controllers/cartController');
 var searchController = require('./controllers/searchController');
+=======
+var homeController= require('./controllers/homeController');
+
+>>>>>>> parent of 932b89b... Admin
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -33,17 +38,18 @@ app.engine('hbs', exphbs({
         }
     }
 }));
-
 app.set('view engine', 'hbs');
-// app.use(express.static(
-    // path.resolve(__dirname, 'public')
-// ));
-app.use(express.static(path.join(__dirname, '/public')));
+
+app.use(express.static(
+    path.resolve(__dirname, 'public')
+));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
 
+<<<<<<< HEAD
 
 app.get('/admin',(req,res) =>
 {
@@ -58,16 +64,22 @@ app.use(session({
      
 }))
 app.use(handleLayoutMDW);
+=======
+>>>>>>> parent of 932b89b... Admin
 app.get('/', (req, res) => {
     res.redirect('/home');
 });
+app.use(handleLayoutMDW);
 app.use('/home', homeController);
 
+<<<<<<< HEAD
 app.use('/product', productController);
 app.use('/account', accountController);
 app.use('/search', searchController);
 app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
+=======
+>>>>>>> parent of 932b89b... Admin
 app.listen(3000, () => {
     console.log('server running on port 3000');
 });

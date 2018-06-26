@@ -6,8 +6,12 @@ exports.load = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
+<<<<<<< HEAD
 
             password: 'root',
+=======
+            password: '',
+>>>>>>> parent of 932b89b... Admin
             database: 'qlbh'
             datestring:'date'
 
@@ -33,9 +37,14 @@ exports.save = sql => {
             host: 'localhost',
             port: 3306,
             user: 'root',
+<<<<<<< HEAD
             password: 'root',
             database: 'qlbh',
              datestring:'date'
+=======
+            password: '',
+            database: 'qlbh'
+>>>>>>> parent of 932b89b... Admin
         });
 
         cn.connect();
