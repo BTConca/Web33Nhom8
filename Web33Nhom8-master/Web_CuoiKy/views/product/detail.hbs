@@ -4,14 +4,27 @@
 {{/section}}
 {{#section 'js'}}
 
+
+<script type="text/javascript">
+  $('.addItem').on('click', function() {
+      var id = $(this).data('proid');
+      $('#txtP').val(id);
+        var qty = $('#quantity').val();
+
+      $('#txtQ').val(qty);
+      $('#frmAddItem').submit();
+  });
+</script>
+
 <script src="/slide.js"></script>
 
+
 {{/section}}
-
+<form id="frmAddItem" method="post" action="/cart/add">
+    <input type="hidden" name="proId" id="txtP">
+    <input type="hidden" name="quantity" id="txtQ">
+  </form>
 {{#with product}}
-
-
-
  <div class="container_fullwidth">
         <div class="container">
           <div class="row">
@@ -54,20 +67,27 @@
                   </div>
                   <hr class="border">
                   <div class="wided">
-                    <div class="qty">
+    {{#if ../layoutVM.isLogged}}
+                    <div class="qty"  >
                       Số lượng &nbsp;&nbsp;: 
-                      <select>
-                        <option>
-                          1
-                        </option>
-                      </select>
+                       <input id="quantity" type="number" name="quantity" step="1" min="1" max="100" value ="1">
                     </div>
-                    <div class="button_group">
-                      <button class="button" >
-                        Thêm Vào Giỏ Hàng
-                      </button>
-                     
-                    </div>
+
+                 
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+
+
+
                   </div>
  
                 </div>
@@ -120,7 +140,18 @@
                                  <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
                                  <div class="productname">{{ProName}}</div>
                                  <h4 class="price">${{Price}}</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                                {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
                               </div>
                            </div>
                   		 {{/each}}
@@ -135,7 +166,18 @@
                                  <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
                                  <div class="productname">{{ProName}}</div>
                                  <h4 class="price">${{Price}}</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                                 {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
                               </div>
                            </div>
                   		 {{/each}}
@@ -170,7 +212,18 @@
                                  <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
                                  <div class="productname">{{ProName}}</div>
                                  <h4 class="price">${{Price}}</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                                  {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
                               </div>
                            </div>
                   		 {{/each}}
@@ -185,7 +238,18 @@
                                  <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
                                  <div class="productname">{{ProName}}</div>
                                  <h4 class="price">${{Price}}</h4>
-                                 <div class="button_group"><button class="button add-cart" type="button">Thêm Vào Giỏ Hàng</button></div>
+                              {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
                               </div>
                            </div>
                   		 {{/each}}

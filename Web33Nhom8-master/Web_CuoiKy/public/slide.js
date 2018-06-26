@@ -1,7 +1,5 @@
 //HÀM JQUERY
 
-jQuery.noConflict(),jQuery(document).ready(function()
-{
 
 if(jQuery(window).width()>767)
 {
@@ -13,7 +11,6 @@ jQuery(this).addClass("dropdown-hover");var e=150*jQuery(this).find(".dropdown-m
 {
 jQuery(this).removeClass("dropdown-hover")
 })}
-
 
 if(
 jQuery("#newest").carouFredSel(
@@ -57,41 +54,6 @@ width:270,height:"variable",visible:
 })
 
 ){}
-}
-)
 
 
 
-
-jQuery(window).load(function()
-{
-
-
-
-jQuery("#sequence").sequence(
-{}
-
-).data("sequence"),jQuery(".flexslider").flexslider(
-{
-
-}
-
-),jQuery("#bannerslide").flexslider(
-{
-
-
-
-animation:"slide",directionNav:!1,controlNav:!1,start:function()
-{
-
-
-
-jQuery(".banner").removeClass("loading")
-}
-
-
-}
-
-)
-}
-)

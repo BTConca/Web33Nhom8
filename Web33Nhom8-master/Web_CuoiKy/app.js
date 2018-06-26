@@ -14,6 +14,8 @@ var trict = require('./middle-wares/restrict');
 var homeController= require('./controllers/homeController');
 var productController = require('./controllers/productController');
 var accountController = require('./controllers/accountController');
+var cartController = require('./controllers/cartController');
+
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -53,6 +55,7 @@ app.get('/', (req, res) => {
 app.use('/home', homeController);
 app.use('/product', productController);
 app.use('/account', accountController);
+app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
 app.listen(3000, () => {
     console.log('server running on port 3000');
