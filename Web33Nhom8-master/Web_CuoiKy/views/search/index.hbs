@@ -1,0 +1,134 @@
+
+{{#section 'js'}}
+
+{{/section}}
+
+<!-- PHẦN SẢN PHẨM -->
+     <div style ="margin-top: 40px;" class="wrapper">
+
+      <div class="container_fullwidth">
+        <div class="container">
+          <div class="row">
+<!-- PHẦN THANH TASKBAR BÊN TRÁI -->
+
+            <!-- PHẦN  LOẠI SẢN PHẨM -->
+            <div class="col-md-3">
+               <form  action="search.html">
+                 <input class="search2" placeholder="Enter your search term..." type="text" value="" name="search">
+                 <input class="search-submit2" type="submit" value=""></form>
+              <form class = "filter">
+              <div class="category leftbar">
+                <h3 class="title">
+                  LOẠI RƯỢU
+                </h3>
+                <select>
+                <ul>
+                   <li>
+          <option selected value="-1">Tất cả</option>
+ 
+                  </li>
+{{#each layoutVM.categories}}
+                  <li>
+          <option value="{{CatID}}">{{CatName}}</option>
+                    
+                  </li>
+                 {{/each}}
+                </ul>
+              </select>
+              </div>
+  <!-- HẾT PHẦN  LOẠI SẢN PHẨM -->
+  <!-- PHẦN HÃNG SX -->
+              <div class="branch leftbar">
+                 <h3 class="title">
+                  HÃNG SẢN XUẤT
+                </h3>
+                <select>
+                <ul>
+                    <li>
+          <option selected value="-1">Tất cả</option>
+ 
+                  </li>
+{{#each layoutVM.producers}}
+                  <li>
+          <option value="{{ProducerID}}">{{ProducerName}}</option>
+                    
+                  </li>
+                 {{/each}}
+
+                </ul>
+                  </select>
+              </div>
+               <!-- HẾT PHẦN  HÃNG SX -->
+                 <!-- PHẦN LỌC THEO GIÁ -->
+              <div class="price-filter leftbar">
+                <h3 class="title">
+                  GIÁ
+                </h3>
+                <div class="pricing">
+                
+                  <label >
+
+                    <input min = 0 step = 100000 type="number"> VNĐ -
+                 
+                  </label>
+
+              
+                  <label >
+                   
+                    <input min = 0  step = 100000 type="number"> VNĐ
+                  </label>
+ 
+            
+          
+                </div>
+
+              </div>
+    <input class="col-md-12" type="submit" value="Go">  
+      </form>
+  <!-- HẾT PHẦN LỌC THEO GIÁ -->
+  <!-- HẾT PHẦN THANH TASKBAR BÊN TRÁI -->
+  <!-- BANNER SẢN PHẨM -->
+              
+            </div>
+            <div class="col-md-9">
+<!-- HẾT BANNER SẢN PHẨM -->
+<!-- PHẦN TOOL CHUYỂN TRANG CHẾ ĐỘ XEM,... -->
+            
+
+
+
+
+
+<!-- PHẦN GRID SẢN PHẨM -->
+<div id = "products-view">
+                <div class="row">
+                 
+                    <div class="col-md-4 col-sm-6">
+               <div class="products">
+                      <div class="thumbnail">
+                        <a href="detail.html">
+                          <img src="../media/images/Wine/1.png" alt="Product Name">
+                        </a>
+                      </div>
+                      <div class="productname">
+                        Chivas
+                      </div>
+                      <h4 class="price">
+                        $451.00
+                      </h4>
+                      <div class="button_group">
+                        <button class="button add-cart" type="button">
+                          Thêm Vào Giỏ Hàng
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+           <!-- HẾT PHẦN GRID SẢN PHẨM -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+

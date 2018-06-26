@@ -13,3 +13,7 @@ exports.check = username =>{
 	var sql = `select count(*) as total from users where f_Username = '${username}' `;
 	return db.load(sql);
 }
+exports.getProfile = user => {
+	var sql = `select * from users where f_Username = '${user}'`;
+	return db.load(sql);
+}

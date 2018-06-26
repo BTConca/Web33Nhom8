@@ -15,7 +15,7 @@ var homeController= require('./controllers/homeController');
 var productController = require('./controllers/productController');
 var accountController = require('./controllers/accountController');
 var cartController = require('./controllers/cartController');
-
+var searchController = require('./controllers/searchController');
 var app = express();
 
 app.engine('hbs', exphbs({
@@ -55,6 +55,7 @@ app.get('/', (req, res) => {
 app.use('/home', homeController);
 app.use('/product', productController);
 app.use('/account', accountController);
+app.use('/search', searchController);
 app.use('/cart', restrict, cartController);
 app.use(handle404MDW);
 app.listen(3000, () => {

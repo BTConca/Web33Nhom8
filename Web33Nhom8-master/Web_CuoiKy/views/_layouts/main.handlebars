@@ -47,7 +47,17 @@
                                     <li class="dropdown" style="margin-left: 100px; margin-top: 1px;">
                                         <a href="#"id="username" class="dropdown-toggle" data-toggle="dropdown"><strong>Hi, {{layoutVM.curUser.f_Username}} !</strong> <b class="caret"></b></a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="/account/profile">Profile</a></li>
+                                            <li>
+
+<form id="frmProfile" method="post" action="/account/profile">
+  <input type="hidden" name="username" id="txtUser">
+</form>
+ <a data-userid="{{layoutVM.curUser.f_Username}}" id="profile" href="javascript:;" role="button">Profile
+            </a>
+
+
+
+                                            </li>
                                             <li role="separator" class="divider"></li>
                                            <li><a id="lnkLogout" href="javascript:;">Logout</a></li>
                                         </ul>
@@ -208,6 +218,13 @@
     
         $('#frmLogout').submit();
     });
+        $('#profile').on('click', function() {
+
+       var id = $(this).data('userid');
+        alert(`${id} good`);
+      $('#txtUser').val(id);
+      $('#frmProfile').submit();
+  });
   </script>
 
   {{{_sections.js}}}
