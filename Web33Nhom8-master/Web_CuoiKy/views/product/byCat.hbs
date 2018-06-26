@@ -33,6 +33,17 @@
     });
   </script>
 
+
+<script type="text/javascript">
+  $('.addItem').on('click', function() {
+      var id = $(this).data('proid');
+      $('#txtP').val(id);
+      $('#txtQ').val(1);
+      $('#frmAddItem').submit();
+  });
+</script>
+
+
 {{/section}}
  <div class="container_fullwidth">
         <div class="container">
@@ -48,7 +59,12 @@
   </div>
 </div>
 {{else}}
+<form id="frmAddItem" method="post" action="/cart/add">
+    <input type="hidden" name="proId" id="txtP">
+    <input type="hidden" name="quantity" id="txtQ">
+  </form>
 <div class="col-md-12">
+
    <div class="pager ">
                     <a  class="prev-page">
                       <i class="fa fa-angle-left">
@@ -90,26 +106,29 @@
                       <h4 class="price">
                         ${{number_format Price}}
                       </h4>
-                      <div class="button_group">
-                        <button class="button add-cart" type="button">
-                          Add To Cart
-                        </button>
-                      </div>
+                     
+
+
 
 </a>
 
 
           {{#if ../layoutVM.isLogged}}
-          <a data-proid="{{ProID}}" href="javascript:;" class="btn btn-default addItem">
-            <span class="glyphicon glyphicon-shopping-cart"></span>
-            Add
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
           </a>
+           
+                      
+                      
           {{/if}}
 
 
                     </div>
                   </div>
-              
+
                 {{/each}}
                   </div>
 
@@ -133,7 +152,7 @@
                      {{value}}
                     </a>
                       {{/if}}   
-  {{/each}}
+                {{/each}}
                     <a  class="next-page">
                       <i class="fa fa-angle-right">
                           <img src="/media/images/right-arow.png" alt="Next">
