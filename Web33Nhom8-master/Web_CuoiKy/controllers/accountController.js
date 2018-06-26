@@ -13,8 +13,8 @@ router.get('/register', (req, res) => {
 
 router.post('/register', (req, res) => {
     var dob = moment(req.body.dob, 'D/M/YYYY')
-        .format('YYYY-MM-DDTHH:mm');
-
+        .format('YYYY-MM-DD');
+    
     var user = {
         username: req.body.username,
         password: sha256(req.body.password).toString(),
@@ -38,7 +38,7 @@ router.post('/login', (req, res) => {
         username: req.body.username,
         password: sha256(req.body.password).toString()
     };
-    console.log("Hi");
+  
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
             req.session.isLogged = true;
@@ -69,6 +69,7 @@ router.post('/logout', restrict, (req, res) => {
 });
 
 router.get('/profile', restrict, (req, res) => {
+   
     res.render('account/profile');
 
 });

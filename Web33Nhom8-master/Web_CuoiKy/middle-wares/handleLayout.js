@@ -8,7 +8,7 @@ module.exports = (req, res, next) => {
         res.locals.layoutVM = {
             categories: rows,
             isLogged: req.session.isLogged,
-            curUser: req.session.curUser,
+            curUser: req.session.curUser
         }
 
         next();

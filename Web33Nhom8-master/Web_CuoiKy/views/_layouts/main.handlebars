@@ -39,8 +39,6 @@
                            </div>
                             <!-- Account control-->
                            <div class="col-md-4">
-                              
-                               
                                 <ul class="usermenu" id="um-1">
                                      {{#if layoutVM.isLogged}}
                                     <form id="frmLogout" method="post" action="/account/logout"></form>
@@ -55,8 +53,9 @@
                                      {{else}}
                                     <li><a href="/account/login" class="log">Login</a></li>
                                     <li><a href="/account/register" class="reg">Register</a></li>
+                                    {{/if}}
                                 </ul>
-                                {{/if}}
+                                
   
                            </div>
                             <div class="col-md-1 hidden" id="um-3">

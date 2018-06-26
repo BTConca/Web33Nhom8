@@ -1,3 +1,5 @@
+var accountRepo = require('../repos/accountRepo');
+
 function reg_Validation()
 {
     var username = document.registration.username;
@@ -51,7 +53,10 @@ function username_validation(uid,mx,my)
         uid.focus();
         return false;
     }
-    
+    accountRepo.exist(uid.value).then(rows => {
+        console.log(uid.value);
+        console.log("hi");
+    });
 }
 function password_validation(passid,mx,my)
 {
