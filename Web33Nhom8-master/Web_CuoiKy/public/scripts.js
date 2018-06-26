@@ -1,90 +1,14 @@
 
-//Van khai
-// Collapse question
-$("#coll-2").click(function() {
-    document.getElementById("coll-2").style.display = "none";
-    document.getElementById("coll-1").style.display = "block";
-    }
-);
-$("#coll-1").click(function() {
-    document.getElementById("coll-1").style.display = "none";  
-    document.getElementById("coll-2").style.display = "block";
-    }
-);
-var data = {},
-    data2 = {};
-
-$("#userlogout").click(function() {
-    data.check = 1;
-    document.getElementById("um-1").classList.remove("hidden");  
-    document.getElementById("um-2").classList.add("hidden");
-    document.getElementById("um-3").classList.add("hidden");
-    document.location.href = "..\\Guest\\index.html";
-    }
-);
-
-$("#user-login").click(function()
-{
-   
-   var b = document.location.href;
-    var path = "../Login/index.html?path=" +  encodeURIComponent(b);
-    document.location.href = path;                     
-});
-
-/*$("li").click(function{
-                       alert("x");
-    var data = {},
-    data2 = {};
-    var url = document.location.href,
-    params = url.split('?')[1].split('&'), tmp,
-    params2 = url.split('?')[2].split('&');
-    
-    alert(params[0]);
-    alert(params2[0]);
-    for (var i = 0, l = params.length; i < l; i++) {
-         tmp = params[i].split('=');
-         data[tmp[0]] = tmp[1];
-    }
-
-    for (var i = 0, l = params2.length; i < l; i++) {
-         tmp = params2[i].split('=');
-         data2[tmp[0]] = tmp[1];
-    }
-});*/
-
-window.onload = function () {
-
-    if(data.check != 1)
-    {
-        var url = document.location.href,
-            params = url.split('?')[1].split('&'), tmp,
-            params2 = url.split('?')[2].split('&');
-
-        for (var i = 0, l = params.length; i < l; i++) {
-             tmp = params[i].split('=');
-             data[tmp[0]] = tmp[1];
-        }
-
-
-        for (var i = 0, l = params2.length; i < l; i++) {
-             tmp = params2[i].split('=');
-             data2[tmp[0]] = tmp[1];
-        }
-    
-    }
-    if(data.check == 2)
-    {
-	   document.getElementById("um-1").classList.add("hidden");
-        document.getElementById("um-2").classList.remove("hidden");
-        document.getElementById("username").innerHTML = data2.name;
-        document.getElementById("um-3").classList.remove("hidden");
-    }
-    
-}
-//--------------văn khải-----
 // _______________________________________________
 // MINH PHỤNG
 //________________________________________________
+
+
+
+
+
+
+
 
 
 
@@ -194,23 +118,16 @@ function checkBranch()
 
 
 
-
-
-
-
-
-
-
 // XEM THEO DẠNG LIST CHO PAGE PRODUCTS
 
 function viewList()
 {
-	var list = document.getElementsByClassName("list");
-	list[0].classList.add("active");
-	list[1].classList.add("active");
-	var grid = document.getElementsByClassName("grid");
-	grid[0].classList.remove("active");
-	grid[1].classList.remove("active");
+  var list = document.getElementsByClassName("list");
+  list[0].classList.add("active");
+  list[1].classList.add("active");
+  var grid = document.getElementsByClassName("grid");
+  grid[0].classList.remove("active");
+  grid[1].classList.remove("active");
 
 var product = document.getElementById('products-view');
 product.innerHTML = `
@@ -405,12 +322,12 @@ product.innerHTML = `
 // XEM THEO DẠNG GRID PAGE PRODUCTS
 function viewGrid()
 {
-	var list = document.getElementsByClassName("list");
-	list[0].classList.remove("active");
-	list[1].classList.remove("active");
-	var grid = document.getElementsByClassName("grid");
-	grid[0].classList.add("active");
-	grid[1].classList.add("active");
+  var list = document.getElementsByClassName("list");
+  list[0].classList.remove("active");
+  list[1].classList.remove("active");
+  var grid = document.getElementsByClassName("grid");
+  grid[0].classList.add("active");
+  grid[1].classList.add("active");
 
 
 var product = document.getElementById('products-view');
@@ -627,103 +544,7 @@ product.innerHTML = `
 
 
 
-//HÀM JQUERY
 
-jQuery.noConflict(),jQuery(document).ready(function()
-{
-
-if(jQuery(window).width()>767)
-{
-jQuery(".nav li.dropdown").hover(function()
-{
-jQuery(this).addClass("dropdown-hover");var e=150*jQuery(this).find(".dropdown-menu:first ul").size()+"px";jQuery(".dropdown-menu").css("width",e)
-}
-,function()
-{
-jQuery(this).removeClass("dropdown-hover")
-})}
-
-
-if(
-jQuery("#newest").carouFredSel(
-{
-auto:!1,prev:"#prev_newest",next:"#next_newest",mousewheel:!1,swipe:
-{
-onMouse:!0,onTouch:!0}
-,responsive:!0,width:"variable",height:"variable",scroll:1,items:
-{
-width:270,height:"variable",visible:
-{
-min:1,max:1}
-}}),
-
-jQuery("#hot").carouFredSel(
-{
-
-auto:!1,prev:"#prev_hot",next:"#next_hot",mousewheel:!1,swipe:
-{
-onMouse:!0,onTouch:!0}
-
-,responsive:!0,width:"100%",height:"variable",scroll:1,items:
-{
-width:270,height:"variable",visible:
-{min:1,max:1}
-}
-
-
-})
-,jQuery("#most-view").carouFredSel(
-{
-auto:!1,prev:"#prev_most-view",next:"#next_most-view",mousewheel:!1,swipe:
-{
-onMouse:!0,onTouch:!0}
-
-,responsive:!0,width:"100%",height:"variable",scroll:1,items:
-{
-width:270,height:"variable",visible:
-{min:1,max:1}
-}
-})
-
-){}
-}
-)
-
-
-
-
-jQuery(window).load(function()
-{
-
-
-
-jQuery("#sequence").sequence(
-{}
-
-).data("sequence"),jQuery(".flexslider").flexslider(
-{
-
-}
-
-),jQuery("#bannerslide").flexslider(
-{
-
-
-
-animation:"slide",directionNav:!1,controlNav:!1,start:function()
-{
-
-
-
-jQuery(".banner").removeClass("loading")
-}
-
-
-}
-
-)
-}
-)
 
 // _______________________________________________
 // MINH PHỤNG CLOSE

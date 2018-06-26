@@ -10,18 +10,26 @@ exports.load = sql => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
-
 =======
->>>>>>> parent of c7effc1... Merge branch 'master' into admin
+>>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
+
             password: 'root',
             database: 'qlbh'
 =======
             password: '',
+<<<<<<< HEAD
             database: 'qlbh2',
             datestring:'date'
 >>>>>>> parent of 69d39c3... Merge pull request #1 from BTConca/admin
+=======
+>>>>>>> parent of 932b89b... Admin
+            database: 'qlbh'
+            datestring:'date'
+
+>>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
         });
 
         cn.connect();
@@ -50,7 +58,6 @@ exports.save = sql => {
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
             password: 'root',
-<<<<<<< HEAD
             database: 'qlbh',
 =======
             password: '',
@@ -62,11 +69,14 @@ exports.save = sql => {
             password: '',
             database: 'qlbh'
 >>>>>>> parent of 932b89b... Admin
+<<<<<<< HEAD
 =======
             database: 'qlbh'
 >>>>>>> parent of c7effc1... Merge branch 'master' into admin
 =======
 >>>>>>> parent of 7a57e92... Revert "Admin"
+=======
+>>>>>>> parent of 94c4bb9... Revert "Merge branch 'master' into admin"
         });
 
         cn.connect();

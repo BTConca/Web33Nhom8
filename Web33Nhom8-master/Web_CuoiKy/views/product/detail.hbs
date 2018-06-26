@@ -1,0 +1,272 @@
+
+{{#section 'title'}}
+    Product
+{{/section}}
+{{#section 'js'}}
+
+
+<script type="text/javascript">
+  $('.addItem').on('click', function() {
+      var id = $(this).data('proid');
+      $('#txtP').val(id);
+        var qty = $('#quantity').val();
+
+      $('#txtQ').val(qty);
+      $('#frmAddItem').submit();
+  });
+</script>
+
+<script src="/slide.js"></script>
+
+
+{{/section}}
+<form id="frmAddItem" method="post" action="/cart/add">
+    <input type="hidden" name="proId" id="txtP">
+    <input type="hidden" name="quantity" id="txtQ">
+  </form>
+{{#with product}}
+ <div class="container_fullwidth">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="products-details">
+                <div class ="preview_image">
+                    <img  src="/media/images/Wine/{{ProID}}.png"  alt="" >
+                </div>
+                <div class="products-description">
+                  <h4 class="name">
+                  {{ProName}}
+                  </h4>
+                
+                  <p>
+                    <label>Loại Rượu:</label><span > {{CatName}}</span><br>
+                  <label>Hãng sản xuất:</label><span > {{ProducerName}}</span><br>
+                   <label>Số lượng tồn:</label>
+                    <span class="light-red">
+                      {{Quantity}}
+                    </span>
+                    <br>
+            
+               
+                <span class="glyphicon glyphicon-eye-open"></span>  <label>View:</label><span > {{View}}</span>
+                  <span class="glyphicon glyphicon-shopping-cart"></span>  <label>Sell:</label><span >{{Sell}}</span><br> </p>
+
+                  <p>
+                 {{TinyDes}}
+                  </p>
+                  <hr class="border">
+                  <div class="price">
+                    Price : 
+                    <span class="new_price">
+                     {{Price}}
+                      <sup>
+                        $
+                      </sup>
+                    </span>
+           
+                  </div>
+                  <hr class="border">
+                  <div class="wided">
+    {{#if ../layoutVM.isLogged}}
+                    <div class="qty"  >
+                      Số lượng &nbsp;&nbsp;: 
+                       <input id="quantity" type="number" name="quantity" step="1" min="1" max="100" value ="1">
+                    </div>
+
+                 
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+
+
+
+                  </div>
+ 
+                </div>
+              </div>
+              <div class="clearfix">
+              </div>
+              <div class="tab-box">
+               
+                <div class="tab-content-wrap">
+                  <div class="tab-content" id="Description">
+                    <p>
+                   {{FullDes}}
+                    </p>
+                  
+                  </div>
+                </div>
+              </div>
+           
+
+
+
+
+
+{{/with}}
+
+
+
+
+
+
+<div class="hot-products">
+         <div class=row>
+    <div class=col-md-6>
+                  <h3 class="title">Sản phẩm cùng loại</h3>
+                </div>
+
+    <div class=col-md-6>
+                  <div class="control"><a id="prev_hot" class="prev" href="#">&lt;</a><a id="next_hot" class="next" href="#">&gt;</a></div>
+                </div>
+              </div>
+        
+                  <ul id="hot">
+                   
+                     <li>
+                        <div class="row">
+                         {{#each c1}}
+                              <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+                              </div>
+                           </div>
+                  		 {{/each}}
+                        </div>
+                     </li>
+                      <li>
+                        <div class="row">
+                         {{#each c2}}
+                              <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                 {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+                              </div>
+                           </div>
+                  		 {{/each}}
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+
+
+
+
+
+<div class="newest-products">
+         <div class=row>
+    <div class=col-md-6>
+                  <h3 class="title">Sản phẩm cùng nhà sản xuất</h3>
+                </div>
+
+    <div class=col-md-6>
+                  <div class="control"><a id="prev_newest" class="prev" href="#">&lt;</a><a id="next_newest" class="next" href="#">&gt;</a></div>
+                </div>
+                </div>
+        
+                  <ul id="newest">
+                   
+                     <li>
+                        <div class="row">
+                         {{#each p1}}
+                              <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                                  {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+                              </div>
+                           </div>
+                  		 {{/each}}
+                        </div>
+                     </li>
+                      <li>
+                        <div class="row">
+                         {{#each p2}}
+                              <div class="col-md-3 col-sm-6">
+                              <div class="products">
+                              
+                                 <div class="thumbnail"><a href="/product/detail/{{ProID}}"><img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}" ></a></div>
+                                 <div class="productname">{{ProName}}</div>
+                                 <h4 class="price">${{Price}}</h4>
+                              {{#if ../layoutVM.isLogged}}
+
+          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
+                        </button>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+                              </div>
+                           </div>
+                  		 {{/each}}
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+
+
+
+ 			</div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
