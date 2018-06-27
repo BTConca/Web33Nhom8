@@ -1,0 +1,83 @@
+﻿{{#section 'title'}}
+{{/section}}
+{{#if noDonhang}}
+<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		Không có đơn hàng
+	</div>
+</div>
+{{else}}
+		<div class="row">
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Dashboard/Quản lý đơn hàng</li>
+			</ol>
+		</div><!--/.row-->
+		
+		<div class="row" style="border-bottom:1px solid green;">
+			<div class="col-lg-8" >
+				<h1 class="page-header">Quản lý đơn hàng</h1>
+			</div>
+
+            <div class="col-sm-4 col-lg-4">
+                <span style="background-color:white"><b>Chưa giao</b></span>
+                <span style="background-color:yellow"><b>Đang giao</b></span>
+                <span style="background-color:green"><b>Hoàn thành</b></span>
+            </div>
+		</div><!--/.row-->
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Mã đơn hàng</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Ngày đăng ký</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Tình trạng</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+		{{#each donhang}}
+
+            <tr id ="a">
+                <th scope="row">{{ID}}</th>
+                <td>{{TenDonHang}}</td>
+                <td>{{Ngay}}</td>
+                <td>{{SoLuong}}</td>
+                <td>{{TinhTrang}}</td>
+                <td>
+                    <button onclick='rm()'>
+                        Cập nhập
+                    </button>
+                </td>
+            </tr>
+		{{/each}}
+        </tbody>
+    </table>
+	<script>
+	<!-- function enCode(tinhTrang)
+		{
+			if(tinhTrang.localeCompare("Chưa giao");)
+				document.getElementById("a").style.background-color = "white";
+			else if(tinhTrang.localeCompare("Đang giao"))
+				document.getElementById("a").style.background-color = "yellow";
+			else if(tinhTrang.localeCompare("Hoàn thành"))
+				document.getElementById("a").style.background-color = "green";
+			else
+				document.getElementById("a").style.background-color = "black";
+		}
+	}
+	
+	var y = document.getElementById("c").value();
+	
+	enCode(y); -->
+	</script>
+</div>
+{{/if}}		
+		
+		
+		
+		
