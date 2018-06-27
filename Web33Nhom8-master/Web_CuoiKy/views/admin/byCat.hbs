@@ -1,0 +1,72 @@
+﻿{{#section 'title'}}
+{{/section}}
+{{#if noProducts}}
+<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		NO PRODUCTS
+	</div>
+</div>
+{{else}}
+<div class="row">
+
+
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				<li class="active">Dashboard/Quản lý Sản phẩm/Loại sản phẩm/Cognac</li>
+			</ol>
+		</div><!--/.row-->
+		{{#each categories}}
+		<div class="row" style="border-bottom:1px solid green;">
+			<div class="col-lg-8" >
+				<h1 class="page-header">{{CatName}}</h1>
+			</div>
+		</div><!--/.row-->
+		{{/each}}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Ngày nhập</th>
+                <th scope="col">Số lượng</th>
+                
+                
+            </tr>
+        </thead>
+		{{#each products}}
+        <tbody>
+            <tr>
+                <th scope="row">{{ProID}}</th>
+                <td>{{ProName}}</td>
+                <td>24/06/2018</td>
+                <td>50</td>
+                <td>
+                    <button onclick='rm()'>
+                        Xóa
+                    </button>
+                </td>
+                
+            </tr>
+         {{/each}}   
+        </tbody>
+        
+    </table>
+    <button onclick='rm()'>
+        Thêm
+    </button>
+</div>
+<ul class="pagination">
+	<li><a href="#">&laquo;</a></li>
+	{{#each page_numbers}}
+		{{#if isCurrentPage}}
+		<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+		<li><a href="?page={{value}}">{{value}}</a></li>
+		{{/if}}
+	{{/each}}
+	<li><a href="#">&raquo;</a></li>
+</ul>
+{{/if}}
