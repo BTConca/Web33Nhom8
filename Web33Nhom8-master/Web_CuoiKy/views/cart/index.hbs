@@ -40,6 +40,7 @@
               </h3>
               <div class="clearfix">
               </div>
+              {{#if items}}
               <table class="shop-table">
                 <thead>
                   <tr>
@@ -114,8 +115,13 @@
                     </td>
                   </tr>
   {{/each}}
-
-
+{{else}}
+<div class="row">
+  <div style="text-align:center;margin-top: 100px; margin-bottom:100px;" class="col-sm-12 col-md-12 col-lg-12">
+   <h1> NO PRODUCTS</h1>
+  </div>
+</div>
+{{/if}}
                 </tbody>
 
 

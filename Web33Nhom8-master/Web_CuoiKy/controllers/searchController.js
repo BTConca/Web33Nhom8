@@ -7,18 +7,28 @@ router.get('/', (req, res) => {
             res.render('search/index');
 });
 
+router.get('/product', (req, res) => {
+    
+   var name = req.query.name;
+ if (!name) name = "%";
+    var catid = req.query.catid;
+      if (!catid) catid = -1;
+    var producerid = req.query.producerid;
+      if (!producerid) producerid = -1;
+    var minprice = req.query.minprice;
+      if (!minprice) minprice = 0;
+    var maxprice = req.query.maxprice;
+         if (!maxprice) maxprice = 100000000;
 
-router.get('/:name&:catid&:producerid&:minprice&:maxprice', (req, res) => {
-// 	
     var page = req.query.page;
       if (!page) page = 1;
     if (page < 1) page = 1;
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
-      console.log(`offset : ${offset} page: ${page}`);
-	var p1 = productRepo.search(req.params.name,req.params.catid,req.params.producerid,req.params.minprice,req.params.maxprice,offset);
-    var p2 = productRepo.countBySearch(req.params.name,req.params.catid,req.params.producerid,req.params.minprice,req.params.maxprice);
-    console.log(p1);
-     console.log(p2);
+     
+    var p1 = productRepo.search(name,catid,producerid,minprice,maxprice,offset);
+    var p2 = productRepo.countBySearch(name,catid,producerid,minprice,maxprice);
+
+
     Promise.all([p1, p2]).then(([rows, count_rows]) => {
         var total = count_rows[0].total;
         var nPages = total / config.PRODUCTS_PER_PAGE;
@@ -36,14 +46,15 @@ router.get('/:name&:catid&:producerid&:minprice&:maxprice', (req, res) => {
         var vm = {
             nPages,
             products: rows,
-            noProducts: rows.length === 0,	
+            noProducts: rows.length === 0,  
             page_numbers: numbers
         };
-   console.log(vm);
+
         res.render('search/index', vm);
     });
 
 });
+
 
 
 

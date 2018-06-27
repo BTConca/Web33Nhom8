@@ -31,6 +31,7 @@ router.post('/register', (req, res) => {
         };
 
             accountRepo.add(user).then(value => {
+                console.log(value);
             res.render('account/register',vm);
             });
         }
@@ -80,7 +81,7 @@ router.post('/login', (req, res) => {
 router.post('/logout', restrict, (req, res) => {
     req.session.isLogged = false;
     req.session.curUser = null;
-
+    
     res.redirect(req.headers.referer);
 });
 

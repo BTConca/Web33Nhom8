@@ -51,18 +51,18 @@
 
             <!-- PHẦN  LOẠI SẢN PHẨM -->
             <div class="col-md-3">
-               <form  action="search.html">
-                 <input class="search2" placeholder="Enter your search term..." type="text" value="" name="search">
-                 <input class="search-submit2" type="submit" value=""></form>
-              <form class = "filter">
+               <form method="get" action="/search/product">
+                 <input class="search2" placeholder="Enter your search term..." type="text" value="" name="name">
+                 <input class="search-submit2" type="submit" value="">
+              <div class = "filter">
               <div class="category leftbar">
                 <h3 class="title">
                   LOẠI RƯỢU
                 </h3>
-                <select>
+                <select name ="catid" >
                 <ul>
                    <li>
-          <option selected value="-1">Tất cả</option>
+          <option selected value="">Tất cả</option>
  
                   </li>
 {{#each layoutVM.categories}}
@@ -73,6 +73,9 @@
                  {{/each}}
                 </ul>
               </select>
+
+
+
               </div>
   <!-- HẾT PHẦN  LOẠI SẢN PHẨM -->
   <!-- PHẦN HÃNG SX -->
@@ -80,10 +83,10 @@
                  <h3 class="title">
                   HÃNG SẢN XUẤT
                 </h3>
-                <select>
+                <select name="producerid">
                 <ul>
                     <li>
-          <option selected value="-1">Tất cả</option>
+          <option selected value="">Tất cả</option>
  
                   </li>
 {{#each layoutVM.producers}}
@@ -106,14 +109,14 @@
                 
                   <label >
 
-                    <input min = 0 step = 100000 type="number"> VNĐ -
+                    <input value="0" name="minprice" min = 0 step = 100 type="number"> VNĐ -
                  
                   </label>
 
               
                   <label >
                    
-                    <input min = 0  step = 100000 type="number"> VNĐ
+                    <input value="100000000" name="maxprice" min = 0  step = 100 type="number"> VNĐ
                   </label>
  
             
@@ -122,6 +125,7 @@
 
               </div>
     <input class="col-md-12" type="submit" value="Go">  
+    </div>
       </form>
   <!-- HẾT PHẦN LỌC THEO GIÁ -->
   <!-- HẾT PHẦN THANH TASKBAR BÊN TRÁI -->
@@ -215,7 +219,7 @@
                   <div class="col-md-4 col-sm-6">
                     <div class="products">
                       <div class="thumbnail">
-                        <a href="../detail/{{ProID}}">
+                        <a href="/product/detail/{{ProID}}">
                           <img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}">
                         </a>
                       </div>
