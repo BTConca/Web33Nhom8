@@ -78,7 +78,7 @@ router.get('/quanlydonhang/edit', (req, res) => {
 });
 router.post('/quanlydonhang/edit', (req, res) => {
     orderRepo.update(req.body).then(value => {
-        res.redirect('admin/quanlydonhang');
+        res.redirect('/admin/quanlydonhang');
     });
 });
 router.get('/quanlydonhang/delete', (req, res) => {
