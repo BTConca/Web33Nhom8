@@ -3,10 +3,6 @@
   productRepo = require('../repos/productRepo');
 var router = express.Router();
 
-router.all('/*',(req,res,next) => {
-	req.app.locals.layout = 'main';
-	next();
-});
 
 router.get('/', (req, res) => {
 

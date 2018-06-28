@@ -25,9 +25,19 @@ exports.getLastOrderID = () =>
 {
 	var sql = `select OrderID from orders order by OrderID desc`;
 	return db.save(sql);
-} 
+}
 exports.addOrderDetail = (OrderID,ProID,Quantity,Price,Amount) =>
 {
 	var sql = `insert into orderdetails(OrderID,ProID,Quantity,Price,Amount) values (${OrderID},${ProID},${Price},${Quantity},${Amount})`;
 	return db.save(sql);
-} 
+}
+
+exports.loadPage = offset => {
+	var sql = `select * from orders limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	return db.load(sql);
+}
+
+exports.update = orders => {
+	var sql = `update orders set Adress = '${orders.Adress}', Status = '${orders.Status}' ,Total = '${orders.Total}', UserID = '${orders.UserID}', OrderDate = '${orders.OrderDate}'  where OrderID = ${orders.OrderID}`;
+	return db.save(sql);
+}
