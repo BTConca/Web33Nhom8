@@ -2,15 +2,15 @@ var db = require('../fn/db');
 var config = require('../config/config');
 
 exports.loadAll = () => {
-	var sql = 'select * from orders order by OrderDate desc';
+	var sql = 'select * from orders order by OrderID desc';
 	return db.load(sql);
 }
 exports.single = id => {
-	var sql = `select * from orders where OrderID = ${id} `;
+	var sql = `select * from orders where OrderID = ${id}  `;
 	return db.load(sql);
 }
 exports.getByUserID = userid => {
-	var sql = `select * from orders where UserID = ${userid} `;
+	var sql = `select * from orders where UserID = ${userid} order by OrderID desc `;
 	return db.load(sql);
 }
 
