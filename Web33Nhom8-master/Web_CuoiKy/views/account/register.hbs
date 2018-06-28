@@ -6,27 +6,8 @@
 {{#section 'css'}}
 <link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
 <link rel="stylesheet" href="/assets/stylesheets/user-register.css">
-<<<<<<< HEAD
-<style>
-#randomfield {
--webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  width: 200px;
-  color: black;
-  border-color: black;
-  text-align: center;
-  font-size: 40px;
-  background-image: url('/media/images/captcha.png');
-}
-</style>
-
-
 =======
->>>>>>> parent of bc4a5ce... update captcha
+>>>>>>> parent of adb9d0d... Merge branch 'master' into admin
 {{/section}}
 
 {{#section 'js'}}
@@ -36,7 +17,7 @@
 	$('#txtDOB').datepicker({
 		format: 'd/m/yyyy',
 		autoclose: true
-	}); 
+	});
 </script>
 {{/section}}
 
@@ -49,15 +30,15 @@
         Tên đăng nhập đã tồn tại, vui lòng chọn tên khác!!
         </div>
 <<<<<<< HEAD
-<<<<<<< HEAD
          {{/if}}
+<<<<<<< HEAD
                 <form action="/account/register" method="post" id="registration" name="registration" onsubmit="return reg_Validation();"  >
-=======
-=======
->>>>>>> parent of 594556b... Fix Add Edit
-         {{/if}}  
+         {{/if}}
                 <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
 >>>>>>> parent of bc4a5ce... update captcha
+=======
+                <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
+>>>>>>> parent of adb9d0d... Merge branch 'master' into admin
                         <div class="form-group" >
                             <div class="text-center">
                                     <h1>Registation</h1>
@@ -83,13 +64,12 @@
                             <input type="text" name="name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Dai">
                             <div id="Name_error"  style="color: red"></div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="txtDOB">Date of Birth</label>
                             <input type="text" class="form-control" id="txtDOB" placeholder="d/m/yyyy" name="dob">
-                           
+
                         </div>
-<<<<<<< HEAD
                           <div class="form-group" >
 
                             <input type="text" id="randomfield" disabled>
@@ -98,8 +78,7 @@
 
 
                         </div>
-=======
->>>>>>> parent of bc4a5ce... update captcha
+
                         <div class="col-md-12 ">
                                 <div class="login-or">
                                         <hr class="hr-or">
@@ -118,44 +97,8 @@
                         </div>
                     </div>
                 </form>
-             
+
         </div>
 </div>
-<<<<<<< HEAD
-
-<script type="text/javascript">
-function ChangeCaptcha() {
-	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
-	var string_length = 6;
-	var ChangeCaptcha = '';
-	for (var i=0; i<string_length; i++) {
-		var rnum = Math.floor(Math.random() * chars.length);
-		ChangeCaptcha += chars.substring(rnum,rnum+1);
-	}
-	document.getElementById('randomfield').value = ChangeCaptcha;
-}
-ChangeCaptcha();
-function check() {
-    if(document.getElementById('CaptchaEnter').value == document.getElementById('randomfield').value ) {
-       return true;
-    }
-    else {
-        alert('Please re-check the captcha');
-        return false;
-    }
-
-}
-var my_func = function(event) {
-    if(check()===false){
-
-         event.preventDefault();
-    }
-
-};
-
-var form = document.getElementById("registration");
-
-form.addEventListener("submit", my_func, true);
-</script>
 =======
->>>>>>> parent of bc4a5ce... update captcha
+>>>>>>> parent of adb9d0d... Merge branch 'master' into admin
