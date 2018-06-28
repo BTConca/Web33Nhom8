@@ -7,41 +7,77 @@ var express = require('express'),
 var router = express.Router();
 
 router.get('/', (req, res) => {
+	var orders = [];
+	var info = []
 	var UserID =   req.session.curUser.f_ID;
 	orderRepo.getByUserID(UserID).then(rows=>
-	{
-		var orders = [];
-		var n = rows.length;
-
-		for(var i=0;i<n;i++)
-		{
-			var date= moment(rows[i].OrderDate, 'YYYY-MM-DD')
-    .format('DD-MM-YYYY')  ;
-
-			var total=rows[i].Total;
-			orderRepo.getProductByOrderID(rows[i].OrderID).then(pros =>
 			{
-				var od = {
-					date,
-					total,
-					products: pros,
-					
+				var orders = [];
+				for(var i=0;i<rows.length;i++)
+				{
+					var OrderDate= moment(rows[i].OrderDate, 'D/M/YYYY')
+            .format('DD-MM-YYYY');
+            		var Adress = rows[i].Adress;
+            		var Total= rows[i].Total;
+            		var Status = rows[i].Status;
+            		var OrderID = rows[i].OrderID;
+            		var k=
+            		{	
+            			OrderID,
+            			OrderDate,
+            			Adress,
+            			Total,
+            			Status
+            		}
+            		orders.push(k);
+
 				}
-				
-				orders[i]=od;
-
-				});
-
-		};
-		console.log(orders);
-		var vm =
-		{
+			
+		vm={
 			orders,
 		};
-			
-		res.render('order/index', vm);
+res.render('order/index',vm);
+		
 	});
 });
+
+
+router.get('/detail/:orderId', (req, res) => {
+    var orderId = req.params.orderId;
+
+   orderRepo.single(orderId).then(order=>
+   {
+   	orderRepo.getProductByOrderID(orderId).then(
+   		products=>
+   		{
+   			
+   			var UserID =   req.session.curUser.f_ID;
+   			if(UserID==order[0].UserID)
+   			{
+   				var Dat= moment(order[0].OrderDate, 'D/M/YYYY')
+            .format('DD-MM-YYYY');
+   				vm={
+   					grandtotal: config.SHIP_FEE+order[0].Total,
+   					Ship:config.SHIP_FEE,
+   					Dat,
+				erro:false,
+   				Order: order[0],
+   				Products: products,
+   				};
+   			}
+   			else
+   			{
+   				vm={
+   					erro: true,
+   				};
+   			}
+   			console.log(vm);
+   			res.render('order/detail',vm);
+   		});
+   });
+});
+
+
 router.post('/add', (req, res) => {
 	var total= cartRepo.getAmountOfItems(req.session.cart);
  	var items = req.session.cart;
@@ -76,7 +112,7 @@ router.post('/add', (req, res) => {
 						        Ship: config.SHIP_FEE,
 						        totalAmountShip: total+ config.SHIP_FEE
 						}
-						console.log("Omg work");
+				
 						 res.render('cart/index', vm);
 					}
 					else
