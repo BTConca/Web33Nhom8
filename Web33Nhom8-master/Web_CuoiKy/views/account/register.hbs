@@ -15,7 +15,7 @@
 	$('#txtDOB').datepicker({
 		format: 'd/m/yyyy',
 		autoclose: true
-	}); 
+	});
 </script>
 {{/section}}
 
@@ -27,7 +27,7 @@
                 <div>
         Tên đăng nhập đã tồn tại, vui lòng chọn tên khác!!
         </div>
-         {{/if}}  
+         {{/if}}
                 <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
                         <div class="form-group" >
                             <div class="text-center">
@@ -54,11 +54,11 @@
                             <input type="text" name="name" id="name" class="form-control" aria-describedby="emailHelp" placeholder="Dai">
                             <div id="Name_error"  style="color: red"></div>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="txtDOB">Date of Birth</label>
                             <input type="text" class="form-control" id="txtDOB" placeholder="d/m/yyyy" name="dob">
-                           
+
                         </div>
                         <div class="col-md-12 ">
                                 <div class="login-or">
@@ -78,6 +78,6 @@
                         </div>
                     </div>
                 </form>
-             
+
         </div>
 </div>

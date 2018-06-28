@@ -2,7 +2,8 @@ var express = require('express'),
 categoryRepo = require('../repos/categoryRepo'),
     config = require('../config/config'),
 	producerRepo = require('../repos/producerRepo'),
-	orderRepo =require('../repos/orderRepo');
+	orderRepo =require('../repos/orderRepo'),
+      moment = require('moment');
 
 	var router = express.Router();
 
@@ -35,10 +36,24 @@ router.get('/quanlydonhang', (req, res) => {
                 isCurrentPage: i === +page
             });
         }
+    var dates = [];
+        for(i = 1; i <=rows.length; i ++)
+        {
+          var date = moment(rows[i-1].OrderDate).format('DD-MM-YYYY');
+            dates.push(
+              {
+                OrderID : rows[i-1].OrderID,
+                UserID : rows[i-1].UserID,
+                OrderDate : date,
+                Adress: rows[i-1].Adress,
+                Total: rows[i-1].Total,
+                Status: rows[i-1].Status
+              });
+        }
 
 		var vm =
 		{
-			orders : rows,
+			orders : dates,
 			noOders : rows.length === 0,
 			layout: 'admin',
 			page_numbers: numbers
@@ -52,25 +67,44 @@ router.get('/quanlydonhang/add',(req,res)=>
   var vm = {
     showResult: false,
     layout: 'admin'
-};
-res.render('admin/add', vm);
+  };
+  res.render('admin/adddonhang', vm);
 });
 
-router.post('/add', (req, res) => {
-    categoryRepo.add(req.body).then(value => {
+router.post('/quanlydonhang/add', (req, res) => {
+var dob = moment(req.body.OrderDate, 'DD-MM-YYYY').format('YYYY-MM-DD HH:mm');
+  var dh = {
+    OrderDate : dob,
+    UserID : req.body.UserID,
+    Total :req.body.Total,
+    Adress :req.body.Adress,
+    Status :req.body.Status
+  };
+    orderRepo.add(dh).then(value => {
         // console.log(value);
         var vm = {
             showResult: true,
             layout: 'admin'
         };
-        res.render('admin/add', vm);
+        res.render('admin/adddonhang', vm);
     });
 });
 
 router.get('/quanlydonhang/edit', (req, res) => {
     orderRepo.single(req.query.id).then(rows => {
+       var dt = moment(rows[0].OrderDate).format('DD-MM-YYYY');
+
+        date=
+          {
+            OrderID : rows[0].OrderID,
+            UserID : rows[0].UserID,
+            OrderDate : dt,
+            Adress: rows[0].Adress,
+            Total: rows[0].Total,
+            Status: rows[0].Status
+          };
         var vm = {
-            oder: rows[0],
+            oder: date,
             layout: 'admin'
         };
         res.render('admin/editdonhang', vm);
@@ -78,7 +112,16 @@ router.get('/quanlydonhang/edit', (req, res) => {
 });
 
 router.post('/quanlydonhang/edit', (req, res) => {
-    orderRepo.update(req.body).then(value => {
+  var dob = moment(req.body.OrderDate, 'DD-MM-YYYY').format('YYYY-MM-DD HH:mm');
+  var dh = {
+    OrderID : req.body.OrderID,
+    OrderDate : dob,
+    UserID : req.body.UserID,
+    Total :req.body.Total,
+    Adress :req.body.Adress,
+    Status :req.body.Status
+  };
+    orderRepo.update(dh).then(value => {
         res.redirect('/admin/quanlydonhang');
     });
 });
