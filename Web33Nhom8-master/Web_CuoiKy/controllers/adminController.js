@@ -76,12 +76,27 @@ router.get('/quanlydonhang/edit', (req, res) => {
         res.render('admin/editdonhang', vm);
     });
 });
-
 router.post('/quanlydonhang/edit', (req, res) => {
     orderRepo.update(req.body).then(value => {
-        res.redirect('/admin/quanlydonhang');
+        res.redirect('admin/quanlydonhang');
     });
 });
+router.get('/quanlydonhang/delete', (req, res) => {
+    var vm = {
+        id: req.query.id,
+        layout: 'admin'
+    };
+    res.render('admin/deletedonhang', vm);
+});
+
+router.post('/quanlydonhang/delete', (req, res) => {
+    // orderRepo.delete(req.body.OderID).then(value => {
+    //     res.redirect('admin/quanlydonhang');
+    // });
+    res.redirect('/admin/quanlydonhang');
+});
+
+
 
 
 router.get('/quanlysanpham', (req, res) => {
