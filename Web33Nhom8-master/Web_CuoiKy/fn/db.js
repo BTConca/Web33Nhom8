@@ -5,7 +5,7 @@ exports.load = sql => {
         var cn = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'root',
+            password: '',
             database: 'qlbh3',
             datestring:'date'
         });
@@ -29,7 +29,7 @@ exports.save = sql => {
         var cn = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'root',
+            password: '',
             database: 'qlbh3',
              datestring:'date'
         });

@@ -1,0 +1,201 @@
+   {{#if erro}}
+   <script type="text/javascript">
+   alert("Bạn không có quyền xem đơn hàng này!!!");
+  window.location.href = '/home';
+</script>
+   {{else}}
+      <div class="container_fullwidth">
+        <div class="container shopping-cart">
+          <div class="row">
+            <div class="col-md-12">
+
+{{#with Order}}
+              <h3 class="title">
+               Thông tin đơn hàng
+              </h3>
+              <div class="clearfix">
+              </div>
+ 
+              <table class="order-table">
+                <thead>
+                  <tr>
+                    <th>
+                      Ngày đặt
+                    </th>
+                    <th>
+                     Địa chỉ nhận hàng
+                    </th>
+                    <th>
+                      Tổng tiền
+                    </th>
+                    <th>
+                      Trạng thái
+                    </th>
+                    
+                   
+                  </tr>
+                </thead>
+                <tbody>
+   
+                  <tr >
+                    <td>
+                    {{../Dat}}
+
+                    </td>
+
+                       <td>
+                        {{Adress}}
+                    </td>
+                    
+                     <td>
+                        {{Total}}
+                    </td>
+                    {{#if Status}}
+                     <td style="color:green;">
+                        Đã nhận hàng
+                    </td>
+                     {{else}}
+                     <td style="color:red;">
+                  
+                        Chưa nhận hàng
+                    </td>
+                   {{/if}}
+                 
+                  </tr>
+
+
+                </tbody>
+
+ 
+              </table>
+
+{{/with}}
+
+
+
+ <h3 class="title">
+               Danh sách sản phẩm
+              </h3>
+  <table class="shop-table">
+                <thead>
+                  <tr>
+                    <th>
+                      Sản phẩm
+                    </th>
+                    <th>
+                      Chi tiết
+                    </th>
+                    <th>
+                      Giá
+                    </th>
+                    <th>
+                      Số lượng
+                    </th>
+                    <th>
+                      Tổng
+                    </th>
+
+                  </tr>
+                </thead>
+                <tbody>
+
+{{#each Products}}
+                  <tr>
+                    <td>
+<a href="/product/detail/{{ProID}}">
+                      <img src="/media/images/Wine/{{ProID}}.png" alt="">
+                      </a>
+                    </td>
+                    <td>
+                      <div class="shop-details">
+                       <a href="/product/detail/{{ProID}}">
+                        <div class="productname">
+                         <b class="red">{{ProName}}</b>
+                        </div>
+                       
+                      
+                          <p>
+
+                      {{TinyDes}}
+                      </p>
+                      </a>
+                      </div>
+                    </td>
+                    <td>
+                      <h5>
+                        ${{Price}}
+                      </h5>
+
+                    </td>
+                    <td>
+                        ${{Qty}}
+                    </td>
+                    <td>
+                      <h5>
+                        <strong class="red">
+                          ${{Amount}}
+                        </strong>
+                      </h5>
+                    </td>
+               
+                  </tr>
+  {{/each}}
+
+                </tbody>
+               
+              </table>
+
+
+  <div class="col-md-offset-4  col-md-4 col-sm-6">
+                  <div class="shippingbox">
+                    <div class="subtotal">
+                      <h5>
+                        Sản phẩm
+                      </h5>
+                      <span>
+                        ${{Order.Total}}
+                      </span>
+                    </div>
+                     <div class="subtotal">
+                      <h5>
+                        Phí Ship
+                      </h5>
+                      <span>
+                        ${{Ship}}
+                      </span>
+                    </div>
+                    <div class="grandtotal">
+                      <h5>
+                        TỔNG CỘNG 
+                      </h5>
+                      <span>
+                     ${{grandtotal}}
+                      </span>
+                    </div>
+                    
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    {{/if}}   

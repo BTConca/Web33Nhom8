@@ -16,27 +16,53 @@
                       Ngày đặt
                     </th>
                     <th>
-                      Chi tiết
+                     Địa chỉ nhận hàng
                     </th>
                     <th>
-                      Tổng giá
+                      Tổng tiền
                     </th>
                     <th>
                       Trạng thái
                     </th>
-                   
-                    <th>
-                      Xóa
+                     <th>
+                      Xem chi tiết
                     </th>
+
                   </tr>
                 </thead>
                 <tbody>
 
-{{#each items}}
-                  <tr>
+{{#each orders}}
+
+                  <tr >
                     <td>
+                    {{OrderDate}}
+
+                    </td>
+
+                       <td>
+                        {{Adress}}
+                    </td>
+
+                     <td>
+                        {{Total}}
+                    </td>
+                    {{#if Status}}
+                     <td style="color:green;">
+                        Đã nhận hàng
+                    </td>
+                     {{else}}
+                     <td style="color:red;">
+
+                        Chưa nhận hàng
+                    </td>
+                    {{/if}}
+                  <td >
+                  <a href="order/detail/{{OrderID}}" class="btn btn-info" role="button">Xem chi tiết</a>
+                       </a>
                     </td>
                   </tr>
+
   {{/each}}
 
                 </tbody>
@@ -48,10 +74,10 @@
 
 
 
-               
+
               </table>
-  {{else}}{{/if}} 
-              
+  {{else}}{{/if}}
+
             </div>
           </div>
 

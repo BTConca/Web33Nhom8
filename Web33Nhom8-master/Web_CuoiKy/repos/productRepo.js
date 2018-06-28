@@ -38,9 +38,16 @@ exports.loadPageByCat = (catId, offset) => {
 	var sql = `select * from products where CatID = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
-
+exports.loadPageByProducer = (produceId, offset) => {
+	var sql = `select * from products where ProducerID = ${produceId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	return db.load(sql);
+}
 exports.countByCat = catId => {
 	var sql = `select count(*) as total from products where CatID = ${catId}`;
+	return db.load(sql);
+}
+exports.countByProducer = producerId => {
+	var sql = `select count(*) as total from products where ProducerID = ${producerId}`;
 	return db.load(sql);
 }
 

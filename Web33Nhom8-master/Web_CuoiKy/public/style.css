@@ -850,13 +850,13 @@ width: 100%;display: table;margin-bottom: 15px;
 width: 15%;
 }
 .order-table th:nth-child(2), .order-table td:nth-child(2){
-width: 35%;
+width: 30%;
 }
 .order-table th:nth-child(3), .order-table td:nth-child(3){
 width: 25%;
 }
  .order-table th:nth-child(4), .order-table td:nth-child(4), .order-table th:nth-child(5), .order-table td:nth-child(5), .order-table th:nth-child(6), .order-table td:nth-child(6){
-width: 10%;
+width: 15%;
 }
 .order-table img{
 max-height: 130px;

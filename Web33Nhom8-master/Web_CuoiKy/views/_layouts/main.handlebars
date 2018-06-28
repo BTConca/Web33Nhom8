@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <title>Home - Gentlemen's world</title>
+    <title> {{{_sections.title}}} - Gentlemen's world</title>
     <meta charset="utf-8">       
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,7 +32,7 @@
                         <div class="row">
                            <div class="col-md-6">
                            <ul class="topmenu">
-                                 <li><a href="about//home">About Us</a></li>
+                                 <li><a href="/home/about">About Us</a></li>
                                  <li><a class="ac-control" href="/home/about">Recruiment</a></li>
                                  <li><a class="ac-control" href="/home/about">Support</a></li>
                               </ul>
@@ -53,7 +53,7 @@
                                             </li>
                                               <li>
 
- <a href="/">Đơn hàng
+ <a href="/order">Đơn hàng
             </a>
 
 
@@ -102,7 +102,7 @@
                                       <a href="/product/detail/{{product.ProID}}">
                                        <div class="image"><img src="/../media/images/Wine/{{product.ProID}}.png" alt=""></div>
                                        <div class="item-description">
-                                          <p class="name">{{product.ProName}}</p>
+                                          <p class="name">{{roduct.ProName}}</p>
                                           <p>Số lượng: <span class="light-red">{{quantity}}</span></p>
                                        </div>
                                      </a>
@@ -126,11 +126,27 @@
                                        <div class="navbar-collapse collapse">
                            <ul class="nav navbar-nav">
                               
-                              <li class="active"><a class="ac-control" href="/home">Home</a></li>
+                              <li  class="{{{_sections.home}}}"><a class="ac-control ac-control1" href="/home">Home</a></li>
                            
                     {{#each layoutVM.categories}}
-                              <li>  <a class="ac-control" href="/product/byCat/{{CatID}}">{{CatName}}</a></li> {{/each}}
-                              <li><a class="ac-control" href="/home/about">contact us</a></li>
+                              <li class="">  <a class="ac-control ac-control1" href="/product/byCat/{{CatID}}">{{CatName}}</a></li> {{/each}}
+
+                              <li class="dropdown">
+                                 <a style="cursor:pointer;" class="ac-control ac-control1 dropdown-toggle" data-toggle="dropdown">Các NSX</a>
+                                 <div class="dropdown-menu mega-menu">
+                                    <div class="row">
+                                       <div class="col-md-6 col-sm-6">
+                                          <ul class="mega-menu-links">
+
+                                           {{#each layoutVM.producers}}
+                                    <li><a class="ac-control ac-control1" href="/product/byProducer/{{ProducerID}}">{{ProducerName}}</a></li>
+                                           {{/each}}
+                                          </ul>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </li>
+
 
 
                            </ul>
