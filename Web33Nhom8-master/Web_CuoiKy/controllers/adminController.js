@@ -3,6 +3,7 @@ categoryRepo = require('../repos/categoryRepo'),
     config = require('../config/config'),
 	producerRepo = require('../repos/producerRepo'),
 	orderRepo =require('../repos/orderRepo'),
+  productRepo = require('../repos/productRepo'),
       moment = require('moment');
 
 	var router = express.Router();
@@ -133,12 +134,11 @@ router.get('/quanlydonhang/delete', (req, res) => {
 });
 
 router.post('/quanlydonhang/delete', (req, res) => {
-    // orderRepo.delete(req.body.OderID).then(value => {
-    //     res.redirect('admin/quanlydonhang');
-    // });
-    res.redirect('/admin/quanlydonhang');
-});
+    orderRepo.delete(req.body.OderID).then(value => {
+        res.redirect('/admin/quanlydonhang');
+    });
 
+});
 
 
 
@@ -185,7 +185,7 @@ router.get('/quanlysanpham/quanlytheoloaisp/:catID', (req, res) => {
         }
 
         var vm = {
-			categories : cats,
+			      categories : cats,
             products: rows,
             noProducts: rows.length === 0,
             page_numbers: numbers,
@@ -193,6 +193,109 @@ router.get('/quanlysanpham/quanlytheoloaisp/:catID', (req, res) => {
         };
 		res.render('admin/byCat',vm);
     });
+});
+
+router.get('/addproducts',(req,res)=>
+{
+  var vm = {
+    CatID : req.query.id,
+    showResult: false,
+    layout: 'admin'
+  };
+  res.render('admin/addproducts', vm);
+});
+
+router.post('/addproducts', (req, res) => {
+    productRepo.add(req.body).then(value => {
+      var vm = {
+        showResult : true,
+        layout : 'admin'
+      }
+        res.render('admin/addproducts',vm);
+    });
+});
+
+router.get('/deleteproduct', (req, res) => {
+    var vm = {
+        id: req.query.id,
+        CatID: req.query.CatID,
+			layout: 'admin'
+    };
+    res.render('admin/deleteproduct', vm);
+});
+
+router.post('/deleteproduct', (req, res) => {
+    productRepo.delete(req.body.id).then(value => {
+        res.redirect('/admin/quanlysanpham/quanlytheoloaisp');
+    });
+});
+
+
+router.get('/addcategorie',(req,res)=>
+{
+  var vm = {
+    showResult: false,
+    layout: 'admin'
+  };
+  res.render('admin/addcategorie', vm);
+});
+
+router.post('/addcategorie', (req, res) => {
+  categoryRepo.add(req.body).then(value => {
+      var vm = {
+        showResult : true,
+        layout : 'admin'
+      }
+        res.render('admin/addcategorie',vm);
+    });
+});
+
+router.get('/deleteCate', (req, res) => {
+    var vm = {
+        id: req.query.id,
+			layout: 'admin'
+    };
+    res.render('admin/deletecategorie', vm);
+});
+
+router.post('/deleteCate', (req, res) => {
+    categoryRepo.delete(req.body.CatID).then(value => {
+        res.redirect('/admin/quanlysanpham/quanlytheoloaisp');
+    });
+});
+
+router.get('/addproducers', (req, res) => {
+    var vm = {
+        showResult :false,
+        layout : 'admin'
+    };
+    res.render('admin/addproducers',vm);
+});
+
+router.post('/addproducers', (req, res) => {
+    producerRepo.add(req.body).then(value => {
+      var vm = {
+        showResult : true,
+        layout : 'admin'
+      }
+        res.render('admin/addproducers',vm);
+    });
+
+});
+
+router.get('/deleteproducers', (req, res) => {
+    var vm = {
+        id: req.query.id,
+			layout: 'admin'
+    };
+    res.render('admin/deleteproducers', vm);
+});
+
+
+router.post('/deleteproducers', (req, res) => {
+  producerRepo.delete(req.body.ProducerID).then(value => {
+      res.redirect('/admin/quanlysanpham/quanlytheonhasx');
+  });
 });
 
 router.get('/quanlysanpham/quanlytheonhasx', (req, res) => {

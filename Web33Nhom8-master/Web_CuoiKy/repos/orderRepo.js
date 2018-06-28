@@ -46,3 +46,8 @@ exports.add = order => {
 var sql = `insert into orders(OrderDate,UserID,Total,Adress) values('${order.OrderDate}', '${order.UserID}', '${order.Total}','${order.Adress}')`;
 	return db.save(sql);
 }
+
+exports.delete = id => {
+	var sql = `delete  from orders where OrderID = ${id}`;
+	return db.save(sql);
+}

@@ -30,10 +30,9 @@
             <tr>
                 <th scope="col">Mã sản phẩm</th>
                 <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Ngày nhập</th>
-                <th scope="col">Số lượng</th>
-
-
+                <th scope="col">Giá</th>
+                <th scope="col">Loại</th>
+								<th scope="col">Số Lượng</th>
             </tr>
         </thead>
 		{{#each products}}
@@ -41,12 +40,13 @@
             <tr>
                 <th scope="row">{{ProID}}</th>
                 <td>{{ProName}}</td>
-                <td>24/06/2018</td>
-                <td>50</td>
+                <td>{{Price}}</td>
+              	<td>{{CatID}}</td>
+								<td>{{Quantity}}</td>
                 <td>
-                    <button onclick='rm()'>
-                        Xóa
-                    </button>
+									<a class="btn btn-default btn-xs" href="/admin/deleteproduct?id={{ProID}}&CatID={{CatID}}" role="button">
+										<span class="glyphicon glyphicon-remove"></span>
+									</a>
                 </td>
 
             </tr>
@@ -54,9 +54,16 @@
         </tbody>
 
     </table>
-    <button onclick='rm()'>
-        Thêm
-    </button>
+				{{#each categories}}
+		<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+		<a class="btn btn-success" href="/admin/addproducts?id={{CatID}}" role="button">
+			<span class="glyphicon glyphicon-plus"></span>
+			Add
+		</a>
+		</div>
+		</div>
+		{{/each}}
 </div>
 <ul class="pagination">
 	<li><a href="#">&laquo;</a></li>

@@ -94,6 +94,14 @@ exports.countBySearch = (name,CatID,ProducerID,PriceMin,PriceMax) => {
 	{
 		var sql = `select count(*) as total  from products where ProName like '%${name}%' and CatID=${CatID} and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} `;
 	}
-
 	return db.load(sql);
+}
+exports.add = product => {
+	var sql = `insert into products(ProName,TinyDes,FullDes,Price,CatID,Quantity) values('${product.ProName}','${product.TinyDes}','${product.FullDes}', '${product.Price}','${product.CatID}','${product.Quantity}')`;
+	return db.save(sql);
+}
+
+exports.delete = id => {
+	var sql = `delete from products where ProID = ${id}`;
+	return db.save(sql);
 }
