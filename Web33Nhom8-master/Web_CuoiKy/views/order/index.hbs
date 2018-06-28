@@ -8,7 +8,7 @@
               </h3>
               <div class="clearfix">
               </div>
-    {{#if orders}}
+              {{#if orders}}
               <table class="order-table">
                 <thead>
                   <tr>
@@ -32,16 +32,9 @@
                 </thead>
                 <tbody>
 
-{{#each orders}}
+{{#each items}}
                   <tr>
                     <td>
-                    {{date}}
-                    </td>
-                       <td>
-                    {{#each products}}
-                   {{OrderID}}
-                    </br>
-                    {{/each}}
                     </td>
                   </tr>
   {{/each}}
@@ -57,13 +50,7 @@
 
                
               </table>
-  {{else}}
-<div class="row">
-  <div style="text-align:center;margin-top: 100px; margin-bottom:150px;" class="col-sm-12 col-md-12 col-lg-12">
-   <h1> Đơn hàng trống</h1>
-  </div>
-</div>
-  {{/if}} 
+  {{else}}{{/if}} 
               
             </div>
           </div>

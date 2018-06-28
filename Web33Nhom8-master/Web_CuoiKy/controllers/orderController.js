@@ -12,33 +12,19 @@ router.get('/', (req, res) => {
 	{
 		var orders = [];
 		var n = rows.length;
-
 		for(var i=0;i<n;i++)
 		{
-			var date= moment(rows[i].OrderDate, 'YYYY-MM-DD')
-    .format('DD-MM-YYYY')  ;
-
-			var total=rows[i].Total;
 			orderRepo.getProductByOrderID(rows[i].OrderID).then(pros =>
 			{
-				var od = {
-					date,
-					total,
+				orders.push({
 					products: pros,
-					
-				}
-				
-				orders[i]=od;
-
+					total: pros.length,});
 				});
-
 		};
-		console.log(orders);
 		var vm =
 		{
-			orders,
+			orders
 		};
-			
 		res.render('order/index', vm);
 	});
 });
@@ -48,7 +34,7 @@ router.post('/add', (req, res) => {
  	var userID =  req.session.curUser.f_ID;
  	var date = new Date().toLocaleDateString();
  	var OrderDate = moment(date, 'YYYY/MM/DD')
-            .format('YYYY-MM-DD');
+            .format('YYYY-MM-DDTHH:mm');
             var Adress = req.body.adress;
             var er="Thất bại!!";
             var erList=[];

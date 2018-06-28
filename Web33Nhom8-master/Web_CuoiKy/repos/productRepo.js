@@ -50,7 +50,7 @@ exports.single = id => {
 }
 
 exports.sell = (id,quantity) => {
-	var sql = `update products set Quantity = Quantity - ${quantity},Sell=Sell+${quantity} where ProID = ${id}`;
+	var sql = `update products set Quantity = Quantity - ${quantity} where ProID = ${id}`;
 	return db.load(sql);
 }
 exports.view = (id) => {
