@@ -1,1 +1,0 @@
-SELECT * FROM qlbh2.categories;
