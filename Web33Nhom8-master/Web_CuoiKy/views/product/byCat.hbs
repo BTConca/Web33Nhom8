@@ -37,9 +37,18 @@
 <script type="text/javascript">
   $('.addItem').on('click', function() {
       var id = $(this).data('proid');
+      var qty=1;
+       var quant = $(this).data('quantity');
+       if(quant==0||quant<qty)
+      {
+      alert(`Sản phẩm còn lại không đủ, Chỉ còn ${quant} sản phẩm!!`);
+      }
+      else
+      {
       $('#txtP').val(id);
       $('#txtQ').val(1);
       $('#frmAddItem').submit();
+      }
   });
 </script>
 
@@ -115,7 +124,7 @@
 
           {{#if ../layoutVM.isLogged}}
 
-          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
              <button class="button add-cart" type="button">
                           Thêm vào giỏ hàng
                         </button>

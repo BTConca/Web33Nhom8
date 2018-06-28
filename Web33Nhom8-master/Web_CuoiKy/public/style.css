@@ -826,6 +826,50 @@ float: right;
 
 
 
+
+
+.order-table{
+position: relative;width: 100%;border-collapse: separate;
+}
+.order-table th{
+font-size: 16px;padding: 5px;text-align: center;
+}
+.order-table tbody td{
+text-align: center;border: 1px solid #E1E1E1;vertical-align: middle;padding: 10px;border-left: none;
+}
+.order-table tbody tr td:first-child{
+border-left: 1px solid #E1E1E1;-webkit-border-radius: 10px 0 0 10px;border-radius: 10px 0 0 10px;
+}
+.order-table tbody tr td:last-child{
+-webkit-border-radius: 0 10px 10px 0;border-radius: 0 10px 10px 0;
+}
+.order-table tr{
+width: 100%;display: table;margin-bottom: 15px;
+}
+.order-table th:first-child, .order-table td:first-child{
+width: 15%;
+}
+.order-table th:nth-child(2), .order-table td:nth-child(2){
+width: 35%;
+}
+.order-table th:nth-child(3), .order-table td:nth-child(3){
+width: 25%;
+}
+ .order-table th:nth-child(4), .order-table td:nth-child(4), .order-table th:nth-child(5), .order-table td:nth-child(5), .order-table th:nth-child(6), .order-table td:nth-child(6){
+width: 10%;
+}
+.order-table img{
+max-height: 130px;
+}
+
+
+
+
+
+
+
+
+
 /*PHẦN PAGE GIỎ HÀNG*/
 
 

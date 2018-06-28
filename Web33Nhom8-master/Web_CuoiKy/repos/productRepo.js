@@ -10,7 +10,7 @@ exports.load4ByView = offset => {
 	return db.load(sql);
 }
 exports.load4ByNew = offset => {
-	var sql = `select * from products  order by CatID desc limit 4 offset ${offset}`;
+	var sql = `select * from products  order by ProID desc limit 4 offset ${offset}`;
 	return db.load(sql);
 }
 exports.load4BySell = offset => {
@@ -51,6 +51,10 @@ exports.single = id => {
 
 exports.sell = (id,quantity) => {
 	var sql = `update products set Quantity = Quantity - ${quantity} where ProID = ${id}`;
+	return db.load(sql);
+}
+exports.view = (id) => {
+	var sql = `update products set View = View + 1 where ProID = ${id}`;
 	return db.load(sql);
 }
 exports.search = (name,CatID,ProducerID,PriceMin,PriceMax,offset) => {

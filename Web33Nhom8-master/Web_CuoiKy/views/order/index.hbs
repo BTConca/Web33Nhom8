@@ -1,0 +1,59 @@
+
+      <div class="container_fullwidth">
+        <div class="container shopping-cart">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="title">
+                Danh sách đơn hàng
+              </h3>
+              <div class="clearfix">
+              </div>
+              {{#if orders}}
+              <table class="order-table">
+                <thead>
+                  <tr>
+                    <th>
+                      Ngày đặt
+                    </th>
+                    <th>
+                      Chi tiết
+                    </th>
+                    <th>
+                      Tổng giá
+                    </th>
+                    <th>
+                      Trạng thái
+                    </th>
+                   
+                    <th>
+                      Xóa
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+
+{{#each items}}
+                  <tr>
+                    <td>
+                    </td>
+                  </tr>
+  {{/each}}
+
+                </tbody>
+
+
+
+
+
+
+
+
+               
+              </table>
+  {{else}}{{/if}} 
+              
+            </div>
+          </div>
+
+        </div>
+      </div>

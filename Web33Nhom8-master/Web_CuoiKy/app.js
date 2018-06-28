@@ -39,6 +39,7 @@ app.engine('hbs', exphbs({
 app.use('/admin', express.static(__dirname + '/public'));
 app.use('/admin/quanlysanpham', express.static(__dirname + '/public'));
 app.use('/admin/quanlysanpham/quanlytheoloaisp', express.static(__dirname + '/public'));
+
 app.set('view engine', 'hbs');
 
 app.use(express.static(

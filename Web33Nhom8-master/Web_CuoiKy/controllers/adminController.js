@@ -5,20 +5,17 @@ categoryRepo = require('../repos/categoryRepo'),
 	donhangRepo = require('../repos/donhangRepo');
 
 	var router = express.Router();
-router.all('/*',(req,res,next) => {
-	req.app.locals.layout = 'admin';
-	next();
-});
+
 router.get('/index', (req, res) => {
-    res.render('admin/index');
+    res.render('admin/index',{ layout: 'admin' });
 });
 
 router.get('/categories', (req, res) => {
-    res.render('admin/categories');
+    res.render('admin/categories',{ layout: 'admin' });
 });
 
 router.get('/nhasx', (req, res) => {
-    res.render('admin/nhasx');
+    res.render('admin/nhasx',{ layout: 'admin' });
 });
 
 router.get('/quanlydonhang', (req, res) => {
@@ -27,12 +24,12 @@ router.get('/quanlydonhang', (req, res) => {
             donhang: rows,
 			noDonhang: rows.length === 0,
 		};
-    res.render('admin/quanlydonhang',vm);
+    res.render('admin/quanlydonhang',vm,{ layout: 'admin' });
 	});
 });
 
 router.get('/quanlysanpham', (req, res) => {
-    res.render('admin/quanlysanpham');
+    res.render('admin/quanlysanpham',{ layout: 'admin' });
 });
 
 router.get('/quanlysanpham/quanlytheoloaisp', (req, res) => {
@@ -41,7 +38,7 @@ router.get('/quanlysanpham/quanlytheoloaisp', (req, res) => {
             categories: rows,
 			noCategories: rows.length === 0
 		};
-		res.render('admin/quanlytheoloaisp',vm);
+		res.render('admin/quanlytheoloaisp',vm,{ layout: 'admin' });
 	});
 });
 
@@ -77,7 +74,7 @@ router.get('/quanlysanpham/quanlytheoloaisp/:catID', (req, res) => {
             noProducts: rows.length === 0,
             page_numbers: numbers
         };
-        res.render('admin/byCat', vm);
+        res.render('admin/byCat', vm,{ layout: 'admin' });
     });
 });
 
@@ -87,7 +84,7 @@ router.get('/quanlysanpham/quanlytheonhasx', (req, res) => {
             producers: rows,
 			noProducers: rows.length === 0
 		};
-		res.render('admin/quanlytheonhasx',vm);
+		res.render('admin/quanlytheonhasx',vm,{ layout: 'admin' });
 	});
 });
 

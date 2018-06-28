@@ -35,34 +35,65 @@ router.post('/add', (req, res) => {
  	var date = new Date().toLocaleDateString();
  	var OrderDate = moment(date, 'YYYY/MM/DD')
             .format('YYYY-MM-DDTHH:mm');
-      orderRepo.addOrder(OrderDate,userID,total).then(rows =>{
-			orderRepo.getLastOrderID().then(value =>
-			{
-
-				var OrderID = value[0].OrderID;
-				
-				for(var i =0;i< items.length;i++)
+            var Adress = req.body.adress;
+            var er="Thất bại!!";
+            var erList=[];
+            var check = 0;
+            for(var i =0;i< items.length;i++)
 				{
-							
-					orderRepo.addOrderDetail(OrderID,items[i].product.ProID,items[i].quantity,items[i].product.Price,items[i].amount).then(
-						ro =>
-						{
-
-						});	
-					productRepo.sell(items[i].product.ProID,items[i].quantity).then(se =>   {}	);
+					if(items[i].product.Quantity<items[i].quantity)
+					{
+						var item= {
+							proname: items[i].product.ProName,
+							quantity: items[i].product.Quantity,
+						}
+					erList.push(item);
+					check=1;
+					}
 				};
 
+				if(check==1)
+					{
+						var vm={
+								er: er,
+								erList,
+								items: req.session.cart,
+						        totalAmount:total,
+						        Ship: config.SHIP_FEE,
+						        totalAmountShip: total+ config.SHIP_FEE
+						}
+						console.log("Omg work");
+						 res.render('cart/index', vm);
+					}
+					else
+					{
+							  orderRepo.addOrder(OrderDate,userID,total,Adress).then(rows =>{
+					orderRepo.getLastOrderID().then(value =>
+					{
 
- 			for(var i =0;i< req.session.cart.length;)
-				{
-				cartRepo.remove(req.session.cart,req.session.cart[i].product.ProID);
+						var OrderID = value[0].OrderID;
+						
+						for(var i =0;i< items.length;i++)
+						{
+									
+							orderRepo.addOrderDetail(OrderID,items[i].product.ProID,items[i].quantity,items[i].product.Price,items[i].amount).then(
+								ro =>
+								{
 
-			}
+								});	
+							productRepo.sell(items[i].product.ProID,items[i].quantity).then(se =>   {}	);
+						};
+
+					})
 					
-				
-			})
-			res.redirect('/order');
-      });
+					req.session.cart=[];
+					var vm ={
+					 noti: "Đặt hàng thành công!!"
+					}
+					res.redirect("/order");
+		      });
+				}
+  
 	
 });
 

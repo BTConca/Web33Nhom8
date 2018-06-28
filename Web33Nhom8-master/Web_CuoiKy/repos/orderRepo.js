@@ -17,8 +17,8 @@ exports.getProductByOrderID = orderid => {
 	var sql = `select * from orderdetails join products on (orderdetails.ProID=products.ProID) where OrderID = ${orderid} `;
 	return db.load(sql);
 }
-exports.addOrder = (OrderDate,UserID,Total) => {
-var sql = `insert into orders(OrderDate,UserID,Total) values('${OrderDate}', '${UserID}', '${Total}')`;
+exports.addOrder = (OrderDate,UserID,Total,Adress) => {
+var sql = `insert into orders(OrderDate,UserID,Total,Adress) values('${OrderDate}', '${UserID}', '${Total}','${Adress}')`;
 	return db.save(sql);
 }
 exports.getLastOrderID = () =>

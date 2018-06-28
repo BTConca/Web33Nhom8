@@ -6,6 +6,9 @@ var router = express.Router();
 router.get('/detail/:proId', (req, res) => {
     var proId = req.params.proId;
     productRepo.single(proId).then(products => {
+        productRepo.view(proId).then(value =>{}
+            );
+
         if (products.length > 0) {
             
             productRepo.load4ByCat(products[0].CatID,0).then(c1 => {
