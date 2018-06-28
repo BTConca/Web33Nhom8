@@ -1,0 +1,43 @@
+{{#section 'title'}}
+    <b>Add category</b>
+{{/section}}
+
+{{#if showResult}}
+<div class="alert alert-success">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	<strong>OK!</strong> Category added.
+</div>
+{{/if}}
+
+<div class="row">
+  <ol class="breadcrumb">
+    <li><a href="#">
+      <em class="fa fa-home"></em>
+    </a></li>
+    <li class="active">Dashboard/Quản lý đơn hàng</li>
+  </ol>
+</div><!--/.row-->
+
+<div class="row" style="border-bottom:1px solid green;">
+    <h1 class="page-header">Thêm đơn hàng</h1>
+</div><!--/.row-->
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<label for="">OrderDate</label>
+		<input type="text" class="form-control" id="" name="CatName" placeholder="Input field">
+    <label for="">UserID</label>
+		<input type="text" class="form-control" id="" name="CatName" placeholder="Input field">
+    <label for="">Total</label>
+    <input type="text" class="form-control" id="" name="CatName" placeholder="Input field">
+    <label for="">Adress</label>
+    <input type="text" class="form-control" id="" name="CatName" placeholder="Input field">
+	</div>
+	<a class="btn btn-default" href="/category" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		Back
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-ok"></span>
+		Add
+	</button>
+</form>
