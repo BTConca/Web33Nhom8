@@ -82,7 +82,7 @@ router.post('/logout', restrict, (req, res) => {
     req.session.isLogged = false;
     req.session.curUser = null;
     
-    res.redirect(req.headers.referer);
+    res.redirect('/home');
 });
 
 

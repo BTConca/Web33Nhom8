@@ -13,10 +13,12 @@ exports.getByUserID = userid => {
 	var sql = `select * from orders where UserID = ${userid} `;
 	return db.load(sql);
 }
+
 exports.getProductByOrderID = orderid => {
-	var sql = `select * from orderdetails join products on (orderdetails.ProID=products.ProID) where OrderID = ${orderid} `;
+	var sql = `select products.Price as Price, products.TinyDes as TinyDes, products.ProID as ProID, products.ProName as ProName, orderdetails.Quantity as Qty, orderdetails.Amount as Amount from orderdetails join products on (orderdetails.ProID=products.ProID) where orderdetails.OrderID = ${orderid} `;
 	return db.load(sql);
 }
+
 exports.addOrder = (OrderDate,UserID,Total,Adress) => {
 var sql = `insert into orders(OrderDate,UserID,Total,Adress) values('${OrderDate}', '${UserID}', '${Total}','${Adress}')`;
 	return db.save(sql);
@@ -28,7 +30,7 @@ exports.getLastOrderID = () =>
 }
 exports.addOrderDetail = (OrderID,ProID,Quantity,Price,Amount) =>
 {
-	var sql = `insert into orderdetails(OrderID,ProID,Quantity,Price,Amount) values (${OrderID},${ProID},${Price},${Quantity},${Amount})`;
+	var sql = `insert into orderdetails(OrderID,ProID,Quantity,Price,Amount) values (${OrderID},${ProID},${Quantity},${Price},${Amount})`;
 	return db.save(sql);
 }
 
