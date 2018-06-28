@@ -8,11 +8,18 @@
 <script type="text/javascript">
   $('.addItem').on('click', function() {
       var id = $(this).data('proid');
-      $('#txtP').val(id);
+      var quant = $(this).data('quantity');
         var qty = $('#quantity').val();
-
+         if(quant==0||quant<qty)
+      {
+      alert(`Sản phẩm còn lại không đủ, Chỉ còn ${quant} sản phẩm!!`);
+      }
+      else
+      {
+       $('#txtP').val(id);
       $('#txtQ').val(qty);
       $('#frmAddItem').submit();
+      }
   });
 </script>
 
@@ -75,7 +82,7 @@
 
                  
 
-          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
              <button class="button add-cart" type="button">
                           Thêm vào giỏ hàng
                         </button>
@@ -142,7 +149,7 @@
                                  <h4 class="price">${{Price}}</h4>
                                 {{#if ../layoutVM.isLogged}}
 
-          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
              <button class="button add-cart" type="button">
                           Thêm vào giỏ hàng
                         </button>
@@ -168,7 +175,7 @@
                                  <h4 class="price">${{Price}}</h4>
                                  {{#if ../layoutVM.isLogged}}
 
-          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
              <button class="button add-cart" type="button">
                           Thêm vào giỏ hàng
                         </button>
@@ -214,7 +221,7 @@
                                  <h4 class="price">${{Price}}</h4>
                                   {{#if ../layoutVM.isLogged}}
 
-          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
              <button class="button add-cart" type="button">
                           Thêm vào giỏ hàng
                         </button>
@@ -240,7 +247,7 @@
                                  <h4 class="price">${{Price}}</h4>
                               {{#if ../layoutVM.isLogged}}
 
-          <a data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
              <button class="button add-cart" type="button">
                           Thêm vào giỏ hàng
                         </button>

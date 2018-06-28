@@ -1,7 +1,54 @@
 
-{{#section 'js'}}
+  {{#section 'js'}}
+ <script type="text/javascript">
+     {{#each page_numbers}}
+        {{#if isCurrentPage}}
+    var i = {{value}};
+    {{/if}}
+    {{/each}}
+   var k =  {{nPages}} -  {{nPages}}%1;
+    $('.next-page').on('click', function() {
+     if(i==k )
+     { 
+       window.location.href = `?page=${i}`;
+      }
+      else
+      {
+      window.location.href = `?page=${i+1}`;
+      }
+    });
 
+    $('.prev-page').on('click', function() {
+     if(i==1 )
+     { 
+       window.location.href = `?page=${1}`;
+      }
+      else
+      {
+      window.location.href = `?page=${i-1}`;
+      }
+    });
+  </script>
+  <script type="text/javascript">
+  $('.addItem').on('click', function() {
+      var id = $(this).data('proid');
+       var quant = $(this).data('quantity');
+      var qty =1;
+       if(quant==0||quant<qty)
+      {
+      alert(`Sản phẩm còn lại không đủ, Chỉ còn ${quant} sản phẩm!!`);
+      }
+      else
+      {
+      $('#txtP').val(id);
+      $('#txtQ').val(1);
+      $('#frmAddItem').submit();
+      }
+  });
+</script>
 {{/section}}
+
+
 
 <!-- PHẦN SẢN PHẨM -->
      <div style ="margin-top: 40px;" class="wrapper">
@@ -13,18 +60,18 @@
 
             <!-- PHẦN  LOẠI SẢN PHẨM -->
             <div class="col-md-3">
-               <form  action="search.html">
-                 <input class="search2" placeholder="Enter your search term..." type="text" value="" name="search">
-                 <input class="search-submit2" type="submit" value=""></form>
-              <form class = "filter">
+               <form method="get" action="/search/product">
+                 <input class="search2" placeholder="Enter your search term..." type="text" value="" name="name">
+                 <input class="search-submit2" type="submit" value="">
+              <div class = "filter">
               <div class="category leftbar">
                 <h3 class="title">
                   LOẠI RƯỢU
                 </h3>
-                <select>
+                <select name ="catid" >
                 <ul>
                    <li>
-          <option selected value="-1">Tất cả</option>
+          <option selected value="">Tất cả</option>
  
                   </li>
 {{#each layoutVM.categories}}
@@ -35,6 +82,9 @@
                  {{/each}}
                 </ul>
               </select>
+
+
+
               </div>
   <!-- HẾT PHẦN  LOẠI SẢN PHẨM -->
   <!-- PHẦN HÃNG SX -->
@@ -42,10 +92,10 @@
                  <h3 class="title">
                   HÃNG SẢN XUẤT
                 </h3>
-                <select>
+                <select name="producerid">
                 <ul>
                     <li>
-          <option selected value="-1">Tất cả</option>
+          <option selected value="">Tất cả</option>
  
                   </li>
 {{#each layoutVM.producers}}
@@ -68,14 +118,14 @@
                 
                   <label >
 
-                    <input min = 0 step = 100000 type="number"> VNĐ -
+                    <input value="0" name="minprice" min = 0 step = 100 type="number"> VNĐ -
                  
                   </label>
 
               
                   <label >
                    
-                    <input min = 0  step = 100000 type="number"> VNĐ
+                    <input value="100000000" name="maxprice" min = 0  step = 100 type="number"> VNĐ
                   </label>
  
             
@@ -84,6 +134,7 @@
 
               </div>
     <input class="col-md-12" type="submit" value="Go">  
+    </div>
       </form>
   <!-- HẾT PHẦN LỌC THEO GIÁ -->
   <!-- HẾT PHẦN THANH TASKBAR BÊN TRÁI -->
@@ -101,29 +152,120 @@
 
 <!-- PHẦN GRID SẢN PHẨM -->
 <div id = "products-view">
+
+{{#if noProducts}}
+<div class="row">
+  <div style="text-align:center;margin-top: 100px; margin-bottom:100px;" class="col-sm-12 col-md-12 col-lg-12">
+   <h1> NO PRODUCTS</h1>
+  </div>
+</div>
+{{else}}
+<form id="frmAddItem" method="post" action="/cart/add">
+    <input type="hidden" name="proId" id="txtP">
+    <input type="hidden" name="quantity" id="txtQ">
+  </form>
                 <div class="row">
                  
-                    <div class="col-md-4 col-sm-6">
-               <div class="products">
+
+
+
+
+
+
+
+<div class="col-md-12">
+        <div class="pager">
+                    <a  class="prev-page">
+                      <i class="fa fa-angle-left">
+                          <img src="/media/images/left-arow.png" alt="Previous">
+                      </i>
+                    </a>
+                    {{#each page_numbers}}
+    {{#if isCurrentPage}}
+                    <a href="#" class="active">
+                      {{value}}
+                    </a>
+                    {{else}}
+                    <a href="?page={{value}}">
+                     {{value}}
+                    </a>
+                      {{/if}}   
+                {{/each}}
+                    <a  class="next-page">
+                      <i class="fa fa-angle-right">
+                          <img src="/media/images/right-arow.png" alt="Next">
+                      </i>
+                    </a>
+                  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{#each products}}
+ 
+                  <div class="col-md-4 col-sm-6">
+                    <div class="products">
                       <div class="thumbnail">
-                        <a href="detail.html">
-                          <img src="../media/images/Wine/1.png" alt="Product Name">
+                        <a href="/product/detail/{{ProID}}">
+                          <img src="/media/images/Wine/{{ProID}}.png" alt="{{ProName}}">
                         </a>
                       </div>
                       <div class="productname">
-                        Chivas
+                        {{ProName}}
                       </div>
                       <h4 class="price">
-                        $451.00
+                        ${{number_format Price}}
                       </h4>
-                      <div class="button_group">
-                        <button class="button add-cart" type="button">
-                          Thêm Vào Giỏ Hàng
+                     
+
+
+
+</a>
+
+
+          {{#if ../layoutVM.isLogged}}
+
+          <a data-quantity="{{Quantity}}" data-proid="{{ProID}}" href="javascript:;" class="button_group addItem">
+             <button class="button add-cart" type="button">
+                          Thêm vào giỏ hàng
                         </button>
-                      </div>
+          </a>
+           
+                      
+                      
+          {{/if}}
+
+
                     </div>
                   </div>
+
+                {{/each}}
+
+
                 </div>
+                {{/if}}
             </div>
            <!-- HẾT PHẦN GRID SẢN PHẨM -->
               </div>

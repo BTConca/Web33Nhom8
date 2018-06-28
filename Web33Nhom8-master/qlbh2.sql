@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 25, 2018 at 05:24 AM
+-- Generation Time: Jun 27, 2018 at 11:23 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -58,6 +58,49 @@ CREATE TABLE `orderdetails` (
   `Amount` int(11) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `orderdetails`
+--
+
+INSERT INTO `orderdetails` (`ID`, `OrderID`, `ProID`, `Quantity`, `Price`, `Amount`) VALUES
+(1, 12, 3, 1600000000, 1, 1600000000),
+(2, 12, 4, 42000000, 1, 42000000),
+(3, 13, 1, 1500000, 1, 1500000),
+(4, 14, 1, 1500000, 1, 1500000),
+(5, 15, 1, 1500000, 1, 1500000),
+(6, 16, 1, 1500000, 1, 1500000),
+(7, 17, 1, 1500000, 1, 1500000),
+(8, 18, 1, 1500000, 2, 3000000),
+(9, 19, 1, 1500000, 1, 1500000),
+(10, 20, 2, 300000, 1, 300000),
+(11, 20, 3, 1600000000, 1, 1600000000),
+(12, 20, 4, 42000000, 1, 42000000),
+(13, 21, 1, 1500000, 1, 1500000),
+(14, 21, 2, 300000, 1, 300000),
+(15, 22, 2, 300000, 1, 300000),
+(16, 22, 3, 1600000000, 1, 1600000000),
+(17, 23, 16, 3200000, 2, 6400000),
+(18, 23, 1, 1500000, 1, 1500000),
+(19, 24, 1, 1500000, 1, 1500000),
+(20, 24, 2, 300000, 1, 300000),
+(21, 25, 1, 1500000, 1, 1500000),
+(22, 25, 3, 1600000000, 1, 1600000000),
+(23, 26, 3, 1600000000, 1, 1600000000),
+(24, 27, 1, 1500000, 1, 1500000),
+(25, 27, 2, 300000, 1, 300000),
+(26, 28, 1, 1500000, 1, 1500000),
+(27, 28, 2, 300000, 1, 300000),
+(28, 29, 1, 1500000, 1, 1500000),
+(29, 29, 2, 300000, 1, 300000),
+(30, 30, 1, 1500000, 1, 1500000),
+(31, 30, 2, 300000, 1, 300000),
+(32, 31, 1, 1500000, 2, 3000000),
+(33, 32, 1, 1500000, 1, 1500000),
+(34, 32, 2, 300000, 1, 300000),
+(35, 33, 1, 1500000, 1, 1500000),
+(36, 33, 2, 300000, 1, 300000),
+(37, 33, 3, 1600000000, 1, 1600000000);
+
 -- --------------------------------------------------------
 
 --
@@ -70,6 +113,45 @@ CREATE TABLE `orders` (
   `UserID` int(11) NOT NULL,
   `Total` bigint(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`OrderID`, `OrderDate`, `UserID`, `Total`) VALUES
+(1, '0000-00-00 00:00:00', 20, 30),
+(2, '2018-06-27 00:00:00', 1, 3200000000),
+(3, '2018-06-27 00:00:00', 1, 3200000000),
+(4, '2018-06-27 00:00:00', 1, 1642000000),
+(5, '2018-06-27 00:00:00', 1, 1642000000),
+(6, '2018-06-27 00:00:00', 1, 2920000),
+(7, '2018-06-27 00:00:00', 1, 5600000),
+(8, '2018-06-27 00:00:00', 1, 5600000),
+(9, '2018-06-27 00:00:00', 1, 2920000),
+(10, '2018-06-27 00:00:00', 1, 540000),
+(11, '2018-06-27 00:00:00', 1, 1642000000),
+(12, '2018-06-27 00:00:00', 1, 1642000000),
+(13, '2018-06-27 00:00:00', 1, 1500000),
+(14, '2018-06-27 00:00:00', 1, 1500000),
+(15, '2018-06-27 00:00:00', 1, 1500000),
+(16, '2018-06-27 00:00:00', 1, 1500000),
+(17, '2018-06-27 00:00:00', 1, 1500000),
+(18, '2018-06-27 00:00:00', 1, 3000000),
+(19, '2018-06-27 00:00:00', 1, 1500000),
+(20, '2018-06-27 00:00:00', 1, 1642300000),
+(21, '2018-06-27 00:00:00', 1, 1800000),
+(22, '2018-06-27 00:00:00', 1, 1600300000),
+(23, '2018-06-27 00:00:00', 1, 7900000),
+(24, '2018-06-27 00:00:00', 1, 1800000),
+(25, '2018-06-27 00:00:00', 1, 1601500000),
+(26, '2018-06-27 00:00:00', 1, 1600000000),
+(27, '2018-06-27 00:00:00', 1, 1800000),
+(28, '2018-06-27 00:00:00', 1, 1800000),
+(29, '2018-06-27 00:00:00', 1, 1800000),
+(30, '2018-06-27 00:00:00', 1, 1800000),
+(31, '2018-06-27 00:00:00', 1, 3000000),
+(32, '2018-06-27 00:00:00', 1, 1800000),
+(33, '2018-06-27 00:00:00', 1, 1601800000);
 
 -- --------------------------------------------------------
 
@@ -115,10 +197,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`ProID`, `ProName`, `TinyDes`, `FullDes`, `Price`, `CatID`, `Quantity`, `View`, `Sell`, `ProducerID`) VALUES
-(1, 'Freshwater Cultured Pearl', 'Freshwater Cultured Pearl, Citrine, Peridot & Amethyst Bracelet, 7.5\"', '<UL>\r\n    <LI>Metal stamp: 14k </LI>\r\n    <LI>Metal: yellow-ld</LI>\r\n    <LI>Material Type: amethyst, citrine, ld, pearl, peridot</LI>\r\n    <LI>Gem Type: citrine, peridot, amethyst</LI>\r\n    <LI>Length: 7.5 inches</LI>\r\n    <LI>Clasp Type: filigree-box</LI>\r\n    <LI>Total metal weight: 0.6 Grams</LI>\r\n</UL>\r\n<STRONG>Pearl Information</STRONG><BR>\r\n<UL>\r\n    <LI>Pearl type: freshwater-cultured</LI>\r\n</UL>\r\n<STRONG>Packaging Information</STRONG><BR>\r\n<UL>\r\n    <LI>Package: Regal Blue Sueded-Cloth Pouch</LI>\r\n</UL>', 1500000, 6, 83, 0, 0, 1),
-(2, 'Pink Sapphire Sterling Silver', '14 1/2 Carat Created Pink Sapphire Sterling Silver Bracelet w/ Diamond Accents', '<P><STRONG>Jewelry Information</STRONG></P>\r\n<UL>\r\n    <LI>Loại hàng: Hàng trong nước</LI>\r\n</UL>\r\n', 300000, 6, 64, 0, 0, 1),
-(3, 'Torrini KC241', 'Nhẫn kim cương - vẻ đẹp kiêu sa', '<P>Không chỉ có kiểu dáng truyền thống chỉ có một hạt kim cương ở giữa, các nhà thiết kế đã tạo những những chiếc nhẫn vô cùng độc đáo và tinh tế. Tuy nhiên, giá của đồ trang sức này thì chỉ có dân chơi mới có thể kham được.</P>\r\n<UL>\r\n    <LI>Kiểu sản phẩm: Nhẫn nữ</LI>\r\n    <LI>Loại đá: To paz</LI>\r\n    <LI>Chất liệu: kim cương, nguyên liệu và công nghệ Italy...</LI>\r\n    <LI>Đơn giá: 2,110,250 VND / Chiếc</LI>\r\n</UL>\r\n', 1600000000, 6, 86, 0, 0, 1),
-(4, 'Torrini KC242', 'tinh xảo và sang trọng', '<P>Để sở hữu một chiếc nhẫn kim cương lấp lánh trên tay, bạn phải là người chịu chi và sành điệu.<BR>\r\nVới sự kết hợp khéo léo và độc đáo giữa kim cương và Saphia, Ruby... những chiếc nhẫn càng trở nên giá trị.</P>\r\n<UL>\r\n    <LI>Kiểu sản phẩm: Nhẫn nam</LI>\r\n    <LI>Loại đá: To paz</LI>\r\n    <LI>Chất liệu: Vàng tây 24K, nguyên liệu và công nghệ Italy...</LI>\r\n</UL>\r\n', 42000000, 6, 63, 0, 0, 1),
+(1, 'Freshwater Cultured Pearl', 'Freshwater Cultured Pearl, Citrine, Peridot & Amethyst Bracelet, 7.5\"', '<UL>\r\n    <LI>Metal stamp: 14k </LI>\r\n    <LI>Metal: yellow-ld</LI>\r\n    <LI>Material Type: amethyst, citrine, ld, pearl, peridot</LI>\r\n    <LI>Gem Type: citrine, peridot, amethyst</LI>\r\n    <LI>Length: 7.5 inches</LI>\r\n    <LI>Clasp Type: filigree-box</LI>\r\n    <LI>Total metal weight: 0.6 Grams</LI>\r\n</UL>\r\n<STRONG>Pearl Information</STRONG><BR>\r\n<UL>\r\n    <LI>Pearl type: freshwater-cultured</LI>\r\n</UL>\r\n<STRONG>Packaging Information</STRONG><BR>\r\n<UL>\r\n    <LI>Package: Regal Blue Sueded-Cloth Pouch</LI>\r\n</UL>', 1500000, 6, 64, 0, 0, 1),
+(2, 'Pink Sapphire Sterling Silver', '14 1/2 Carat Created Pink Sapphire Sterling Silver Bracelet w/ Diamond Accents', '<P><STRONG>Jewelry Information</STRONG></P>\r\n<UL>\r\n    <LI>Loại hàng: Hàng trong nước</LI>\r\n</UL>\r\n', 300000, 6, 54, 0, 0, 1),
+(3, 'Torrini KC241', 'Nhẫn kim cương - vẻ đẹp kiêu sa', '<P>Không chỉ có kiểu dáng truyền thống chỉ có một hạt kim cương ở giữa, các nhà thiết kế đã tạo những những chiếc nhẫn vô cùng độc đáo và tinh tế. Tuy nhiên, giá của đồ trang sức này thì chỉ có dân chơi mới có thể kham được.</P>\r\n<UL>\r\n    <LI>Kiểu sản phẩm: Nhẫn nữ</LI>\r\n    <LI>Loại đá: To paz</LI>\r\n    <LI>Chất liệu: kim cương, nguyên liệu và công nghệ Italy...</LI>\r\n    <LI>Đơn giá: 2,110,250 VND / Chiếc</LI>\r\n</UL>\r\n', 1600000000, 6, 81, 0, 0, 1),
+(4, 'Torrini KC242', 'tinh xảo và sang trọng', '<P>Để sở hữu một chiếc nhẫn kim cương lấp lánh trên tay, bạn phải là người chịu chi và sành điệu.<BR>\r\nVới sự kết hợp khéo léo và độc đáo giữa kim cương và Saphia, Ruby... những chiếc nhẫn càng trở nên giá trị.</P>\r\n<UL>\r\n    <LI>Kiểu sản phẩm: Nhẫn nam</LI>\r\n    <LI>Loại đá: To paz</LI>\r\n    <LI>Chất liệu: Vàng tây 24K, nguyên liệu và công nghệ Italy...</LI>\r\n</UL>\r\n', 42000000, 6, 62, 0, 0, 1),
 (5, 'Nokia 7610', 'Độ phân giải cao, màn hình màu, chụp ảnh xuất sắc.', '<UL>\r\n    <LI>Máy ảnh có độ phân giải 1 megapixel</LI>\r\n    <LI>Màn hình 65.536 màu, rộng 2,1 inch, 176 X 208 pixel với đồ họa sắc nét, độ phân giải cao</LI>\r\n    <LI>Quay phim video lên đến 10 phút với hình ảnh sắc nét hơn</LI>\r\n    <LI>Kinh nghiệm đa phương tiện được tăng cường</LI>\r\n    <LI>Streaming video &amp; âm thanh với RealOne Player (hỗ trợ các dạng thức MP3/AAC).</LI>\r\n    <LI>Nâng cấp cho những đoạn phim cá nhân của bạn bằng các tính năng chỉnh sửa tự động thông minh</LI>\r\n    <LI>In ảnh chất lượng cao từ nhà, văn phòng, kios và qua mạng</LI>\r\n    <LI>Dễ dàng kết nối vớI máy PC để lưu trữ và chia sẻ (bằng cáp USB, PopPort, công nghệ Bluetooth)</LI>\r\n    <LI>48 nhạc chuông đa âm sắc, True tones. Mạng GSM 900 / GSM 1800 / GSM 1900</LI>\r\n    <LI>Kích thước 109 x 53 x 19 mm, 93 cc</LI>\r\n    <LI>Trọng lượng 118 g</LI>\r\n    <LI>Hiển thị: Loại TFT, 65.536 màu</LI>\r\n    <LI>Kích cở: 176 x 208 pixels </LI>\r\n</UL>\r\n', 2900000, 2, 0, 0, 0, 1),
 (6, 'Áo thun nữ', 'Màu sắc tươi tắn, kiểu dáng trẻ trung', '<UL>\r\n    <LI>Loại hàng: Hàng trong nước</LI>\r\n    <LI>Xuất xứ: Tp Hồ Chí Minh</LI>\r\n</UL>\r\n', 180000, 4, 62, 0, 0, 1),
 (7, 'Simen AP75', 'Thiết kế tinh xảo, hiện đại', '<UL>\r\n    <LI>Hình ảnh hoàn hảo, rõ nét ở mọi góc màn hình</LI>\r\n    <LI>Giảm thiểu sự phản chiếu ánh sáng</LI>\r\n    <LI>Menu hiển thị tiếng Việt</LI>\r\n    <LI>Hệ thống hình ảnh thông minh</LI>\r\n    <LI>Âm thanh Hifi Stereo mạnh mẽ</LI>\r\n    <LI>Hệ thống âm lượng thông minh</LI>\r\n    <LI>Bộ nhớ 100 chương trình</LI>\r\n    <LI>Chọn kênh ưa thích</LI>\r\n    <LI>Các kiểu sắp đặt sẵn hình ảnh / âm thanh</LI>\r\n    <LI>Kích thước (rộng x cao x dày): 497 x 458 x 487mm</LI>\r\n    <LI>Trọng lượng: 25kg</LI>\r\n    <LI>Màu: vàng, xanh, bạc </LI>\r\n</UL>\r\n', 2800000, 2, 15, 0, 0, 1),
@@ -130,7 +212,7 @@ INSERT INTO `products` (`ProID`, `ProName`, `TinyDes`, `FullDes`, `Price`, `CatI
 (13, 'Đầm dạ hội Xinh Xinh', 'Đơn giản nhưng quý phái', '<P>Những đường cong tuyệt đẹp sẽ càng được phô bày khi diện các thiết kế này.</P>\r\n<UL>\r\n    <LI>Nét cắt táo bạo ở ngực giúp bạn gái thêm phần quyến rũ, ngay cả khi không có trang&nbsp; sức nào trên người.</LI>\r\n    <LI>Đầm hai dây thật điệu đà với nơ xinh trước ngực nhưng trông bạn vẫn toát lên vẻ tinh nghịch và bụi bặm nhờ thiết kế đầm bí độc đáo cùng sắc màu sẫm.</LI>\r\n    <LI>Hãng sản xuất: NEM</LI>\r\n    <LI>Kích cỡ : Tất cả các kích cỡ</LI>\r\n    <LI>Kiểu dáng : Quây/Ống</LI>\r\n    <LI>Chất liệu : Satin</LI>\r\n    <LI>Màu : đen, đỏ</LI>\r\n    <LI>Xuất xứ : Việt Nam</LI>\r\n</UL>\r\n', 2600000, 4, 92, 0, 0, 1),
 (14, 'Đầm dạ hội NEM', 'Táo bạo và quyến rũ', '<P>Những đường cong tuyệt đẹp sẽ càng được phô bày khi diện các thiết kế này.</P>\r\n<UL>\r\n    <LI>Nét cắt táo bạo ở ngực giúp bạn gái thêm phần quyến rũ, ngay cả khi không có trang&nbsp; sức nào trên người.</LI>\r\n    <LI>Đầm hai dây thật điệu đà với nơ xinh trước ngực nhưng trông bạn vẫn toát lên vẻ tinh nghịch và bụi bặm nhờ thiết kế đầm bí độc đáo cùng sắc màu sẫm.</LI>\r\n    <LI>Hãng sản xuất: NEM</LI>\r\n    <LI>Kích cỡ : Tất cả các kích cỡ</LI>\r\n    <LI>Kiểu dáng : Quây/Ống</LI>\r\n    <LI>Chất liệu : Satin</LI>\r\n    <LI>Màu : đen, đỏ</LI>\r\n    <LI>Xuất xứ : Việt Nam</LI>\r\n</UL>\r\n', 1200000, 4, 0, 0, 0, 1),
 (15, 'Dây chuyền đá quý', 'Kết hợp vàng trắng và đá quý', '<UL>\r\n    <LI>Kiểu sản phẩm: Dây chuyền</LI>\r\n    <LI>Chất liệu: Vàng trắng 14K và đá quý, nguyên liệu và công nghệ Italy...</LI>\r\n    <LI>Trọng lượng chất liệu: 1.1 Chỉ </LI>\r\n</UL>\r\n', 1925000, 6, 22, 0, 0, 1),
-(16, 'Nokia N72', 'Sành điệu cùng N72', '<UL>\r\n    <LI>Camera mega pixel : 2 mega pixel</LI>\r\n    <LI>Bộ nhớ trong : 16 - 31 mb</LI>\r\n    <LI>Chức năng : quay phim, ghi âm, nghe đài FM</LI>\r\n    <LI>Hỗ trợ: Bluetooth, thẻ nhớ nài, nhạc MP3 &lt;br/&gt;</LI>\r\n    <LI>Trọng lượng (g) : 124g</LI>\r\n    <LI>Kích thước (mm) : 109 x 53 x 21.8 mm</LI>\r\n    <LI>Ngôn ngữ : Có tiếng việt</LI>\r\n    <LI>Hệ điều hành: Symbian OS 8.1</LI>\r\n</UL>\r\n', 3200000, 2, 81, 0, 0, 1),
+(16, 'Nokia N72', 'Sành điệu cùng N72', '<UL>\r\n    <LI>Camera mega pixel : 2 mega pixel</LI>\r\n    <LI>Bộ nhớ trong : 16 - 31 mb</LI>\r\n    <LI>Chức năng : quay phim, ghi âm, nghe đài FM</LI>\r\n    <LI>Hỗ trợ: Bluetooth, thẻ nhớ nài, nhạc MP3 &lt;br/&gt;</LI>\r\n    <LI>Trọng lượng (g) : 124g</LI>\r\n    <LI>Kích thước (mm) : 109 x 53 x 21.8 mm</LI>\r\n    <LI>Ngôn ngữ : Có tiếng việt</LI>\r\n    <LI>Hệ điều hành: Symbian OS 8.1</LI>\r\n</UL>\r\n', 3200000, 2, 79, 0, 0, 1),
 (17, 'Mặt dây chuyền Ruby', 'Toả sáng cùng Ruby', '<UL>\r\n    <LI>Kiểu sản phẩm:&nbsp; Mặt dây</LI>\r\n    <LI>Chất liệu: Vàng trắng 14K, nguyên liệu và công nghệ Italy...</LI>\r\n    <LI>Trọng lượng chất liệu: 0.32 Chỉ</LI>\r\n</UL>\r\n', 1820000, 6, 33, 0, 0, 1),
 (18, '1/2 Carat Pink Sapphire Silver', 'Created Pink Sapphire', '<UL>\r\n    <LI>Brand Name: Ice.com</LI>\r\n    <LI>Material Type: sterling-silver, created-sapphire, diamond</LI>\r\n    <LI>Gem Type: created-sapphire, Diamond</LI>\r\n    <LI>Minimum total gem weight: 14.47 carats</LI>\r\n    <LI>Total metal weight: 15 Grams</LI>\r\n    <LI>Number of stones: 28</LI>\r\n    <LI>Created-sapphire Information</LI>\r\n    <LI>Minimum color: Not Available</LI>\r\n</UL>\r\n', 3400000, 6, 10, 0, 0, 1),
 (19, 'Netaya', 'Dây chuyền vàng trắng', '<UL>\r\n    <LI>Kiểu sản phẩm:&nbsp; Dây chuyền</LI>\r\n    <LI>Chất liệu: Vàng tây 18K, nguyên liệu và công nghệ Italy...</LI>\r\n    <LI>Trọng lượng chất liệu: 1 Chỉ</LI>\r\n</UL>\r\n', 1820000, 6, 17, 0, 0, 1),
@@ -161,15 +243,28 @@ CREATE TABLE `users` (
   `f_Name` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `f_Email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `f_DOB` date NOT NULL,
-  `f_Permission` int(11) NOT NULL
+  `f_Permission` int(11) NOT NULL,
+  `f_Adress` varchar(200) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`f_ID`, `f_Username`, `f_Password`, `f_Name`, `f_Email`, `f_DOB`, `f_Permission`) VALUES
-(1, '1512414', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'sadasd', 'dsadasdsa', '2018-06-21', 0);
+INSERT INTO `users` (`f_ID`, `f_Username`, `f_Password`, `f_Name`, `f_Email`, `f_DOB`, `f_Permission`, `f_Adress`) VALUES
+(1, '1512414', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'Ngô Minh Phụng', 'dsadasdsa@gmail.com', '0000-00-00', 0, '24/13 Võ Văn Ngân'),
+(3, 'nomipu', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'Phụng Minh', 'nomiu@yahoo.com', '2018-06-28', 0, ''),
+(4, 'nomipu1', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'phụng', 'sdasda@gmail.com', '2018-06-14', 0, ''),
+(5, 'nomipu', '054e3b308708370ea029dc2ebd1646c498d59d7203c9e1a44cf0484df98e581a', 'aaa', 'nomypu@yahoo.com', '2018-06-13', 0, ''),
+(6, 'nomipu1', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'Minh Phụng', 'nomipu2018@gmail.com', '2018-06-11', 0, ''),
+(7, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'Minh Phụng', 'mipu.itus@gmail.com', '2018-06-12', 0, ''),
+(8, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'ádasdad', 'nomypu@yahoo.com', '2018-06-03', 0, ''),
+(9, 'nomipussss', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'sadasd', 'aaaaad@gmail.com', '2018-06-20', 0, ''),
+(10, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', '1212sadasd', 'faaaaaaaf@aaaa.com', '2018-06-12', 0, ''),
+(11, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'asdasd', 'sadsad@gmail.com', '2018-06-04', 0, ''),
+(12, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'asdasd', 'mipu.itus@gmail.com', '2018-06-04', 0, ''),
+(13, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'asdsad', 'nomypu@yahoo.com', '2018-06-20', 0, ''),
+(14, 'nomipu3', '3e0eae1c969e252127ea57c61cdcc11d199c151465ea50661066727103c560d9', 'Ngô Minh Phụng', 'mipu.itus@gmail.com', '2018-06-06', 0, '');
 
 --
 -- Indexes for dumped tables
@@ -225,13 +320,13 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `producers`
@@ -249,7 +344,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `f_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `f_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

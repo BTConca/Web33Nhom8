@@ -1,9 +1,21 @@
 {{#section 'title'}}
     Profile
 {{/section}}
+{{#section 'css'}}
+<link rel="stylesheet" type="text/css" href="/assets/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+{{/section}}
 
-
-<div class="container" style="margin-top:40px;">
+{{#section 'js'}}
+<script src="/assets/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript">
+	$('#txtDOB').datepicker({
+		format: 'd/m/yyyy',
+		autoclose: true
+	}); 
+</script>
+{{/section}}
+<h1>hello work</h1>>
+<div class="container" style="margin-top:50px;">
     
 	<div class="row">
       <div class="col-md-3 mx-auto"></div>
@@ -18,8 +30,8 @@
             </div>
         </div>
         {{#with user}}
-        <form class="form-horizontal" role="form">
-            <div class="form-group">
+        <form action="/account/profile" method="post" class="form-horizontal" role="form"  name="profile">
+          <div class="form-group">
             <label class="col-lg-3 control-label">ID:</label>
             <div class="col-lg-8">
               <input class="form-control" type="text" value="{{f_ID}}" readonly>
@@ -28,40 +40,50 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Username:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{f_Username}}" readonly>
+              <input class="form-control" name="username" type="text" value="{{f_Username}}" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Email address:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="email" value="{{f_Email}}">
+              <input class="form-control" name="email" type="email" value="{{f_Email}}">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Name:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{f_Name}}">
+              <input class="form-control" name="name" type="text" value="{{f_Name}}">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Day of Birth:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{f_DOB}}">
+              <input class="form-control" name="dob" id="txtDOB" type="text" value="{{f_DOB}}">
             </div>
           </div>
-               <div class="form-group">
+          <div class="form-group">
             <label class="col-lg-3 control-label">Adress:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value="{{f_Adress}}">
+              <input class="form-control" name="address" type="text" value="{{f_Adress}}">
             </div>
           </div>
           {{/with}}
-           <div class="col-md-12 ">
+          <div class="col-md-12 ">
             <div class="login-or">
                     <hr class="hr-or">
                     <span class="span-or"></span>
             </div>
-        </div>
+          </div>
+          <div class ="row" style="margin-bottom:10px;">
+            <div class="col-md-3"></div>
+            <div class="col-md-4 text-center ">
+              <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Save</button>
+            </div>
+            <div class="col-md-4 text-center ">
+              <a href ="/account/changepw" class="btn btn-block mybtn btn-primary tx-tfm">Change PassWord </a>
+            </div>
+          </div>
+        </form>  
       </div>
   </div>
 </div>

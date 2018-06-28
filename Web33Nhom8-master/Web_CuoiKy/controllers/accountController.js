@@ -31,6 +31,7 @@ router.post('/register', (req, res) => {
         };
 
             accountRepo.add(user).then(value => {
+                console.log(value);
             res.render('account/register',vm);
             });
         }
@@ -80,7 +81,7 @@ router.post('/login', (req, res) => {
 router.post('/logout', restrict, (req, res) => {
     req.session.isLogged = false;
     req.session.curUser = null;
-
+    
     res.redirect(req.headers.referer);
 });
 
@@ -102,12 +103,47 @@ vm={
 });
 
 
-router.post('account/profile', (req, res) => {
+router.post('/profile', (req, res) => {
   
-   // Ông viết hàm post này nha thêm nút button vào form login hbs
-   // mấy thông tin không cho sửa thì t thêm readonly vào rồi
-    // ông viết form post rồi dùng req.body.tên của input để lấy thông tin xong viết hàm update user bên sql gọi ở đây là xong  
+   
+    var dob = moment(req.body.dob, 'D/M/YYYY')
+    .format('YYYY-MM-DDTHH:mm');
+    var user = {
+        username: req.body.username,
+        name: req.body.name,
+        email: req.body.email,
+        address: req.body.address,
+        dob: dob,
+    };  
+    accountRepo.update(user).then(rows=>{
+        res.redirect('/account/profile');
+    });
+});
 
+router.get('/changepw', (req, res) => {
+    res.render('account/changepw');
+});
+router.post('/changepw',(req,res)=>{
+    var user={
+        username: req.session.curUser.f_Username,
+        password: sha256(req.body.oldpw).toString(),
+        newpassword:sha256(req.body.newpw).toString()
+    };
+    accountRepo.login(user).then(rows=>{
+        if(rows.length>0)
+        {
+            accountRepo.updatepw(user).then(row=>{
+                res.redirect('/account/profile')
+            })
+        }
+        else {
+            var vm = {
+                showError: true,
+                errorMsg: 'Old Password is wrong'
+            };
+            res.render('account/changepw', vm);
+        }
+    });
 });
 
 module.exports = router;

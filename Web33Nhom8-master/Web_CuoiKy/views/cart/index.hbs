@@ -2,20 +2,49 @@
 <!-- PHẦN SẢN PHẨM -->
     {{#section 'js'}}
 <script type="text/javascript">
+{{#if er}}
+alert("{{er}}");
+{{#each erList}}
+alert("Sản phẩm {{proname}} chỉ còn lại {{quantity}}!!");
+{{/each}}
+{{/if}}
   $('.removeItem').on('click', function() {
       var id = $(this).data('proid');
       $('#txtP').val(id);
       $('#frmRemoveItem').submit();
   });
 
+$('.frmorder').on('click', function() {
+if($('#Adress').val())
+{
+var ad=$('#Adress').val();
+       $('#txtAd').val(ad);
+if(confirm(`Bạn xác nhận đặt hàng với địa chỉ ${ad} chứ? Tổng giá trị đơn hàng là {{totalAmount}}`))
+{
+    $('#frmOrder').submit();
+}
+else
+{
+  
+}
+    
 
+}
+else
+{
+   alert("Vui lòng nhập địa chỉ nhận hàng!!");
+}
+});
    $('.quantity').on('change', function() {
+
   		var idd = $(this).attr("proid");
   		var qty= $(this).val();
+
     	 $('#txtP1').val(idd);
     	 $('#txtQ1').val(qty);
     	 $('#frmSetItem').submit();
   });
+
 </script>
 
 {{/section}}
@@ -23,7 +52,9 @@
 <form id="frmRemoveItem" method="post" action="/cart/remove">
   <input type="hidden" name="proId" id="txtP">
 </form>
-
+<form id="frmOrder" method="post" action="/order/add">
+ <input type="hidden" name="adress" id="txtAd">
+</form>
 <form id="frmSetItem" method="post" action="/cart/set">
     <input type="hidden" name="proId" id="txtP1">
     <input type="hidden" name="quantity" id="txtQ1">
@@ -40,6 +71,7 @@
               </h3>
               <div class="clearfix">
               </div>
+              {{#if items}}
               <table class="shop-table">
                 <thead>
                   <tr>
@@ -64,7 +96,7 @@
                   </tr>
                 </thead>
                 <tbody>
-       
+
 {{#each items}}
                   <tr>
                     <td>
@@ -115,7 +147,6 @@
                   </tr>
   {{/each}}
 
-
                 </tbody>
 
 
@@ -145,7 +176,13 @@
 
               <div class="row">
                 
-                <div class="col-md-offset-8 col-sm-offset 6 col-md-4 col-sm-6">
+              <div class=" col-md-4 col-sm-6">
+              <h4>Địa chỉ nhận hàng: </h4>
+              <textarea style="resize:none;" rows="4" cols="50" id="Adress"></textarea>
+
+              </div>
+
+                <div class="col-md-offset-4  col-md-4 col-sm-6">
                   <div class="shippingbox">
                     <div class="subtotal">
                       <h5>
@@ -171,11 +208,17 @@
                        ${{totalAmountShip}}
                       </span>
                     </div>
-                    <a href = "checkout.html">
-                    <button  class="col-md-12">
+                    
+                    <button  class="frmorder col-md-12">
                      Thanh toán
                     </button>
-                  </a>
+               {{else}}
+<div class="row">
+  <div style="text-align:center;margin-top: 100px; margin-bottom:150px;" class="col-sm-12 col-md-12 col-lg-12">
+   <h1> Giỏ hàng trống</h1>
+  </div>
+</div>
+{{/if}} 
                   </div>
 
                 </div>
