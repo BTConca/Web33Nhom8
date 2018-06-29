@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
 
             accountRepo.add(user).then(value => {
                 console.log(value);
-            res.render('account/register',vm);
+            res.render('account/login');
             });
         }
     else
@@ -64,9 +64,9 @@ router.post('/login', (req, res) => {
             req.session.cart = [];
 
             var url = req.header('Referer');
-            if (req.query.retUrl) {
-                url = req.query.retUrl;
-            }
+    if(url="http://localhost:3000/account/login")
+        res.redirect("/");
+        else
             res.redirect(url);
         } else {
             var vm = {

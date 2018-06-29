@@ -113,3 +113,8 @@ exports.delete = id => {
 	var sql = `delete from products where ProID = ${id}`;
 	return db.save(sql);
 }
+exports.getLastProduct = () =>
+{
+	var sql = `select ProID from products order by ProductID desc`;
+	return db.save(sql);
+}
