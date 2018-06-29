@@ -35,7 +35,7 @@ exports.addOrderDetail = (OrderID,ProID,Quantity,Price,Amount) =>
 }
 
 exports.loadPage = offset => {
-	var sql = `select * from orders limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+	var sql = `select * from orders order by OrderID desc limit ${config.PRODUCTS_PER_PAGE} offset ${offset}  `;
 	return db.load(sql);
 }
 
