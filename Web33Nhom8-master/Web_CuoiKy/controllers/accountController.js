@@ -32,7 +32,7 @@ router.post('/register', (req, res) => {
 
             accountRepo.add(user).then(value => {
                 console.log(value);
-            res.render('account/login');
+            res.render('account/register',vm);
             });
         }
     else
