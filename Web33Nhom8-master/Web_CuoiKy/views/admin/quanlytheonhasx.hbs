@@ -15,7 +15,7 @@
 				<li class="active">Dashboard/Quản lý sản phẩm/Nhà sản xuất</li>
 			</ol>
 		</div><!--/.row-->
-		
+
 		<div class="row" style="border-bottom:1px solid green;">
 			<div class="col-lg-12" >
 				<h1 class="page-header">Nhà sản xuất</h1>
@@ -26,15 +26,27 @@
 {{#each producers}}
     <div class="col-sm-2 col-lg-2">
         <div id="nsx" >
-            <a href="nhasx" target="_blank">
-                <img class="img-responsive" id="{{ProducerID}}" src="/media/image-admin/Producers/{{ProducerID}}.jpg">
+            <a href="nhasx/{{ProducerID}}" >
+                <img class="img-responsive" id="{{ProducerID}}" src="/media/images/producer/{{ProducerID}}.png">
             </a>
             <p style="color: blue;text-align: center; font-style: italic; font-weight:bold;">
                 {{ProducerName}}
             </p>
         </div>
+				<a class="btn btn-default btn-xs" href="/admin/deleteproducers?id={{ProducerID}}" role="button">
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
     </div>
 	{{/each}}
-    
+
+</div>
+<p>&nbsp<p>
+<div class="row">
+<div class="col-sm-6 col-md-6 col-lg-6">
+<a class="btn btn-success" href="/admin/addproducers" role="button">
+	<span class="glyphicon glyphicon-plus"></span>
+	Add
+</a>
+</div>
 </div>
 {{/if}}

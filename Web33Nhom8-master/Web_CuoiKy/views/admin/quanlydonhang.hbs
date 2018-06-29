@@ -23,7 +23,7 @@
 			</div>
 
             <div class="col-sm-4 col-lg-4">
-                <span style="background-color:yellow"><b>Chưa giao</b></span>
+                <span style="background-color:white"><b>Chưa giao</b></span>
                 <span style="background-color:#00ff80"><b>Đã Giao</b></span>
             </div>
 		</div><!--/.row-->
@@ -32,10 +32,10 @@
         <thead>
             <tr>
                 <th scope="col">Mã đơn hàng</th>
-                <th scope="col">Tên sản phẩm</th>
-                <th scope="col">Ngày đăng ký</th>
+                <th scope="col">Địa chỉ nhận hàng</th>
+                <th scope="col">Ngày đặt hàng</th>
 								<th scope="col">IdUser</th>
-                <th scope="col">Số lượng</th>
+                <th scope="col">Tổng giá trị</th>
                 <th scope="col">Tình trạng</th>
 
             </tr>
@@ -46,11 +46,14 @@
             <tr href="javascript:;" class="st_bg" data-status="{{Status}}">
                 <th scope="row">{{OrderID}}</th>
                 <td>{{Adress}}</td>
-                <td>{{OrderDate}}</td>
+                <td id="date">{{OrderDate}}</td>
                 <td>{{UserID}}</td>
 								<td>{{Total}}</td>
                 <td >{{Status}}</td>
                 <td>
+									<a class="btn btn-default btn-xs" href="/admin/quanlydonhang/delete?id={{OrderID}}" role="button">
+										<span class="glyphicon glyphicon-remove"></span>
+									</a>
 									<a class="btn btn-default btn-xs" href="/admin/quanlydonhang/edit?id={{OrderID}}" role="button">
 										<span class="glyphicon glyphicon-pencil"></span>
 									</a>
@@ -59,6 +62,14 @@
 		{{/each}}
         </tbody>
     </table>
+		<div class="row">
+	<div class="col-sm-6 col-md-6 col-lg-6">
+		<a class="btn btn-success" href="/admin/quanlydonhang/add" role="button">
+			<span class="glyphicon glyphicon-plus"></span>
+			Add
+		</a>
+	</div>
+</div>
 
 </div>
 <ul class="pagination">
@@ -80,7 +91,7 @@
 $('.st_bg').each(function(){
 	if($(this).data('status') == "0")
 	{
-		this.style.background = "yellow";
+		this.style.background = "white";
 	}
 	else if ($(this).data('status') == "1")
 	{

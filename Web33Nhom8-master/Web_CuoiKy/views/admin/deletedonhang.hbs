@@ -1,0 +1,31 @@
+{{#section 'title'}}
+{{/section}}
+<div class="row">
+  <ol class="breadcrumb">
+    <li><a href="#">
+      <em class="fa fa-home"></em>
+    </a></li>
+    <li class="active">Dashboard/Quản lý đơn hàng</li>
+  </ol>
+</div><!--/.row-->
+
+<div class="row" style="border-bottom:1px solid green;">
+    <h1 class="page-header">Delete</h1>
+</div><!--/.row-->
+<div class="alert alert-info">
+	<strong>Confirm!</strong> Bạn chắc chắn xóa đơn hàng này ??
+</div>
+
+<form action="" method="POST" role="form">
+	<div class="form-group">
+		<input type="hidden" id="" name="OderID" value="{{id}}">
+	</div>
+	<a class="btn btn-default" href="/admin/quanlydonhang" role="button">
+		<span class="glyphicon glyphicon-arrow-left"></span>
+		Back
+	</a>
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-ok"></span>
+		Delete
+	</button>
+</form>

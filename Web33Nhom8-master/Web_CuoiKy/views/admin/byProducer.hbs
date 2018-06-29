@@ -1,0 +1,78 @@
+﻿{{#section 'title'}}
+{{/section}}
+
+<div class="row">
+
+
+			<ol class="breadcrumb">
+				<li><a href="#">
+					<em class="fa fa-home"></em>
+				</a></li>
+				{{#with prods}}
+				<li class="active">Dashboard/Quản lý Sản phẩm/Nhà sản xuất/
+				{{ProducerName}}</li>
+				{{/with}}
+			</ol>
+		</div><!--/.row-->
+		{{#each producers}}
+		<div class="row" style="border-bottom:1px solid green;">
+			<div class="col-lg-8" >
+				<h1 class="page-header">{{ProducerName}}</h1>
+			</div>
+		</div><!--/.row-->
+		{{/each}}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Giá</th>
+                <th scope="col">Loại</th>
+								<th scope="col">Số Lượng</th>
+            </tr>
+        </thead>
+		{{#each products}}
+        <tbody>
+            <tr>
+                <th scope="row">{{ProID}}</th>
+                <td>{{ProName}}</td>
+                <td>{{Price}}</td>
+              	 {{#each ../producers}}
+              	<td>{{ProducerName}}</td>
+              {{/each}}
+								<td>{{Quantity}}</td>
+                <td>
+									<a class="btn btn-default btn-xs" href="/admin/deleteproduct?id={{ProID}}&ProducerID={{ProducerID}}" role="button">
+										<span class="glyphicon glyphicon-remove"></span>
+									</a>
+                </td>
+
+            </tr>
+         {{/each}}
+        </tbody>
+
+    </table>
+				{{#each producers}}
+		<div class="row">
+		<div class="col-sm-6 col-md-6 col-lg-6">
+		<a class="btn btn-success" href="/admin/addproducts?id={{ProducerID}}" role="button">
+			<span class="glyphicon glyphicon-plus"></span>
+			Add
+		</a>
+		</div>
+		</div>
+		{{/each}}
+</div>
+<ul class="pagination">
+	<li><a href="#">&laquo;</a></li>
+	{{#each page_numbers}}
+		{{#if isCurrentPage}}
+		<li class="active"><a href="javascript:;">{{value}}</a></li>
+		{{else}}
+		<li><a href="?page={{value}}">{{value}}</a></li>
+		{{/if}}
+	{{/each}}
+	<li><a href="#">&raquo;</a></li>
+</ul>
+

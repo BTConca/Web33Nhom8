@@ -3,10 +3,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Lumino - Dashboard</title>
+	<title>Gentlemen - Dashboard</title>
 	<link type="text/css" href="/assets/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
 	<link type="text/css" href="/assets/bootstrap-3.3.7/css/datepicker3.css" rel="stylesheet">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
     <link type="text/css" href="style-admin.css" rel="stylesheet">
 	<!--Custom Font-->
 	<link href="//fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -88,7 +89,7 @@
 			</div>
 			<div class="profile-usertitle">
 			<i class = "fa fa-plus"> </i>
-				<div class="profile-usertitle-name">Username</div>
+				<div class="profile-usertitle-name">{{layoutVM.curUser.f_Username}}</div>
 				<div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
 			</div>
 			<div class="clear"></div>
@@ -116,10 +117,10 @@
 				</ul>
 			</li>
             <li><a href="/admin/quanlydonhang"><em class="fa fa-calendar">&nbsp;</em> Quản lý đơn hàng</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a id="lnkLogout" href="javascript:;">Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
-
+ <form id="frmLogout" method="post" action="/account/logout"></form>
 	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 			<div class="panel panel-default">
 					<div class="panel-heading">
@@ -134,6 +135,8 @@
 	</div>	<!--/.main-->
 
 </body>
+
+
 <script src="assets/jQuery/jquery-3.1.1.min.js"></script>
 <script src="assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
 <script src="assets/bootstrap-3.3.7/js/chart.min.js"></script>
@@ -142,6 +145,15 @@
 <script src="assets/bootstrap-3.3.7/js/easypiechart-data.js"></script>
 <script src="assets/bootstrap-3.3.7/js/bootstrap-datepicker.js"></script>
 <script src="assets/bootstrap-3.3.7/js/custom.js"></script>
+<script type="text/javascript" src="assets/bower_components/moment/min/moment.min.js"></script>
+  <script type="text/javascript" src="assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+  <script type="text/javascript">
+    $('#lnkLogout').on('click', function() {
+    
+        $('#frmLogout').submit();
+    });
+       
+  </script>
 <script>
 	window.onload = function () {
 var chart1 = document.getElementById("line-chart").getContext("2d");
