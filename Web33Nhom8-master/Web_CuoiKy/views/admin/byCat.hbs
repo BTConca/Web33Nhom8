@@ -1,6 +1,12 @@
 ﻿{{#section 'title'}}
 {{/section}}
-
+{{#if noProducts}}
+<div class="row">
+	<div class="col-sm-12 col-md-12 col-lg-12">
+		NO PRODUCTS
+	</div>
+</div>
+{{else}}
 <div class="row">
 
 
@@ -35,9 +41,7 @@
                 <th scope="row">{{ProID}}</th>
                 <td>{{ProName}}</td>
                 <td>{{Price}}</td>
-      {{#each ../categories}}
-              	<td>{{CatName}}</td>
-              {{/each}}
+              	<td>{{CatID}}</td>
 								<td>{{Quantity}}</td>
                 <td>
 									<a class="btn btn-default btn-xs" href="/admin/deleteproduct?id={{ProID}}&CatID={{CatID}}" role="button">
@@ -72,4 +76,4 @@
 	{{/each}}
 	<li><a href="#">&raquo;</a></li>
 </ul>
-
+{{/if}}

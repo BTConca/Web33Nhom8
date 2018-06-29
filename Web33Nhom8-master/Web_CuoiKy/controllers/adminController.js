@@ -8,188 +8,24 @@ categoryRepo = require('../repos/categoryRepo'),
 
 	var router = express.Router();
 
-
-
-
-
-
-
-
-
-
-
-
-//  if(req.session.isLogged===true)
-   
-//     if(req.session.curUser.f_Permission == 1)
-//     {
-
-
-// Chỗ này hàm chạy gì thì điền vào đây là hàm xác thực admin
-
-
-    
-
-//     }
-//     else
-//     { var err=true;
-//         var erro="Bạn không có quyền admin!!";
-//         vm={
-//             err,
-//             erro,
-//         };
-
-// res.render('account/login',vm);
-//     }
-//  }
-//  else
-//  {
-//  var err=true;
-//  var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-//         vm={
-//             err,
-//             erro,
-//         };
-// res.render('account/login',vm);
-//  }
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get('/index', (req, res) => {
-
-
-
- if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
     res.render('admin/index',{ layout: 'admin' });
-
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 router.get('/nhasx', (req, res) => {
-
-
- if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
     res.render('admin/nhasx',{ layout: 'admin' });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
 });
 
-
-
-
-
-
-
-
-
-
-
-
 router.get('/quanlydonhang', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
 	var page = req.query.page;
     if (!page) page = 1;
     if (page < 1) page = 1;
 
     var offset = (page - 1) * config.PRODUCTS_PER_PAGE;
-    var p1 = orderRepo.loadAll();
+  var p1 = orderRepo.loadAll();
 	var p2 = orderRepo.loadPage(offset);
   Promise.all([p2, p1]).then(([rows,total]) =>
 	{
-       
 		var total = total.length;
 		var nPages = total / config.PRODUCTS_PER_PAGE;
 		if (total % config.PRODUCTS_PER_PAGE > 0)
@@ -201,9 +37,7 @@ router.get('/quanlydonhang', (req, res) => {
                 isCurrentPage: i === +page
             });
         }
-
     var dates = [];
-
         for(i = 1; i <=rows.length; i ++)
         {
           var date = moment(rows[i-1].OrderDate).format('DD-MM-YYYY');
@@ -227,95 +61,18 @@ router.get('/quanlydonhang', (req, res) => {
 		};
     res.render('admin/quanlydonhang',vm);
 	});
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 router.get('/quanlydonhang/add',(req,res)=>
 {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
   var vm = {
     showResult: false,
     layout: 'admin'
   };
   res.render('admin/adddonhang', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
 router.post('/quanlydonhang/add', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
 var dob = moment(req.body.OrderDate, 'DD-MM-YYYY').format('YYYY-MM-DD HH:mm');
   var dh = {
     OrderDate : dob,
@@ -332,56 +89,9 @@ var dob = moment(req.body.OrderDate, 'DD-MM-YYYY').format('YYYY-MM-DD HH:mm');
         };
         res.render('admin/adddonhang', vm);
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.get('/quanlydonhang/edit', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     orderRepo.single(req.query.id).then(rows => {
        var dt = moment(rows[0].OrderDate).format('DD-MM-YYYY');
 
@@ -400,50 +110,8 @@ router.get('/quanlydonhang/edit', (req, res) => {
         };
         res.render('admin/editdonhang', vm);
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
-
-
-
 router.post('/quanlydonhang/edit', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
   var dob = moment(req.body.OrderDate, 'DD-MM-YYYY').format('YYYY-MM-DD HH:mm');
   var dh = {
     OrderID : req.body.OrderID,
@@ -456,193 +124,30 @@ router.post('/quanlydonhang/edit', (req, res) => {
     orderRepo.update(dh).then(value => {
         res.redirect('/admin/quanlydonhang');
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
 router.get('/quanlydonhang/delete', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
     var vm = {
         id: req.query.id,
         layout: 'admin'
     };
     res.render('admin/deletedonhang', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 router.post('/quanlydonhang/delete', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     orderRepo.delete(req.body.OderID).then(value => {
         res.redirect('/admin/quanlydonhang');
     });
 
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
-
-
 
 
 
 router.get('/quanlysanpham', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     res.render('admin/quanlysanpham', { layout: 'admin' });
-
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
 });
 
-
-
-
-
-
-
-
-
-
 router.get('/quanlysanpham/quanlytheoloaisp', (req, res) => {
-	 if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
-    categoryRepo.loadAll().then(rows =>{
+	categoryRepo.loadAll().then(rows =>{
 		var vm = {
              categories: rows,
 			 noCategories: rows.length === 0,
@@ -651,52 +156,10 @@ router.get('/quanlysanpham/quanlytheoloaisp', (req, res) => {
     res.render('admin/quanlytheoloaisp',vm);
 	});
 
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
-
-
-
 router.get('/quanlysanpham/quanlytheoloaisp/:catID', (req, res) => {
-	 if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
-    var catId = req.params.catID;
+	var catId = req.params.catID;
 
     var page = req.query.page;
     if (!page) page = 1;
@@ -730,144 +193,19 @@ router.get('/quanlysanpham/quanlytheoloaisp/:catID', (req, res) => {
         };
 		res.render('admin/byCat',vm);
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
-
-
-
-
-
-router.get('/quanlysanpham/nhasx/:producerid', (req, res) => {
- if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-// Hàm chạy ssao ông viết trong này trên dưới là bảo mật admin
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
-});
-
-
-
-
-
-
-
-
-
-
-
-
 
 router.get('/addproducts',(req,res)=>
-{ if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
+{
   var vm = {
     CatID : req.query.id,
     showResult: false,
     layout: 'admin'
   };
   res.render('admin/addproducts', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
 router.post('/addproducts', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     productRepo.add(req.body).then(value => {
       var vm = {
         showResult : true,
@@ -875,192 +213,34 @@ router.post('/addproducts', (req, res) => {
       }
         res.render('admin/addproducts',vm);
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
 router.get('/deleteproduct', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     var vm = {
         id: req.query.id,
         CatID: req.query.CatID,
 			layout: 'admin'
     };
     res.render('admin/deleteproduct', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
-
 router.post('/deleteproduct', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     productRepo.delete(req.body.id).then(value => {
         res.redirect('/admin/quanlysanpham/quanlytheoloaisp');
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
 
 
 router.get('/addcategorie',(req,res)=>
 {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
   var vm = {
     showResult: false,
     layout: 'admin'
   };
   res.render('admin/addcategorie', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
 router.post('/addcategorie', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
   categoryRepo.add(req.body).then(value => {
       var vm = {
         showResult : true,
@@ -1068,190 +248,31 @@ router.post('/addcategorie', (req, res) => {
       }
         res.render('admin/addcategorie',vm);
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
 router.get('/deleteCate', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     var vm = {
         id: req.query.id,
 			layout: 'admin'
     };
     res.render('admin/deletecategorie', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
 router.post('/deleteCate', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     categoryRepo.delete(req.body.CatID).then(value => {
         res.redirect('/admin/quanlysanpham/quanlytheoloaisp');
     });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
 router.get('/addproducers', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     var vm = {
         showResult :false,
         layout : 'admin'
     };
     res.render('admin/addproducers',vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
-
-
 router.post('/addproducers', (req, res) => {
-     if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     producerRepo.add(req.body).then(value => {
       var vm = {
         showResult : true,
@@ -1260,143 +281,25 @@ router.post('/addproducers', (req, res) => {
         res.render('admin/addproducers',vm);
     });
 
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
-
 });
 
-
-
-
-
-
-
-
-
 router.get('/deleteproducers', (req, res) => {
- if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
     var vm = {
         id: req.query.id,
 			layout: 'admin'
     };
     res.render('admin/deleteproducers', vm);
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
-
-
-
-
-
-
 
 
 router.post('/deleteproducers', (req, res) => {
- if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
   producerRepo.delete(req.body.ProducerID).then(value => {
       res.redirect('/admin/quanlysanpham/quanlytheonhasx');
   });
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
 
-
-
-
-
-
-
-
 router.get('/quanlysanpham/quanlytheonhasx', (req, res) => {
-	 if(req.session.isLogged===true)
- {
-   
-    if(req.session.curUser.f_Permission == 1)
-    {
-
-
-    producerRepo.loadAll().then(rows =>{
+	producerRepo.loadAll().then(rows =>{
 		var vm = {
             producers: rows,
 			noProducers: rows.length === 0,
@@ -1404,33 +307,7 @@ router.get('/quanlysanpham/quanlytheonhasx', (req, res) => {
 		};
 		res.render('admin/quanlytheonhasx',vm);
 	});
-
-
-    }
-    else
-    { var err=true;
-        var erro="Bạn không có quyền admin!!";
-        vm={
-            err,
-            erro,
-        };
-
-res.render('account/login',vm);
-    }
- }
- else
- {
- var err=true;
- var erro="Bạn chưa đăng nhập, vui lòng đăng nhập để xác thực admin!!";
-        vm={
-            err,
-            erro,
-        };
-res.render('account/login',vm);
- }
-
 });
-
 
 
 module.exports = router;

@@ -38,8 +38,8 @@ exports.loadPageByCat = (catId, offset) => {
 	var sql = `select * from products where CatID = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
-exports.loadPageByProducer = (producerId, offset) => {
-	var sql = `select * from products where ProducerID = ${producerId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+exports.loadPageByProducer = (produceId, offset) => {
+	var sql = `select * from products where ProducerID = ${produceId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
 exports.countByCat = catId => {
