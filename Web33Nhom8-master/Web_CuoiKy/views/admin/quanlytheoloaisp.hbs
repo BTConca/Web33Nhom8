@@ -15,7 +15,7 @@
 				<li class="active">Dashboard/Quản lý sản phẩm/Loại sản phẩm</li>
 			</ol>
 		</div><!--/.row-->
-		
+
 		<div class="row" style="border-bottom:1px solid green;">
 			<div class="col-lg-12" >
 				<h1 class="page-header">Loại sản phẩm</h1>
@@ -26,19 +26,26 @@
 {{#each categories}}
     <div class="col-sm-2 col-lg-2">
         <div id="lsp" >
-            <a href="/admin/quanlysanpham/quanlytheoloaisp/{{CatID}}" target="_blank">
-                <img class="img-responsive" id="imgnew0" src="/media/image-admin/{{CatID}}/categorie.jpg">
+            <a href="/admin/quanlysanpham/quanlytheoloaisp/{{CatID}}" >
+                <img class="img-responsive" id="imgnew0" src="/media/images/cate/{{CatID}}.png">
             </a>
             <p style="color: blue;text-align: center; font-style: italic; font-weight:bold;">
                 {{CatName}}
             </p>
         </div>
+				<a class="btn btn-default btn-xs" href="/admin/deleteCate?id={{CatID}}" role="button">
+					<span class="glyphicon glyphicon-remove"></span>
+				</a>
     </div>
     {{/each}}
 </div>
+<p>&nbsp<p>
+<div class="row">
+<div class="col-sm-6 col-md-6 col-lg-6">
+<a class="btn btn-success" href="/admin/addcategorie" role="button">
+	<span class="glyphicon glyphicon-plus"></span>
+	Add
+</a>
+</div>
+</div>
 {{/if}}
-		
-		
-		
-		
-

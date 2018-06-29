@@ -38,8 +38,8 @@ exports.loadPageByCat = (catId, offset) => {
 	var sql = `select * from products where CatID = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
-exports.loadPageByProducer = (produceId, offset) => {
-	var sql = `select * from products where ProducerID = ${produceId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+exports.loadPageByProducer = (producerId, offset) => {
+	var sql = `select * from products where ProducerID = ${producerId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
 exports.countByCat = catId => {
@@ -103,4 +103,13 @@ exports.countBySearch = (name,CatID,ProducerID,PriceMin,PriceMax) => {
 	}
 
 	return db.load(sql);
+}
+exports.add = product => {
+	var sql = `insert into products(ProName,TinyDes,FullDes,Price,CatID,Quantity) values('${product.ProName}','${product.TinyDes}','${product.FullDes}', '${product.Price}','${product.CatID}','${product.Quantity}')`;
+	return db.save(sql);
+}
+
+exports.delete = id => {
+	var sql = `delete from products where ProID = ${id}`;
+	return db.save(sql);
 }

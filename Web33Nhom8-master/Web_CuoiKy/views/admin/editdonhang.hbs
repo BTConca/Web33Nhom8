@@ -4,8 +4,8 @@
 
 {{#if showResult}}
 <div class="alert alert-success">
-	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-	<strong>OK!</strong> Category added.
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  <strong>OK!</strong> Category added.
 </div>
 {{/if}}
 
@@ -24,36 +24,48 @@
 {{#with oder}}
 <form action="" method="POST" role="form">
   <div class="form-group">
-		<label for="">Mã Đơn Hàng</label>
-		<input type="text" class="form-control" id="" name="OrderID" readonly value="{{OrderID}}">
-    	</div>
-	<div class="form-group">
-		<label for="">Ngày</label>
-		<input type="text" class="form-control" id="" name="OrderDate" value="{{OrderDate}}">
-    	</div>
-    	<div class="form-group">
+    <label for="">Mã Đơn Hàng</label>
+    <input type="text" class="form-control" id="" name="OrderID" readonly value="{{OrderID}}">
+      </div>
+
+  <div class="form-group">
+    <label for="">Ngày</label>
+    <div class='input-group date' id='datetimepicker1'>
+                    <input id"t1" type='text' class="form-control"  value="{{OrderDate}}" name="OrderDate" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+      </div>
+      <div class="form-group">
     <label for="">UserID</label>
-		<input type="text" class="form-control" id="" name="UserID" value="{{UserID}}">
-    	</div>
-          	<div class="form-group">
+    <input type="text" class="form-control" id="" name="UserID" value="{{UserID}}">
+      </div>
+            <div class="form-group">
     <label for="">Số Lượng</label>
     <input type="text" class="form-control" id="" name="Total" value="{{Total}}">
-    	</div>
-        	<div class="form-group">
+      </div>
+          <div class="form-group">
     <label for="">Địa chỉ</label>
     <input type="text" class="form-control" id="" name="Adress" value="{{Adress}}">
-	</div>
+  </div>
   <div class="form-group">
 <label for="">Trạng Thái</label>
 <input type="text" class="form-control" id="" name="Status" value="{{Status}}">
 </div>
-	<a class="btn btn-default" href="/admin/quanlydonhang" role="button">
-		<span class="glyphicon glyphicon-arrow-left"></span>
-		Back
-	</a>
-	<button type="submit" class="btn btn-primary">
-		<span class="glyphicon glyphicon-ok"></span>
-		Update
-	</button>
+  <a class="btn btn-default" href="/admin/quanlydonhang" role="button">
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    Back
+  </a>
+  <button type="submit" class="btn btn-primary">
+    <span class="glyphicon glyphicon-ok"></span>
+    Update
+  </button>
 </form>
 {{/with}}
+
+{{#section 'js'}}
+
+<script type="text/javascript">
+</script>
+{{/section}}

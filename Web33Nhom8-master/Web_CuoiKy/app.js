@@ -39,6 +39,7 @@ app.engine('hbs', exphbs({
 app.use('/admin', express.static(__dirname + '/public'));
 app.use('/admin/quanlysanpham', express.static(__dirname + '/public'));
 app.use('/admin/quanlydonhang', express.static(__dirname + '/public'));
+app.use('/admin/quanlysanpham/quanlytheonhasx',express.static(__dirname + '/public'));
 app.use('/admin/quanlysanpham/quanlytheoloaisp', express.static(__dirname + '/public'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'hbs');
@@ -79,6 +80,8 @@ app.use('/account', accountController);
 app.use('/search', searchController);
 app.use('/cart', restrict, cartController);
 app.use('/order', orderController);
+
+
 app.use(handle404MDW);
 
 

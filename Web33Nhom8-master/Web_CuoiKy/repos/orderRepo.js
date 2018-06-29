@@ -10,7 +10,7 @@ exports.single = id => {
 	return db.load(sql);
 }
 exports.getByUserID = userid => {
-	var sql = `select * from orders order by OrderID desc where UserID = ${userid} `;
+	var sql = `select * from orders  where UserID = ${userid} order by OrderID desc`;
 	return db.load(sql);
 }
 

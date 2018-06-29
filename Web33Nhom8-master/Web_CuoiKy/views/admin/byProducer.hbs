@@ -8,13 +8,16 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Dashboard/Quản lý Sản phẩm/Loại sản phẩm/{{CatName}}</li>
+				{{#with prods}}
+				<li class="active">Dashboard/Quản lý Sản phẩm/Nhà sản xuất/
+				{{ProducerName}}</li>
+				{{/with}}
 			</ol>
 		</div><!--/.row-->
-		{{#each categories}}
+		{{#each producers}}
 		<div class="row" style="border-bottom:1px solid green;">
 			<div class="col-lg-8" >
-				<h1 class="page-header">{{CatName}}</h1>
+				<h1 class="page-header">{{ProducerName}}</h1>
 			</div>
 		</div><!--/.row-->
 		{{/each}}
@@ -35,12 +38,12 @@
                 <th scope="row">{{ProID}}</th>
                 <td>{{ProName}}</td>
                 <td>{{Price}}</td>
-      {{#each ../categories}}
-              	<td>{{CatName}}</td>
+              	 {{#each ../producers}}
+              	<td>{{ProducerName}}</td>
               {{/each}}
 								<td>{{Quantity}}</td>
                 <td>
-									<a class="btn btn-default btn-xs" href="/admin/deleteproduct?id={{ProID}}&CatID={{CatID}}" role="button">
+									<a class="btn btn-default btn-xs" href="/admin/deleteproduct?id={{ProID}}&ProducerID={{ProducerID}}" role="button">
 										<span class="glyphicon glyphicon-remove"></span>
 									</a>
                 </td>
@@ -50,10 +53,10 @@
         </tbody>
 
     </table>
-				{{#each categories}}
+				{{#each producers}}
 		<div class="row">
 		<div class="col-sm-6 col-md-6 col-lg-6">
-		<a class="btn btn-success" href="/admin/addproducts?id={{CatID}}" role="button">
+		<a class="btn btn-success" href="/admin/addproducts?id={{ProducerID}}" role="button">
 			<span class="glyphicon glyphicon-plus"></span>
 			Add
 		</a>
