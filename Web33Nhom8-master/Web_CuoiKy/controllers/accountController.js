@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
             req.session.curUser = rows[0];
             req.session.cart = [];
 
-            var url = '/';
+            var url = req.header('Referer');
             if (req.query.retUrl) {
                 url = req.query.retUrl;
             }

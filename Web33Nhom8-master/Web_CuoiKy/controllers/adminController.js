@@ -784,10 +784,7 @@ router.get('/quanlysanpham/quanlytheonhasx/:producerid', (req, res) => {
 
 
 
-
-
-
- var producerId = req.params.producerID;
+ var producerId = req.params.producerid;
 
     var page = req.query.page;
     if (!page) page = 1;
@@ -817,6 +814,7 @@ router.get('/quanlysanpham/quanlytheonhasx/:producerid', (req, res) => {
             products: rows,
             noProducts: rows.length === 0,
             page_numbers: numbers,
+            layout:'admin'
            
         };
         res.render('admin/byProducer',vm);
@@ -1019,9 +1017,9 @@ router.post('/deleteproduct', (req, res) => {
    
     if(req.session.curUser.f_Permission == 1)
     {
-
-
-    productRepo.delete(req.body.id).then(value => {
+        console.log("@@@@@@@@@@@@@");
+console.log(req.body);
+    productRepo.delete(req.body.ProID).then(value => {
         res.redirect('/admin/quanlysanpham/quanlytheoloaisp');
     });
 
