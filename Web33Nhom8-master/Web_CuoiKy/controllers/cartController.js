@@ -41,6 +41,7 @@ router.post('/set', (req, res) => {
     });
 });
 
+
 router.post('/remove', (req, res) => {
     cartRepo.remove(req.session.cart, +req.body.proId);
     res.redirect(req.headers.referer);

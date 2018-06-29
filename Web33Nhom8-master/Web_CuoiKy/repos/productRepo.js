@@ -38,8 +38,8 @@ exports.loadPageByCat = (catId, offset) => {
 	var sql = `select * from products where CatID = ${catId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
-exports.loadPageByProducer = (producerId, offset) => {
-	var sql = `select * from products where ProducerID = ${producerId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
+exports.loadPageByProducer = (produceId, offset) => {
+	var sql = `select * from products where ProducerID = ${produceId} limit ${config.PRODUCTS_PER_PAGE} offset ${offset}`;
 	return db.load(sql);
 }
 exports.countByCat = catId => {
@@ -57,7 +57,7 @@ exports.single = id => {
 }
 
 exports.sell = (id,quantity) => {
-	var sql = `update products set Quantity = Quantity - ${quantity} where ProID = ${id}`;
+	var sql = `update products set Quantity = Quantity - ${quantity},Sell=Sell+${quantity} where ProID = ${id}`;
 	return db.load(sql);
 }
 exports.view = (id) => {
@@ -101,14 +101,6 @@ exports.countBySearch = (name,CatID,ProducerID,PriceMin,PriceMax) => {
 	{
 		var sql = `select count(*) as total  from products where ProName like '%${name}%' and CatID=${CatID} and ProducerID = ${ProducerID} and Price between ${PriceMin} and ${PriceMax} `;
 	}
-	return db.load(sql);
-}
-exports.add = product => {
-	var sql = `insert into products(ProName,TinyDes,FullDes,Price,CatID,Quantity) values('${product.ProName}','${product.TinyDes}','${product.FullDes}', '${product.Price}','${product.CatID}','${product.Quantity}')`;
-	return db.save(sql);
-}
 
-exports.delete = id => {
-	var sql = `delete from products where ProID = ${id}`;
-	return db.save(sql);
+	return db.load(sql);
 }
