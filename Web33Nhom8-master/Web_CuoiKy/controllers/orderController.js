@@ -22,7 +22,7 @@ router.get('/', (req, res) => {
             		var Status = rows[i].Status;
             		var OrderID = rows[i].OrderID;
             		var k=
-            		{	
+            		{
             			OrderID,
             			OrderDate,
             			Adress,
@@ -32,12 +32,12 @@ router.get('/', (req, res) => {
             		orders.push(k);
 
 				}
-			
+
 		vm={
 			orders,
 		};
 res.render('order/index',vm);
-		
+
 	});
 });
 
@@ -50,7 +50,7 @@ router.get('/detail/:orderId', (req, res) => {
    	orderRepo.getProductByOrderID(orderId).then(
    		products=>
    		{
-   			
+
    			var UserID =   req.session.curUser.f_ID;
    			if(UserID==order[0].UserID)
    			{
@@ -84,7 +84,7 @@ router.post('/add', (req, res) => {
  	var userID =  req.session.curUser.f_ID;
  	var date = new Date().toLocaleDateString();
  	var OrderDate = moment(date, 'YYYY/MM/DD')
-            .format('YYYY-MM-DD');
+            .format('YYYY-MM-DDTHH:mm');
             var Adress = req.body.adress;
             var er="Thất bại!!";
             var erList=[];
@@ -112,7 +112,7 @@ router.post('/add', (req, res) => {
 						        Ship: config.SHIP_FEE,
 						        totalAmountShip: total+ config.SHIP_FEE
 						}
-				
+
 						 res.render('cart/index', vm);
 					}
 					else
@@ -122,20 +122,20 @@ router.post('/add', (req, res) => {
 					{
 
 						var OrderID = value[0].OrderID;
-						
+
 						for(var i =0;i< items.length;i++)
 						{
-									
+
 							orderRepo.addOrderDetail(OrderID,items[i].product.ProID,items[i].quantity,items[i].product.Price,items[i].amount).then(
 								ro =>
 								{
 
-								});	
+								});
 							productRepo.sell(items[i].product.ProID,items[i].quantity).then(se =>   {}	);
 						};
 
 					})
-					
+
 					req.session.cart=[];
 					var vm ={
 					 noti: "Đặt hàng thành công!!"
@@ -143,8 +143,8 @@ router.post('/add', (req, res) => {
 					res.redirect("/order");
 		      });
 				}
-  
-	
+
+
 });
 
 

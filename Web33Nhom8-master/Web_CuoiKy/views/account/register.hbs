@@ -27,8 +27,22 @@
                 <div>
         Tên đăng nhập đã tồn tại, vui lòng chọn tên khác!!
         </div>
-         {{/if}}
+
+
+                <form action="/account/register" method="post" id="registration" name="registration" onsubmit="return reg_Validation();"  >
+
                 <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
+                <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
+
+
+                <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
+
+                <form action="/account/register" method="post" id="registration" name="registration" onsubmit="return reg_Validation();"  >
+
+
+                <form action="/account/register" method="post" name="registration" onsubmit="return reg_Validation();">
+
+
                         <div class="form-group" >
                             <div class="text-center">
                                     <h1>Đăng ký</h1>
@@ -58,8 +72,8 @@
                         <div class="form-group">
                             <label for="txtDOB">Date of Birth</label>
                             <input type="text" class="form-control" id="txtDOB" placeholder="d/m/yyyy" name="dob">
-
                         </div>
+
                         <div class="col-md-12 ">
                                 <div class="login-or">
                                         <hr class="hr-or">
@@ -82,6 +96,7 @@
         </div>
 </div>
 
+
 <script type="text/javascript">
 function ChangeCaptcha() {
 	var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz";
@@ -99,7 +114,7 @@ function check() {
        return true;
     }
     else {
-        alert('Mã Captcha sai!!! vui lòng kiểm tra lại!');
+        alert('Please re-check the captcha');
         return false;
     }
 
@@ -108,10 +123,6 @@ var my_func = function(event) {
     if(check()===false){
 
          event.preventDefault();
-    }
-    else
-    {
-    alert("Đăng ký thành công!!");
     }
 
 };
