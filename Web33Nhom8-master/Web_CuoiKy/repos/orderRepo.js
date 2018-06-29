@@ -39,17 +39,7 @@ exports.loadPage = offset => {
 	return db.load(sql);
 }
 
-exports.update = order => {
-	var sql = `update orders set Adress = '${order.Adress}', Status = '${order.Status}' ,Total = '${order.Total}', UserID = '${order.UserID}', OrderDate = '${order.OrderDate}'  where OrderID = ${order.OrderID}`;
-	return db.save(sql);
-}
-
-exports.add = order => {
-var sql = `insert into orders(OrderDate,UserID,Total,Adress) values('${order.OrderDate}', '${order.UserID}', '${order.Total}','${order.Adress}')`;
-	return db.save(sql);
-}
-
-exports.delete = id => {
-	var sql = `delete  from orders where OrderID = ${id}`;
+exports.update = orders => {
+	var sql = `update orders set Adress = '${orders.Adress}', Status = '${orders.Status}' ,Total = '${orders.Total}', UserID = '${orders.UserID}', OrderDate = '${orders.OrderDate}'  where OrderID = ${orders.OrderID}`;
 	return db.save(sql);
 }
