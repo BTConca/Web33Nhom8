@@ -23,7 +23,7 @@
 			</div>
 
             <div class="col-sm-4 col-lg-4">
-                <span style="background-color:white"><b>Chưa giao</b></span>
+                <span style="background-color:yellow"><b>Chưa giao</b></span>
                 <span style="background-color:#00ff80"><b>Đã Giao</b></span>
             </div>
 		</div><!--/.row-->
@@ -46,7 +46,7 @@
             <tr href="javascript:;" class="st_bg" data-status="{{Status}}">
                 <th scope="row">{{OrderID}}</th>
                 <td>{{Adress}}</td>
-                <td id="date">{{OrderDate}}</td>
+                <td>{{OrderDate}}</td>
                 <td>{{UserID}}</td>
 								<td>{{Total}}</td>
                 <td >{{Status}}</td>
@@ -62,14 +62,6 @@
 		{{/each}}
         </tbody>
     </table>
-		<div class="row">
-	<div class="col-sm-6 col-md-6 col-lg-6">
-		<a class="btn btn-success" href="/admin/quanlydonhang/add" role="button">
-			<span class="glyphicon glyphicon-plus"></span>
-			Add
-		</a>
-	</div>
-</div>
 
 </div>
 <ul class="pagination">
@@ -91,7 +83,7 @@
 $('.st_bg').each(function(){
 	if($(this).data('status') == "0")
 	{
-		this.style.background = "white";
+		this.style.background = "yellow";
 	}
 	else if ($(this).data('status') == "1")
 	{

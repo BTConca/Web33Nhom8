@@ -20,7 +20,7 @@ router.post('/register', (req, res) => {
         {
 
             var dob = moment(req.body.dob, 'D/M/YYYY')
-            .format('YYYY-MM-DD HH:mm');
+            .format('YYYY-MM-DDTHH:mm');
         var user = {
             username: req.body.username,
             password: sha256(req.body.password).toString(),
@@ -32,19 +32,19 @@ router.post('/register', (req, res) => {
 
             accountRepo.add(user).then(value => {
                 console.log(value);
-            res.render('account/login');
+            res.render('account/register',vm);
             });
         }
     else
     {
-
+       
          var vm = {
                     showError: true,
                 };
         res.render('account/register', vm);
     }
     })
-
+   
 });
 
 router.get('/login', (req, res) => {
@@ -56,7 +56,7 @@ router.post('/login', (req, res) => {
         username: req.body.username,
         password: sha256(req.body.password).toString()
     };
-
+   
     accountRepo.login(user).then(rows => {
         if (rows.length > 0) {
             req.session.isLogged = true;
@@ -81,7 +81,7 @@ router.post('/login', (req, res) => {
 router.post('/logout', restrict, (req, res) => {
     req.session.isLogged = false;
     req.session.curUser = null;
-
+    
     res.redirect('/home');
 });
 
@@ -92,7 +92,7 @@ router.post('/logout', restrict, (req, res) => {
 
 
 router.get('/profile', (req, res) => {
-
+  
      accountRepo.getProfile(req.session.curUser.f_Username).then(rows =>{
 
 vm={
@@ -104,8 +104,8 @@ vm={
 
 
 router.post('/profile', (req, res) => {
-
-
+  
+   
     var dob = moment(req.body.dob, 'D/M/YYYY')
     .format('YYYY-MM-DDTHH:mm');
     var user = {
@@ -114,7 +114,7 @@ router.post('/profile', (req, res) => {
         email: req.body.email,
         address: req.body.address,
         dob: dob,
-    };
+    };  
     accountRepo.update(user).then(rows=>{
         res.redirect('/account/profile');
     });
